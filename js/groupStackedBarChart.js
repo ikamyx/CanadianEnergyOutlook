@@ -99,7 +99,7 @@ function groupStackedBarChart(data, metadata, colors) {
       return `translate(${0}, ${i * legendLineSpace})`
     })
     .attr("class", "legened_item")
-    .attr("data-content", d => d)
+    //.attr("data-content", d => d)
     .each(function(d, i) {
 
         // d3.select(this)
