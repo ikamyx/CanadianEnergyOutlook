@@ -10,7 +10,7 @@ metadata;chart.level_2;year;;;;;;;
 metadata;chart.note;;;;;;;;
 metadata;data.source;NATEM_2020_11_09;;;;;;;
 metadata;data.file;https://docs.google.com/spreadsheets/d/1flPduWBOdfgdgQjV2VppNI/edit#gid=0;;;;;;;
-data;year;scenario;Bioenergy;Coal;Electricity;Natural gas;Oil products;Natural gas is also long enough for test;Other renewables;Hydrogen;This text is long far enough to test the legend let's see how far it goe
+data;year;scenario;Bioenergy;Coal;Electricity;Natural gas;Oil products;Natural gas is also long enough for test;Other renewables;Hydrogen;This text is long far enough to test the legend let's see how far it goes
 data;2015;__;617;177;1739;1995;3159;500;19;0;500
 data;2030;BAU;704;253;1933;3030;2490;500;67;0;500
 data;2030;PRO;1039;134;2376;2207;2063;500;96;0;500
