@@ -1,0 +1,31 @@
+metadata;chart.title;Demand assumptions for passenger transportation;;;;;;;
+metadata;chart.subtitle;;;;;;;;
+metadata;chart.xLabel;;;;;;;;
+metadata;chart.yLabel;PJ;;;;;;;
+metadata;chart.source;Statistics Canada 2018;;;;;;;
+metadata;chart.section;9-8;;;;;;;
+metadata;chart.type;bar.grouped.stacked;;;;;;;
+metadata;chart.level_1;year;;;;;;;
+metadata;chart.level_2;scenario;;;;;;;
+metadata;chart.note;;;;;;;;
+metadata;data.source;NATEM_2020_11_09;;;;;;;
+metadata;data.file;https://docs.google.com/spreadsheets/d/1flPduWBOdfgdgQjV2VppNI/edit#gid=0;;;;;;;
+data;scenario;year;Planes;Buses;Cars - Large;Cars - Small;Motorcycles;Trucks - Light;Subways & trains
+data;BAU;2011;140767;55253;143550;191444;3774;217796;6965
+data;BAU;2013;149219;55687;147561;196371;3865;223045;7004
+data;BAU;2015;157809;56477;151904;201767;3969;229112;7081
+data;BAU;2020;170514;58324;157839;208972;4117;237858;7253
+data;BAU;2025;183219;60170;163775;216177;4265;246604;7425
+data;BAU;2030;195924;62017;169710;223383;4414;255350;7596
+data;BAU;2035;208629;63864;175645;230588;4562;264096;7768
+data;BAU;2040;221334;65711;181581;237794;4710;272842;7940
+data;BAU;2050;246743;69404;193451;252205;5006;290334;8283
+data;80P;2011;140767;55253;143550;191444;3774;217796;6965
+data;80P;2013;149219;55687;147561;196371;3865;223045;7004
+data;80P;2015;157881;56413;151904;201767;3969;229112;7080
+data;80P;2020;170512;58316;157839;208972;4117;237858;7250
+data;80P;2025;183213;60003;163775;216177;4265;246604;7411
+data;80P;2030;189140;61839;169710;223383;4414;255350;7577
+data;80P;2035;199343;63626;175645;230588;4562;263961;7741
+data;80P;2040;209746;65480;181581;237794;4710;271856;7913
+data;80P;2050;230163;69252;193451;252205;4956;290334;8247

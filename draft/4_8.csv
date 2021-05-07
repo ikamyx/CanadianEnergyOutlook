@@ -1,0 +1,12 @@
+Year,Scenario,Electric baseboard,Heatpumps - Electricity,Heating oil systems,Natural gas systems,LPG systems,Wood and pellets stoves,Geothermal & solar systems
+2015,__,203,43,62,400,2,44,0
+2030,BAU,211,52,40,394,0,32,0
+2030,PRO,280,52,40,320,0,32,0
+2030,FIM,228,52,40,371,0,34,0
+2030,FED,232,52,39,366,0,33,0
+2030,80P,230,52,39,367,0,33,0
+2050,BAU,253,66,6,481,0,15,0
+2050,PRO,513,71,4,210,0,13,0
+2050,FIM,690,70,4,30,0,13,0
+2050,FED,688,70,4,30,0,13,0
+2050,80P,687,70,4,30,0,12,0

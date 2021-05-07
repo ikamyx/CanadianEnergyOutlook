@@ -1,0 +1,14 @@
+metadata;chart.title;Primary energy exports;;;;;;;
+metadata;chart.subtitle;;;;;;;;
+metadata;chart.xLabel;;;;;;;;
+metadata;chart.yLabel;PJ;;;;;;;
+metadata;chart.source;Statistics Canada 2018;;;;;;;
+metadata;chart.section;2-9;;;;;;;
+metadata;chart.type;bar.stacked.narrow;;;;;;;
+metadata;chart.level_1;year;;;;;;;
+metadata;chart.note;;;;;;;;
+metadata;data.source;NATEM_2020_11_09;;;;;;;
+metadata;data.file;https://docs.google.com/spreadsheets/d/1flPduWBOdfgdgQjV2VppNI/edit#gid=0;;;;;;;
+data;year;Coal;Crude oil;Natural gas;Gas plant natural gas liquids;Primary electricity
+data;1996;337;1551;45;9;22
+data;2016;176;1858;791;80;8

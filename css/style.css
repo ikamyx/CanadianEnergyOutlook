@@ -1,0 +1,432 @@
+/* 
+##Device = Most of the Smartphones Mobiles (Portrait)
+##Screen = B/w 320px to 479px
+*/
+body {      
+    color: #888;
+    padding: 20px;
+    font-family: "Georgia";
+}
+    
+body:before {
+    font-size: 30px;
+    content: "Mobiles (Portrait)";
+    display: block;
+    margin-bottom: 50px;
+}
+
+header,figure {
+    /* padding: 20px;
+    padding-top: 40px; */
+    position: relative;
+}
+
+header {
+    /* padding-top: 20px; */
+}
+
+header:before,figure:before {
+    font-size: 1.3em;
+    display: block;
+    position: absolute;
+    background-color: #fff;
+    padding: 10px 10px;
+    top: -20px;
+    left: 15px;
+}
+
+header:before {
+    /* content: "Select"; */
+}
+
+figure:before {
+    /* content: "Figure"; */
+}
+
+input[type="text"] {
+    border: 1px solid #ccc;
+    width: 100%;
+    height: 30px;
+    padding: 20px;
+    font: 1em "Georgia";
+    outline: none;
+    color: rgb(31, 80, 185);
+}
+
+input[type="file"] {
+    width: 100%;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+    display: none;
+}
+
+input[type="file"]:before {
+    content: 'Load';
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+    height: 42px;
+    padding: 20px;
+    line-height: 4px;
+    font-size: 1.2em;
+    font-family: "Georgia";
+    color: #666;
+    cursor: pointer;
+    background: rgb(239, 239, 239);
+    display: block;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    margin-top: 10px;
+    height: 42px;
+    outline: none;
+    border: none;
+    padding: 20px;
+    line-height: 4px;
+    font-size: 1em;
+    font-family: "Georgia";
+    color: #666;
+    cursor: pointer;
+}
+
+button:active {
+    background-color: rgb(175, 197, 245);
+    color: rgb(31, 80, 185);
+}
+
+main {
+    margin-top: 30px;
+}
+
+svg {
+    border: 1px dashed rgb(105, 130, 185);
+    width: 100%;
+}
+
+svg#multi {
+    max-width: 1800px;
+}
+
+svg#multi.hide {
+    display: none;
+}
+
+svg#single {
+    max-width: 900px;
+}
+
+svg#single.hide {
+    display: none;
+}
+
+svg#double {
+    max-width: 1800px;
+}
+
+svg#double.hide {
+    display: none;
+}
+
+g.bar text, g.year_group text, g.scenario_group text, g.province_group text {
+    fill: #666;
+}
+
+g.bar text {
+    font-size: 12px;
+}
+
+g.year_group text, g.scenario_group text, g.province_group text {
+    font-size: 14px;
+    font-family: "Roboto";
+    letter-spacing: 1px;
+}
+
+g.y_axis .text text, g.x_axis .text text {
+    font-size: 13px;
+    fill: #777;
+    font-family: "Roboto";
+    word-spacing: 3px;
+    font-variant: all-small-caps;
+}
+
+g.figureTitle text, g.title text {
+    font-family: "Roboto";
+    fill: #949494;
+}
+
+g.figureTitle text {
+    font-size: 21px;
+    word-spacing: 2px;
+    font-variant: all-small-caps;
+}
+
+g.title text {
+    font-size: 18px;
+}
+
+g.grid {
+    opacity: 0.4;
+}
+
+g.grid path {
+    stroke-width: 0;
+}
+
+g.grid line {
+    stroke-width: 2px;
+    stroke: #ccc;
+}
+
+g.tick_x text {
+    font-family: "Roboto";
+}
+
+g.legend text {
+    font-size: 12px;
+    fill: #666;
+    font-family: "Roboto";
+}
+
+.x_axis path, .y_axis path {
+    opacity: 0;
+}
+
+.y_axis .tick text {
+    font-family: "Roboto";
+    letter-spacing: 2px;
+    font-size: 10px;
+}
+
+.y_axis .axis line {
+    stroke: #ccc;
+}
+
+g.line path {
+    fill: none;
+    stroke-width: 2px;
+}
+
+/**********************************/
+
+.autocomplete {
+    width: 100%;
+    position: relative;
+    float: left;
+}
+
+.autocomplete-items {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    background-color: #fefefe;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+.autocomplete-items div {
+    padding: 5px 10px;
+    height: 50px;
+    border-bottom: 1px solid #ccc;
+    line-height: 40px;
+    cursor: pointer;
+}
+
+.autocomplete-items div:hover {
+    background-color: #eee;
+    color: rgb(31, 80, 185);
+}
+
+
+/* 
+##Device = Most of the Smartphones Mobiles (Portrait)
+##Screen = B/w 320px
+*/
+@media (min-width: 320px) {
+}
+
+
+
+
+
+
+
+/*
+##Device = Most of the Smartphones Mobiles (Portrait)
+##Screen = B/w 320px to 479px
+*/
+@media (min-width: 320px) and (max-width: 480px) {
+}
+
+
+
+
+
+
+
+
+
+/* 
+##Device = Low Resolution Tablets, Mobiles (Landscape)
+##Screen = B/w 481px
+*/
+@media (min-width: 481px) {
+    button {
+        float: left;
+        width: 23.5%;
+        margin-right: 2%;
+    }
+
+    input[type="file"] {
+        float: left;
+        width: 23.5%;
+    }
+
+    header:after {
+        content: "";
+        clear: both;
+        display: block;
+    }
+}
+
+
+
+
+
+
+
+/* 
+##Device = Low Resolution Tablets, Mobiles (Landscape)
+##Screen = B/w 481px to 767px
+*/
+@media (min-width: 481px) and (max-width: 767px) {     
+    body:before {
+        content: "Low Res Tablets, Mobiles (Landscape)";
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* 
+##Device = Tablets, Ipads (landscape)
+##Screen = B/w 768px
+*/
+@media (min-width: 768px) {
+    .autocomplete {
+        width: 30%;
+        max-width: 290px;
+        margin-right: 2.5%;
+    }
+
+    input[type="text"] {
+        width: 100%;
+    }
+
+    button {
+        margin-top: 0;
+        width: 15%;
+        max-width: 145px;
+        margin-right: 2.5%;
+    }
+
+    input[type="file"] {
+        width: 15%;
+        max-width: 145px;
+    }
+
+    input[type="file"]:before {
+        margin-top: 0;
+    }
+}
+
+
+
+
+
+
+
+/* 
+##Device = Tablets, Ipads (landscape)
+##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    body:before {
+        content: "Tablets, Ipads (landscape)";
+    }
+}
+
+
+
+
+/* 
+##Device = Tablets, Ipads (portrait)
+##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) {
+    body:before {
+        content: "Tablets, Ipads (portrait)";
+    } 
+}
+
+
+
+
+
+
+/* 
+##Device = Laptops, Desktops
+##Screen = B/w 1025px
+*/
+@media (min-width: 1025px) {
+
+    .autocomplete {
+        margin-right: 24px;
+    }
+    
+    button {
+        margin-right: 24px;
+    }
+}
+
+
+
+
+
+
+
+
+/* 
+##Device = Laptops, Desktops
+##Screen = B/w 1025px to 1280px
+*/
+@media (min-width: 1025px) and (max-width: 1280px) { 
+    body:before {
+        content: "Laptops, Desktops";
+    }
+}
+
+
+
+
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+@media (min-width: 1281px) {  
+    body:before {
+        content: "Desktops";
+    }
+}

@@ -1,0 +1,142 @@
+metadata;chart.title;Electricity generation by energy source per province;;;;;;;
+metadata;chart.subtitle;;;;;;;;
+metadata;chart.xLabel;;;;;;;;
+metadata;chart.yLabel;TWh;;;;;;;
+metadata;chart.source;Statistics Canada 2018;;;;;;;
+metadata;chart.section;6-3;;;;;;;
+metadata;chart.type;bar.grouped.stacked.multi;;;;;;;
+metadata;chart.level_1;scenario;;;;;;;
+metadata;chart.level_2;year;;;;;;;
+metadata;chart.level_3;province;;;;;;;
+metadata;chart.note;Northern Canada refers to Yukon, Northwest and Nunavut territories;;;;;;;
+metadata;data.source;NATEM_2020_11_09;;;;;;;
+metadata;data.file;https://docs.google.com/spreadsheets/d/1flPduWBOdfgdgQjV2VppNI/edit#gid=0;;;;;;;
+data;province;year;scenario;Hydro;Thermal;Nuclear;Biomass;Wind;Solar;Other renewables
+data;British Columbia;2015;__;617;177;1739;1995;3159;19;500
+data;British Columbia;2030;BAU;704;253;1933;3030;2490;67;500
+data;British Columbia;2030;PRO;1039;134;2376;2207;2063;96;500
+data;British Columbia;2030;FIM;872;125;2150;2547;2258;94;500
+data;British Columbia;2030;FED;931;113;2356;2322;1976;94;500
+data;British Columbia;2030;80P;925;114;2344;2349;1965;94;500
+data;British Columbia;2030;BAU;719;301;2554;4053;2495;91;500
+data;British Columbia;2050;PRO;1296;80;4244;1903;1152;128;500
+data;British Columbia;2050;FIM;1184;80;4673;1360;1201;120;500
+data;British Columbia;2050;FED;1310;77;5105;976;508;140;500
+data;British Columbia;2050;80P;1345;76;5235;815;367;145;500
+data;Alberta;2015;__;6;17;19;15;31;19;5
+data;Alberta;2030;BAU;70;25;19;30;24;67;5
+data;Alberta;2030;PRO;10;13;23;22;20;96;5
+data;Alberta;2030;FIM;87;12;21;25;22;94;5
+data;Alberta;2030;FED;93;11;23;23;19;94;5
+data;Alberta;2030;80P;92;11;23;23;19;94;5
+data;Alberta;2050;BAU;71;30;25;40;24;91;5
+data;Alberta;2050;PRO;12;8;42;19;11;12;5
+data;Alberta;2050;FIM;11;8;46;13;12;12;5
+data;Alberta;2050;FED;13;77;51;9;50;14;5
+data;Alberta;2050;80P;13;7;52;81;36;15;5
+data;Saskatchewan;2015;__;617;177;1739;1995;3159;19;500
+data;Saskatchewan;2030;BAU;704;253;1933;3030;2490;67;500
+data;Saskatchewan;2030;PRO;1039;134;2376;2207;2063;96;500
+data;Saskatchewan;2030;FIM;872;125;2150;2547;2258;94;500
+data;Saskatchewan;2030;FED;931;113;2356;2322;1976;94;500
+data;Saskatchewan;2030;80P;925;114;2344;2349;1965;94;500
+data;Saskatchewan;2050;BAU;719;301;2554;4053;2495;91;500
+data;Saskatchewan;2050;PRO;1296;80;4244;1903;1152;128;500
+data;Saskatchewan;2050;FIM;1184;80;4673;1360;1201;120;500
+data;Saskatchewan;2050;FED;1310;77;5105;976;508;140;500
+data;Saskatchewan;2050;80P;1345;76;5235;815;367;145;500
+data;Manitoba;2015;__;6;17;19;15;31;19;5
+data;Manitoba;2030;BAU;30;25;59;30;24;37;5
+data;Manitoba;2030;PRO;10;13;23;22;20;96;5
+data;Manitoba;2030;FIM;87;12;21;25;22;94;5
+data;Manitoba;2030;FED;43;11;3;23;59;94;5
+data;Manitoba;2030;80P;12;21;23;53;59;24;5
+data;Manitoba;2050;BAU;41;12;65;70;24;91;5
+data;Manitoba;2050;PRO;12;8;42;19;11;12;5
+data;Manitoba;2050;FIM;11;8;46;43;12;42;5
+data;Manitoba;2050;FED;13;7;51;49;80;14;5
+data;Manitoba;2050;80P;53;7;52;21;36;25;5
+data;Manitoba;2060;BAU;70;25;19;70;24;67;5
+data;Manitoba;2060;PRO;10;13;73;22;40;36;5
+data;Manitoba;2060;FIM;87;15;21;5;2;94;25
+data;Manitoba;2060;FED;93;11;23;23;19;94;5
+data;Manitoba;2060;BAX;30;5;49;30;64;67;5
+data;Manitoba;2060;SPM;87;12;21;25;22;94;5
+data;Manitoba;2060;NON;93;11;23;23;29;4;55
+data;Ontorio;2015;__;617;177;1739;1995;3159;19;500
+data;Ontorio;2030;BAU;704;253;1933;3030;2490;67;500
+data;Ontorio;2030;PRO;1039;134;2376;2207;2063;96;500
+data;Ontorio;2030;FIM;872;125;2150;2547;2258;94;500
+data;Ontorio;2030;FED;931;113;2356;2322;1976;94;500
+data;Ontorio;2030;80P;925;114;2344;2349;1965;94;500
+data;Ontorio;2050;BAU;719;301;2554;4053;2495;91;500
+data;Ontorio;2050;PRO;1296;80;4244;1903;1152;128;500
+data;Ontorio;2050;FIM;1184;80;4673;1360;1201;120;500
+data;Ontorio;2050;FED;1310;77;5105;976;508;140;500
+data;Ontorio;2050;80P;1345;76;5235;815;367;145;500
+data;Quebec;2015;__;617;177;1739;1995;3159;19;500
+data;Quebec;2030;BAU;704;253;1933;3030;2490;67;500
+data;Quebec;2030;PRO;1039;134;2376;2207;2063;96;500
+data;Quebec;2030;FIM;872;125;2150;2547;2258;94;500
+data;Quebec;2030;FED;931;113;2356;2322;1976;94;500
+data;Quebec;2030;80P;925;114;2344;2349;1965;94;500
+data;Quebec;2050;BAU;719;301;2554;4053;2495;91;500
+data;Quebec;2050;PRO;1296;80;4244;1903;1152;128;500
+data;Quebec;2050;FIM;1184;80;4673;1360;1201;120;500
+data;Quebec;2050;FED;1310;77;5105;976;508;140;500
+data;Quebec;2050;80P;1345;76;5235;815;367;145;500
+data;New Brunswick;2015;__;617;177;1739;1995;3159;19;500
+data;New Brunswick;2030;BAU;704;253;1933;3030;2490;67;500
+data;New Brunswick;2030;PRO;1039;134;2376;2207;2063;96;500
+data;New Brunswick;2030;FIM;872;125;2150;2547;2258;94;500
+data;New Brunswick;2030;FED;931;113;2356;2322;1976;94;500
+data;New Brunswick;2030;80P;925;114;2344;2349;1965;94;500
+data;New Brunswick;2050;BAU;719;301;2554;4053;2495;91;500
+data;New Brunswick;2050;PRO;1296;80;4244;1903;1152;128;500
+data;New Brunswick;2050;FIM;1184;80;4673;1360;1201;120;500
+data;New Brunswick;2050;FED;1310;77;5105;976;508;140;500
+data;New Brunswick;2050;80P;1345;76;5235;815;367;145;500
+data;Nova Scotia;2015;__;617;177;1739;1995;3159;19;500
+data;Nova Scotia;2030;BAU;704;253;1933;3030;2490;67;500
+data;Nova Scotia;2030;PRO;1039;134;2376;2207;2063;96;500
+data;Nova Scotia;2030;FIM;872;125;2150;2547;2258;94;500
+data;Nova Scotia;2030;FED;931;113;2356;2322;1976;94;500
+data;Nova Scotia;2030;80P;925;114;2344;2349;1965;94;500
+data;Nova Scotia;2050;BAU;719;301;2554;4053;2495;91;500
+data;Nova Scotia;2050;PRO;1296;80;4244;1903;1152;128;500
+data;Nova Scotia;2050;FIM;1184;80;4673;1360;1201;120;500
+data;Nova Scotia;2050;FED;1310;77;5105;976;508;140;500
+data;Nova Scotia;2050;80P;1345;76;5235;815;367;145;500
+data;Prince Edward Island;2015;__;617;177;1739;1995;3159;19;500
+data;Prince Edward Island;2030;BAU;704;253;1933;3030;2490;67;500
+data;Prince Edward Island;2030;PRO;1039;134;2376;2207;2063;96;500
+data;Prince Edward Island;2030;FIM;872;125;2150;2547;2258;94;500
+data;Prince Edward Island;2030;FED;931;113;2356;2322;1976;94;500
+data;Prince Edward Island;2030;80P;925;114;2344;2349;1965;94;500
+data;Prince Edward Island;2050;BAU;719;301;2554;4053;2495;91;500
+data;Prince Edward Island;2050;PRO;1296;80;4244;1903;1152;128;500
+data;Prince Edward Island;2050;FIM;1184;80;4673;1360;1201;120;500
+data;Prince Edward Island;2050;FED;1310;77;5105;976;508;140;500
+data;Prince Edward Island;2050;80P;1345;76;5235;815;367;145;500
+data;Newfoundland & Labrador;2015;__;617;177;1739;1995;3159;19;500
+data;Newfoundland & Labrador;2030;BAU;704;253;1933;3030;2490;67;500
+data;Newfoundland & Labrador;2030;PRO;1039;134;2376;2207;2063;96;500
+data;Newfoundland & Labrador;2030;FIM;872;125;2150;2547;2258;94;500
+data;Newfoundland & Labrador;2030;FED;931;113;2356;2322;1976;94;500
+data;Newfoundland & Labrador;2030;80P;925;114;2344;2349;1965;94;500
+data;Newfoundland & Labrador;2050;BAU;719;301;2554;4053;2495;91;500
+data;Newfoundland & Labrador;2050;PRO;1296;80;4244;1903;1152;128;500
+data;Newfoundland & Labrador;2050;FIM;1184;80;4673;1360;1201;120;500
+data;Newfoundland & Labrador;2050;FED;1310;77;5105;976;508;140;500
+data;Newfoundland & Labrador;2050;80P;1345;76;5235;815;367;145;500
+data;Northern Canada;2015;__;617;177;1739;1995;3159;19;500
+data;Northern Canada;2030;BAU;704;253;1933;3030;2490;67;50
+data;Northern Canada;2030;PRO;1039;134;2376;2207;2063;96;500
+data;Northern Canada;2030;FIM;872;125;2150;2547;2258;94;500
+data;Northern Canada;2030;FED;931;113;2356;2322;1976;94;500
+data;Northern Canada;2030;80P;925;114;2344;2349;1965;94;500
+data;Northern Canada;2050;BAU;719;301;2554;4053;2495;91;500
+data;Northern Canada;2050;PRO;1296;80;4244;1903;1152;128;500
+data;Northern Canada;2050;FIM;1184;80;4673;1360;1201;120;500
+data;Northern Canada;2050;FED;1310;77;5105;976;508;140;500
+data;Northern Canada;2050;80P;1345;76;5235;815;367;145;500

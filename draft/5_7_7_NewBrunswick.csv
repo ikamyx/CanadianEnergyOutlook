@@ -1,0 +1,12 @@
+Year,Scenario,Year,Scenario,Year,Scenario,Year,Scenario,Hydro,Other renewables,Biomass,Conventional oil,Natural gas,Coal,Uranium
+2015,__,15,3,36,0,0,2,1,0
+2030,BAU,15,4,53,0,0,0,0,0
+2030,PRO,20,23,55,0,0,0,0,0
+2030,FIM,22,24,55,0,0,0,0,0
+2030,FED,28,32,52,0,0,0,0,0
+2030,80P,28,31,51,0,0,0,0,0
+2050,BAU,23,28,49,0,0,0,0,0
+2050,PRO,27,86,64,0,0,0,0,0
+2050,FIM,27,84,63,0,0,0,0,0
+2050,FED,27,93,64,0,0,0,0,0
+2050,80P,27,97,64,0,0,0,0,0

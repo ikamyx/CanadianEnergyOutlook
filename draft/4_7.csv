@@ -1,0 +1,12 @@
+Year,Scenario,Electric systems,Heatpumps - Electricity,Heatpumps - Natural gas,Central heat systems,Heating oil systems,Natural gas systems,LPG systems,Geothermal systems,Solar systems
+2015,__,35,36,0,0,17,338,8,0,0
+2030,BAU,44,42,4,0,11,386,0,0,0
+2030,PRO,120,82,4,0,11,263,0,0,0
+2030,FIM,72,77,4,0,11,317,0,0,0
+2030,FED,90,77,4,0,11,297,0,0,0
+2030,80P,79,77,5,0,11,308,0,0,0
+2050,BAU,89,52,5,0,2,423,0,0,0
+2050,PRO,326,100,6,0,1,125,0,0,0
+2050,FIM,444,88,5,0,1,19,0,0,0
+2050,FED,423,106,4,0,1,20,0,0,0
+2050,80P,421,106,10,0,1,14,0,0,0

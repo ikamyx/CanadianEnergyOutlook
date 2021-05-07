@@ -1,0 +1,41 @@
+metadata;chart.title;Marginal cost per province for the PRO scenario;;;;;;;
+metadata;chart.subtitle;;;;;;;;
+metadata;chart.xLabel;;;;;;;;
+metadata;chart.yLabel;$ / t;;;;;;;
+metadata;chart.source;Statistics Canada 2018;;;;;;;
+metadata;chart.section;7-7;;;;;;;
+metadata;chart.type;bar.grouped.grouped;;;;;;;
+metadata;chart.level_1;year;;;;;;;
+metadata;chart.level_2;province;;;;;;;
+metadata;chart.note;;;;;;;;
+metadata;data.source;NATEM_2020_11_09;;;;;;;
+metadata;data.file;https://docs.google.com/spreadsheets/d/1flPduWBOdfgdgQjV2VppNI/edit#gid=0;;;;;;;
+data;province;year;value
+data;BC;2030;348
+data;BC;2050;797
+data;AB;2030;56
+data;AB;2050;82
+data;SK;2030;32
+data;SK;2050;47
+data;MB;2030;282
+data;MB;2050;235
+data;ON;2030;388
+data;ON;2050;1085
+data;QC;2030;345
+data;QC;2050;624
+data;NB;2030;36
+data;NB;2050;650
+data;NS;2030;92
+data;NS;2050;244
+data;PE;2030;387
+data;PE;2050;91
+data;NL;2030;49
+data;NL;2050;708
+data;NC;2030;53
+data;NC;2050;103
+data;CAN;2030;167
+data;CAN;2050;375
+data;FED;2030;229
+data;FED;2050;832
+data;80P;2030;224
+data;80P;2050;1055

@@ -1,0 +1,12 @@
+{
+    "metadata": {
+        "Chart title": "Fig 4.1 - Final energy consumption by source",
+        "xAxis label": "Scenarios",
+        "yAxis label": "PJ",
+        "Year of publish": 2020,
+        "Reviewed No.": 5,
+        "link to preview": "https://example.com/fig4_1.html",
+        "link to data": "https://docs.google.com/spreadsheets/d/1flPduWBOdfgdgQjV2VppNI/edit#gid=0",
+        "notes": "This is sample note, It's for figure 4.1"
+    }
+}

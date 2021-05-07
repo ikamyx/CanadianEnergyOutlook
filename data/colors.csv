@@ -1,0 +1,135 @@
+label,label-fr,color
+Industrial,Industrial,#5487a4
+Transport,Transport,#ea5530
+Residential,Residential,#a4aba6
+Comm./Inst.,Comm./Inst.,#f7d255
+Agriculture,Agriculture,#88b04b
+Coal,Coal,#ea5530
+Crude oil,Crude oil,#7d4e24
+Natural gas,Natural gas,#f7d255
+Gas plant natural gas liquids,Gas plant natural gas liquids,#5d675f
+Primary electricity,Primary electricity,#9bd4dc
+Electricity,Electricity,#9bd4dc
+Other fuel,Other fuel,#ea5530
+Electricity and fuel for owned secondary residences,Electricity and fuel for owned secondary residences,#5487a4
+Vehicle fuel,Vehicle fuel,#004c8e
+Public transit,Public transit,#88b04b
+Public Electricity and Heat Production,Public Electricity and Heat Production,#9bd4dc
+Transports,Transports,#ea5530
+Oil_ gas_ and refining industries_ including fugitive sources,Oil_ gas_ and refining industries_ including fugitive sources,#b6807d
+Industry,Industry,#5d675f
+Commercial and institutional,Commercial and institutional,#f7d255
+Agriculture and forestry,Agriculture and forestry,#bdd030
+Industrial processes,Industrial processes,#5487a4
+Waste,Waste,#7b3a38
+Bioenergy,Bioenergy,#88b04b
+Oil products,Oil products,#b8b7b7
+Other renewables,Other renewables,#82368c
+Hydrogen,Hydrogen,#4f9db6
+Hydro,Hydro,#4f9db6
+Thermal,Thermal,#d20a11
+Nuclear,Nuclear,#f39200
+Biomass,Biomass,#88b04b
+Wind,Wind,#bcdbf4
+Solar,Solar,#ffde00
+Commercial,Commercial,#f7d255
+Electricity - Centralized,Electricity - Centralized,#4f9db6
+Electricity - Solar PV,Electricity - Solar PV,#9bd4dc
+Geo and solar thermal,Geo and solar thermal,#ffed00
+Energy conservation,Energy conservation,#f9b674
+Natural gas & LNG,Natural gas & LNG,#f7d255
+Coal & Coke,Coal & Coke,#ea5530
+Aviation fuels,Aviation fuels,#82368c
+Diesel,Diesel,#878787
+Gasoline,Gasoline,#b8b7b7
+Heavy fuel oil,Heavy fuel oil,#5d675f
+Electric systems,Electric systems,#9bd4dc
+Heatpumps - Electricity,Heatpumps - Electricity,#4f9db6
+Heatpumps - Natural gas,Heatpumps - Natural gas,#f39200
+Central heat systems,Central heat systems,#d20a11
+Heating oil systems,Heating oil systems,#b8b7b7
+Natural gas systems,Natural gas systems,#f7d255
+LPG systems,LPG systems,#f6a66f
+Geothermal systems,Geothermal systems,#82368c
+Electric baseboard,Electric baseboard,#9bd4dc
+Wood and pellets stoves,Wood and pellets stoves,#ca9e67
+Conventional oil,Conventional oil,#a4aba6
+Unconventional oil,Unconventional oil,#5d675f
+Uranium,Uranium,#f39200
+LNG,LNG,#f1b300
+Corn_ Wheat,Corn_ Wheat,#f7d255
+Soy - Canola - Greasy residues,Soy - Canola - Greasy residues,#f9b674
+Forestry residues,Forestry residues,#008d36
+Agriculture residues,Agriculture residues,#bdd030
+Industrial residues,Industrial residues,#5d675f
+Pulp & paper waste,Pulp & paper waste,#5487a4
+Organic municipal waste,Organic municipal waste,#a4aba6
+Manure,Manure,#b6807d
+Landfill biogas,Landfill biogas,#88b04b
+Sewage sludge,Sewage sludge,#7b3a38
+Dedicated culture,Dedicated culture,#f39200
+Industrial uses,Industrial uses,#5d675f
+Space heating,Space heating,#d20a11
+Pellet production,Pellet production,#ca9e67
+Electricity generation,Electricity generation,#9bd4dc
+Biofuel production,Biofuel production,#88b04b
+Renewable natural%gas production,Renewable natural%gas production,#f7d255
+Potential 1 -%Low costs,Potential 1 -%Low costs,#009fe3
+Potential 2 -%Medium costs,Potential 2 -%Medium costs,#ffed00
+Potential 3 -%High costs,Potential 3 -%High costs,#e30613
+Fuel oil,Fuel oil,#a4aba6
+Energy production,Energy production,#b6807d
+International exports,International exports,#bdd030
+Auto-consumption,Auto-consumption,#5d675f
+80P,80P,#88b04b
+FED,FED,#f7d255
+FIM,FIM,#9d9d9c
+PRO,PRO,#ea5530
+BAU,BAU,#5487a4
+TEFP,TEFP,#9bd4dc
+NC,NC,#5f4c8b
+NL,NL,#b6807d
+PE,PE,#a6c497
+NS,NS,#ebd850
+NB,NB,#f09687
+QC,QC,#2f6cb0
+ON,ON,#d76176
+MB,MB,#e7dad8
+SK,SK,#7b3a38
+AB,AB,#d3c2ac
+BC,BC,#bdd030
+Canada,Canada,#000
+2030,2030,#88b04b
+2050,2050,#f7d255
+2030 target,2030 target,#000
+2050 target,2050 target,#ccc
+2015,2015,#88b04b
+1996,1996,#f7d255
+Planes,Planes,#83358d
+Buses,Buses,#88b14b
+Cars - Large,Cars - Large,#a4aaa6
+Cars - Small,Cars - Small,#5d675f
+Motorcycles,Motorcycles,#f6d254
+Trucks - Light,Trucks - Light,#9bd4dd
+Subways & trains,Subways & trains,#f19100
+Trucks - Medium,Trucks - Medium,#4f9db6
+Trucks - Heavy,Trucks - Heavy,#004c8e
+Trains,Trains,#f39200
+Off-road,Off-road,#ea5530
+Ship,Ship,#88b04b
+ICE,ICE,#a4aba6
+Hybrid,Hybrid,#004c8e
+Plug-in hybrid,Plug-in hybrid,#4f9db6
+Electric,Electric,#9bd4dc
+Flex fuel,Flex fuel,#88b04b
+CNG,CNG,#f7d255
+Propane,Propane,#ea5530
+1990,1990,#f7d255
+1990 (energy-related),1990 (energy-related),#f7d255
+1990 (non-energy),1990 (non-energy),#fce8b2
+2015,2015,#5487a4
+2015 (energy-related), 2015 (energy-related),#5487a4
+2015 (non-energy),2015 (non-energy),#afbfd0
+Primary electricity (hydro_ nuclear tidal_ solar and wind),Primary electricity (hydro_ nuclear tidal_ solar and wind),#9bd4dc
+This text is long far enough to test the legend let's see how far it goes,This text is long far enough to test the legend let's see how far it goes,#666666
+Natural gas is also long enough for test,Natural gas is also long enough for test,#17de75
