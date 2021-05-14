@@ -1,7 +1,7 @@
 chart,setting,type,value,isVariable
 bar.grouped.stacked,dimension,width,900,yes
 bar.grouped.stacked,dimension,height,600,yes
-bar.grouped.stacked,padding,top,20,yes
+bar.grouped.stacked,padding,top,30,yes
 bar.grouped.stacked,padding,bottom,20,yes
 bar.grouped.stacked,padding,left,15,yes
 bar.grouped.stacked,padding,right,20,yes
