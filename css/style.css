@@ -135,7 +135,7 @@ g.bar text, g.year_group text, g.scenario_group text, g.province_group text {
 }
 
 g.bar text {
-    font-size: 12px;
+    font-size: 14px; /*12px*/
 }
 
 g.year_group text, g.scenario_group text, g.province_group text {
@@ -145,7 +145,7 @@ g.year_group text, g.scenario_group text, g.province_group text {
 }
 
 g.y_axis .text text, g.x_axis .text text {
-    font-size: 13px;
+    font-size: 15px; /*13px*/
     fill: #777;
     font-family: "Roboto";
     word-spacing: 3px;
@@ -185,7 +185,7 @@ g.tick_x text {
 }
 
 g.legend text {
-    font-size: 12px;
+    font-size: 14px; /*12px*/
     fill: #666;
     font-family: "Roboto";
 }
@@ -197,7 +197,7 @@ g.legend text {
 .y_axis .tick text {
     font-family: "Roboto";
     letter-spacing: 2px;
-    font-size: 10px;
+    font-size: 12px; /*10px*/
 }
 
 .y_axis .axis line {

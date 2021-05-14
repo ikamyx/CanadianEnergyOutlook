@@ -73,10 +73,10 @@ Space heating,Space heating,#d20a11
 Pellet production,Pellet production,#ca9e67
 Electricity generation,Electricity generation,#9bd4dc
 Biofuel production,Biofuel production,#88b04b
-Renewable natural%gas production,Renewable natural%gas production,#f7d255
-Potential 1 -%Low costs,Potential 1 -%Low costs,#009fe3
-Potential 2 -%Medium costs,Potential 2 -%Medium costs,#ffed00
-Potential 3 -%High costs,Potential 3 -%High costs,#e30613
+Renewable natural gas production,Renewable natural gas production,#f7d255
+Potential 1 - Low costs,Potential 1 - Low costs,#009fe3
+Potential 2 - Medium costs,Potential 2 - Medium costs,#ffed00
+Potential 3 - High costs,Potential 3 - High costs,#e30613
 Fuel oil,Fuel oil,#a4aba6
 Energy production,Energy production,#b6807d
 International exports,International exports,#bdd030
@@ -132,4 +132,4 @@ Propane,Propane,#ea5530
 2015 (non-energy),2015 (non-energy),#afbfd0
 Primary electricity (hydro_ nuclear tidal_ solar and wind),Primary electricity (hydro_ nuclear tidal_ solar and wind),#9bd4dc
 This text is long far enough to test the legend let's see how far it goes,This text is long far enough to test the legend let's see how far it goes,#666666
-Natural gas is also long enough for test,Natural gas is also long enough for test,#17de75
+Natural gas is also long enough for test assume yesno,Natural gas is also long enough for test assume yesno,#17de75

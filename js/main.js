@@ -2,7 +2,7 @@
 
 (function (d3) {
     /***** settings *****/
-    let figures, currentFocus, colors, fileData, className;
+    let figures, currentFocus, colors, fileData, className, settings;
 
     /***** DOM *****/
     let $input = document.querySelector("input[type='text'"),
@@ -33,6 +33,7 @@
     var promises = [];
     promises.push(d3.csv("./data/figures.csv"));
     promises.push(d3.csv("./data/colors.csv"));
+    promises.push(d3.csv("./data/setting.csv"));
     Promise.all(promises)
     
         /***** after load *****/
@@ -41,7 +42,8 @@
             /***** data preprocessing *****/
             figures = data[0].map(d => d.figure);
             colors = parseColors(data[1]);
-
+            settings = parserSettings(data[2]);
+            
             /***** initiate *****/
             // autoComplete($input, figures);
         });
@@ -191,7 +193,7 @@
                 document.querySelector("svg#multi").classList.add("hide");
                 document.querySelector("svg#single").classList.remove("hide");
                 document.querySelector("svg#double").classList.add("hide");
-                groupStackedBarChart(parsed.data, parsed.metadata, colors);
+                bar_grouped_stacked(parsed.data, parsed.metadata, colors, settings);
                 break;
             case "bar.grouped":
                 document.querySelector("svg#multi").classList.add("hide");
