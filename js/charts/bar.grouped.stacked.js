@@ -8,9 +8,9 @@ function bar_grouped_stacked(data, metadata, colors, settings) {
 
 
     // consts
-    const yAxisHeight = setting.dimension.height - setting.padding.top - setting.padding.bottom - setting.ticks.mainTickMargin - setting.ticks.secondTickLineMargin - setting.ticks.secondTickMargin - setting.ticks.minTickFontHeight * 2,
-          xAxisWidth = setting.dimension.width*0.8 - setting.padding.left - setting.padding.legend - setting.yAxis.width - setting.yAxis.labelMargin - setting.yAxis.labelHeight - setting.yAxis.lineWidth,
-          maxLegend = 0.2* setting.dimension.width - setting.padding.right - setting.legend.boxToText;
+    const yAxisHeight = setting.dimension.height - (setting.padding.top + setting.padding.bottom + setting.ticks.mainTickMargin + setting.ticks.secondTickLineMargin + setting.ticks.secondTickMargin + setting.ticks.minTickFontHeight*2),
+          xAxisWidth = setting.dimension.width*0.8 - (setting.padding.left + setting.padding.legend + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yAxis.lineWidth),
+          maxLegend = setting.dimension.width*0.2 - (setting.padding.right + setting.legend.colorBoxWidth + setting.legend.boxToText);
 
 
 
@@ -53,9 +53,9 @@ function bar_grouped_stacked(data, metadata, colors, settings) {
 
 
     // initialize
-    let chart = d3.select("body svg#single");
+    let chart = initChart(data_, setting, level_2);
     /* **************************************************** */
-    initChart(chart, data_);
+    
     /* **************************************************** */
 
 

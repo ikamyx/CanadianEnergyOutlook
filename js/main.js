@@ -153,8 +153,8 @@
     }
 
     function clearChart() {
-        document.querySelector("svg#single").innerHTML = "";
-        document.querySelector("svg#multi").innerHTML = "";
+        document.querySelector("svg").innerHTML = "";
+        document.querySelector("svg").classList.add("hide");
         $input.value = "";
         fileReset();
         if(document.querySelector("figcaption")) document.querySelector("figcaption").remove();
@@ -187,84 +187,45 @@
     function draw(parsed) {
         
         clearChart();
-        // let setting = settingLoader(parsed.metadata.chart.type);
+        document.querySelector("svg").classList.remove("hide");
         switch(parsed.metadata.chart.type) {
             case "bar.grouped.stacked":
-                document.querySelector("svg#multi").classList.add("hide");
-                document.querySelector("svg#single").classList.remove("hide");
-                document.querySelector("svg#double").classList.add("hide");
                 bar_grouped_stacked(parsed.data, parsed.metadata, colors, settings);
                 break;
             case "bar.grouped":
-                document.querySelector("svg#multi").classList.add("hide");
-                document.querySelector("svg#single").classList.remove("hide");
-                document.querySelector("svg#double").classList.add("hide");
                 groupBarChart(parsed.data, parsed.metadata, colors);
                 break;
             case "bar.grouped.horizontal":
-                document.querySelector("svg#multi").classList.add("hide");
-                document.querySelector("svg#single").classList.remove("hide");
-                document.querySelector("svg#double").classList.add("hide");
                 groupBarChartHorizontal(parsed.data, parsed.metadata, colors);
                 break;
             case "bar.grouped.overlap":
-                document.querySelector("svg#multi").classList.add("hide");
-                document.querySelector("svg#single").classList.remove("hide");
-                document.querySelector("svg#double").classList.add("hide");
                 groupBarChartOverlap(parsed.data, parsed.metadata, colors);
                 break;
             case "bar.grouped.grouped":
-                document.querySelector("svg#multi").classList.add("hide");
-                document.querySelector("svg#single").classList.remove("hide");
-                document.querySelector("svg#double").classList.add("hide");
                 groupBarChart(parsed.data, parsed.metadata, colors);
                 break;
             case "bar.grouped.stacked.multi":
-                document.querySelector("svg#multi").classList.remove("hide");
-                document.querySelector("svg#single").classList.add("hide");
-                document.querySelector("svg#double").classList.add("hide");
                 multiGroupStackedBarChart(parsed.data,parsed.metadata, colors);
                 break;
             case "bar.grouped.stacked.double":
-                document.querySelector("svg#double").classList.remove("hide");
-                document.querySelector("svg#multi").classList.add("hide");
-                document.querySelector("svg#single").classList.add("hide");
                 multiGroupStackedBarChartDoubleComparison(parsed.data, parsed.metadata, colors);
                 break;
             case "bar.stacked":
-                document.querySelector("svg#multi").classList.add("hide");
-                document.querySelector("svg#single").classList.remove("hide");
-                document.querySelector("svg#double").classList.add("hide");
                 stackedBarChart(parsed.data, parsed.metadata, colors);
                 break;
             case "bar.grouped.stacked.percent":
-                document.querySelector("svg#multi").classList.add("hide");
-                document.querySelector("svg#single").classList.remove("hide");
-                document.querySelector("svg#double").classList.add("hide");
-                groupStackedBarChartByPercent(parsed.data, parsed.metadata, colors);
+                bar_grouped_stacked_percent(parsed.data, parsed.metadata, colors, settings);
                 break;
             case "bar.stacked.narrow":
-                document.querySelector("svg#multi").classList.add("hide");
-                document.querySelector("svg#single").classList.remove("hide");
-                document.querySelector("svg#double").classList.add("hide");
                 stackedBarChartNarrow(parsed.data, parsed.metadata, colors);
                 break;
             case "line":
-                document.querySelector("svg#multi").classList.add("hide");
-                document.querySelector("svg#single").classList.remove("hide");
-                document.querySelector("svg#double").classList.add("hide");
                 lineChart(parsed.data, parsed.metadata, colors);
                 break;
             case "area":
-                document.querySelector("svg#multi").classList.add("hide");
-                document.querySelector("svg#single").classList.remove("hide");
-                document.querySelector("svg#double").classList.add("hide");
                 areaChart(parsed.data, parsed.metadata, colors);
                 break;
             case "scatter":
-                document.querySelector("svg#multi").classList.add("hide");
-                document.querySelector("svg#single").classList.remove("hide");
-                document.querySelector("svg#double").classList.add("hide");
                 scatterPlot(parsed.data, parsed.metadata);
                 break;
         }

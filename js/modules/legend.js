@@ -29,7 +29,7 @@ function legend(chart, maxLegend, data, setting, scaleColor) {
         d3.select(this)
         .append("text")
         .text(d)
-        .attr("x", setting.legend.boxToText)
+        .attr("x", setting.legend.boxToText + setting.legend.colorBoxWidth)
         .attr("y", 12);
         
         d3.select(this)
@@ -53,7 +53,7 @@ function legend(chart, maxLegend, data, setting, scaleColor) {
                 d3.select(this).select("text")
                 .append("tspan")
                 .text(words[0])
-                .attr("x", setting.legend.boxToText)
+                .attr("x", setting.legend.boxToText + setting.legend.colorBoxWidth)
                 .attr("y", 12 + (j * (setting.legend.lineSpace)));
                 words.shift();
                 let $tspan = d3.select(this).select("tspan:last-child"),
