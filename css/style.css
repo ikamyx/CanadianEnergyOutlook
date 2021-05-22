@@ -135,11 +135,11 @@ svg#double.hide {
 } */
 
 g.bar text, g.year_group text, g.scenario_group text, g.province_group text {
-    fill: #666;
+    fill: #888;
 }
 
 g.bar text {
-    font-size: 14px; /*12px*/
+    font-size: 13px; /*12px*/
 }
 
 g.year_group text, g.scenario_group text, g.province_group text {

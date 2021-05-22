@@ -2,7 +2,8 @@
 
 (function (d3) {
     /***** settings *****/
-    let figures, currentFocus, colors, fileData, className, settings;
+    let figures, currentFocus, colors, className, settings;
+    let fileData = [];
 
     /***** DOM *****/
     let $input = document.querySelector("input[type='text'"),
@@ -40,7 +41,7 @@
         .then(function (data) {
 
             /***** data preprocessing *****/
-            figures = data[0].map(d => d.figure);
+            figures = data[0].map(d => d.figure + " - " + d.type);
             colors = parseColors(data[1]);
             settings = parserSettings(data[2]);
             
@@ -97,6 +98,7 @@
     };
 
 
+
     function addActive(el) {
         if(!el) return false;
         removeActive(el);
@@ -106,11 +108,13 @@
     }
 
 
+
     function removeActive(el) {
         for(let i = 0; i < el.length; i++) {
             el[i].classList.remove("autocomplete-active");
         };
     }
+
 
     function closeAllLists(el) {
         let items = document.getElementsByClassName("autocomplete-items");
@@ -121,10 +125,11 @@
         };
     }
 
+
     function loadData() {
         let value = $input.value;
+        let firstSpace = value.indexOf(" ");
         if(figures.includes(value)) {
-                     
             let textfile;
             if(window.XMLHttpRequest) {
                 textfile = new XMLHttpRequest();
@@ -134,12 +139,13 @@
                     let content = textfile.responseText;
                     let parsed = parser(content);
                     $figure.classList = "";
-                    $figure.classList.add(value);
-                    draw(parsed);
+                    $figure.classList.add(value.substring(0, firstSpace));
+                    draw(new Array(parsed));
                 }
             }
-            textfile.open("GET", `./data/${value}.txt`);
+            textfile.open("GET", `./data/${value.substring(0, firstSpace)}.txt`);
             textfile.send();
+            
         } else if(fileData) {
             $figure.classList = "";
             $figure.classList.add(className);
@@ -147,10 +153,12 @@
         }
     }
 
+
     function saveToPng() {
         let svg = document.querySelector("svg:not(.hide)");
         saveSvgAsPng(svg, `${$figure.classList}.png`, {scale: 2, backgroundColor: "#FFFFFF"});
     }
+
 
     function clearChart() {
         document.querySelector("svg").innerHTML = "";
@@ -163,71 +171,95 @@
     
     function fileLoad(e) {
         $input.value = "";
-        fileData = e.target.files[0];
-        className = fileData.name.substring(0, fileData.name.length - 4);
         let textType = /text.*/;
-    
-        if (fileData.type.match(textType)) {
-            let reader = new FileReader();
-            reader.onload = function(e) {
-                let content = reader.result;
-                //Here the content has been read successfuly
-                fileData = parser(content);
+        fileData = [];
+        Array.from(e.target.files).forEach((element,i) => {
+            fileData.push(element);
+            className = fileData[i].name.substring(0, fileData[i].name.length - 4);
+            if(fileData[i].type.match(textType)) {
+                let reader = new FileReader();
+                reader.onload = function(e) {
+                    let content = reader.result;
+                    //Here the content has been read successfuly
+                    fileData[i] = parser(content);
+                }
+                reader.readAsText(fileData[i]);
+            } else {
+                fileDisplayArea.innerText = "File not supported!";
             }
-            reader.readAsText(fileData);	
-        } else {
-        fileDisplayArea.innerText = "File not supported!"
-        }
+        });
+        
+        
+        // $input.value = "";
+        // fileData = e.target.files[0];
+        // className = fileData.name.substring(0, fileData.name.length - 4);
+        // let textType = /text.*/;
+    
+        // if (fileData.type.match(textType)) {
+        //     let reader = new FileReader();
+        //     reader.onload = function(e) {
+        //         let content = reader.result;
+        //         //Here the content has been read successfuly
+        //         fileData = parser(content);
+        //     }
+        //     reader.readAsText(fileData);	
+        // } else {
+        //     fileDisplayArea.innerText = "File not supported!"
+        // }
     }
+
 
     function fileReset() {
         $file.value = null;
     }
 
-    function draw(parsed) {
-        
+
+    function draw(content) {
         clearChart();
         document.querySelector("svg").classList.remove("hide");
-        switch(parsed.metadata.chart.type) {
-            case "bar.grouped.stacked":
-                bar_grouped_stacked(parsed.data, parsed.metadata, colors, settings);
-                break;
-            case "bar.grouped":
-                groupBarChart(parsed.data, parsed.metadata, colors);
-                break;
-            case "bar.grouped.horizontal":
-                groupBarChartHorizontal(parsed.data, parsed.metadata, colors);
-                break;
-            case "bar.grouped.overlap":
-                groupBarChartOverlap(parsed.data, parsed.metadata, colors);
-                break;
-            case "bar.grouped.grouped":
-                groupBarChart(parsed.data, parsed.metadata, colors);
-                break;
-            case "bar.grouped.stacked.multi":
-                multiGroupStackedBarChart(parsed.data,parsed.metadata, colors);
-                break;
-            case "bar.grouped.stacked.double":
-                multiGroupStackedBarChartDoubleComparison(parsed.data, parsed.metadata, colors);
-                break;
-            case "bar.stacked":
-                stackedBarChart(parsed.data, parsed.metadata, colors);
-                break;
-            case "bar.grouped.stacked.percent":
-                bar_grouped_stacked_percent(parsed.data, parsed.metadata, colors, settings);
-                break;
-            case "bar.stacked.narrow":
-                stackedBarChartNarrow(parsed.data, parsed.metadata, colors);
-                break;
-            case "line":
-                lineChart(parsed.data, parsed.metadata, colors);
-                break;
-            case "area":
-                areaChart(parsed.data, parsed.metadata, colors);
-                break;
-            case "scatter":
-                scatterPlot(parsed.data, parsed.metadata);
-                break;
-        }
+            let parsed = content[0];
+            switch(parsed.metadata.chart.type) {
+                case "bar.grouped.stacked":
+                    bar_grouped_stacked(parsed.data, parsed.metadata, colors, settings);
+                    break;
+                case "bar.grouped.stacked.percent":
+                        bar_grouped_stacked_percent(parsed.data, parsed.metadata, colors, settings);
+                        break;
+                case "bar.grouped.stacked.multi":
+                    bar_grouped_stacked_multi(parsed.data, parsed.metadata, colors, settings);
+                    break;
+                case "bar.grouped.stacked.double":
+                    bar_grouped_stacked_double_joiner(content, colors, settings);
+                    break;
+    
+                case "bar.grouped":
+                    groupBarChart(parsed.data, parsed.metadata, colors);
+                    break;
+                case "bar.grouped.horizontal":
+                    groupBarChartHorizontal(parsed.data, parsed.metadata, colors);
+                    break;
+                case "bar.grouped.overlap":
+                    groupBarChartOverlap(parsed.data, parsed.metadata, colors);
+                    break;
+                case "bar.grouped.grouped":
+                    groupBarChart(parsed.data, parsed.metadata, colors);
+                    break;
+                case "bar.stacked":
+                    stackedBarChart(parsed.data, parsed.metadata, colors);
+                    break;
+                case "bar.stacked.narrow":
+                    stackedBarChartNarrow(parsed.data, parsed.metadata, colors);
+                    break;
+                case "line":
+                    lineChart(parsed.data, parsed.metadata, colors);
+                    break;
+                case "area":
+                    areaChart(parsed.data, parsed.metadata, colors);
+                    break;
+                case "scatter":
+                    scatterPlot(parsed.data, parsed.metadata);
+                    break;
+            }
+        
     }
 })(d3);

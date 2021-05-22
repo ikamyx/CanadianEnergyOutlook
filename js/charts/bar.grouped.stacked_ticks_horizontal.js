@@ -1,6 +1,6 @@
 "use strict";
 
-function bar_grouped_stacked(data, metadata, colors, settings) {
+function bar_grouped_stacked_ticks_horizontal(data, metadata, colors, settings) {
 
     // setting
     let setting = settings[metadata.chart.type];
@@ -122,10 +122,10 @@ function bar_grouped_stacked(data, metadata, colors, settings) {
     // add grid lines for y axis
     /* **************************************************** */
     yAxisGrid_bar(chart, xAxisWidth, scaleY);
-    /* **************************************************** */  
+    /* **************************************************** */
     chart.select("g.grid")
     .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width}, ${setting.padding.top})`);
-
+       
 
 
     //drawing bars
@@ -165,9 +165,9 @@ function bar_grouped_stacked(data, metadata, colors, settings) {
 
 
 
-    
+    // positiong the group
     let barGroupWidth = [];
-    let barGroupPos = data_.map(d => 0);
+    let barGroupPos = [];
     /* **************************************************** */
     groupPosition_bar(chart, barGroupWidth, barGroupPos, setting, distribution);
     /* **************************************************** */
@@ -190,5 +190,5 @@ function bar_grouped_stacked(data, metadata, colors, settings) {
     /* **************************************************** */
     ticks_2_horizontal_if_ticks_horizontal_bar(chart, level_2, metadata, yAxisHeight, setting, barGroupWidth);
     /* **************************************************** */
-    
+
 }

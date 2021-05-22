@@ -1,8 +1,6 @@
-"use strict";
+function bar_grouped_stacked_multi_(data, metadata, colors, setting) {
 
-function multiGroupStackedBarChart(data, metadata, colors) {
-
-    let chart = d3.select("body svg#multi");
+    let chart = d3.select("body svg");
     let level_2_List = data.map(d => d[metadata.chart.level_2]), // sorting by aggregation level 2 in separate array
         level_3_List = data.map(d => d[metadata.chart.level_3]), // sorting by aggregation level 3 in separate array
         data_ = [],
