@@ -10,7 +10,7 @@ function yAxisInit_bar_double(chart, scaleY, label, i) {
         .attr("class", "axis")
         .call(d3.axisLeft(scaleY[i]));
     });
-    chart.selectAll("g.y_axis")
+    chart.selectAll(`g.row${i} g.y_axis`)
     .each(function(d,i) {
     d3.select(this)
     .append("g")
