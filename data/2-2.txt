@@ -1,15 +1,15 @@
-metadata;chart.title;Domestic primary energy supply, 1996-2016;;;;;;;
-metadata;chart.subtitle;;;;;;;;
-metadata;chart.xLabel;Years;;;;;;;
-metadata;chart.yLabel;PJ;;;;;;;
-metadata;chart.source;Statistics Canada 2018;;;;;;;
-metadata;chart.section;2-2;;;;;;;
-metadata;chart.type;area;;;;;;;
-metadata;chart.level_1;year;;;;;;;
-metadata;chart.level_2;scenario;;;;;;;
-metadata;chart.note;;;;;;;;
-metadata;data.source;NATEM_2020_11_09;;;;;;;
-metadata;data.file;https://docs.google.com/spreadsheets/d/1flPduWBOdfgdgQjV2VppNI/edit#gid=0;;;;;;;
+metadata;chart.title;Domestic primary energy supply, 1996-2016
+metadata;chart.subtitle
+metadata;chart.xLabel;Years
+metadata;chart.yLabel;PJ
+metadata;chart.source;Statistics Canada 2018
+metadata;chart.section;2-2
+metadata;chart.type;area
+metadata;chart.level_1;year
+metadata;chart.level_2;scenario
+metadata;chart.note
+metadata;data.source;NATEM_2020_11_09
+metadata;data.file;https://docs.google.com/spreadsheets/d/1flPduWBOdfgdgQjV2VppNI/edit#gid=0
 data;scenario;year;value
 data;Primary electricity (hydro, nuclear tidal, solar and wind);1996;9987410
 data;Primary electricity (hydro, nuclear tidal, solar and wind);1997;10154291

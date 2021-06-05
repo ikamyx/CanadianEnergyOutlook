@@ -1,6 +1,6 @@
 "use strict";
 
-function legend_double(chart, maxLegend, data, setting, scaleColor, i) {
+function legend_double(chart, maxLegend, data, setting, scaleColor, scaleLabel, i) {
     let linesCount = 0;
     chart.select(`g.row${i}`).append("g")
     .attr("transform", `translate(${0}, ${0})`)
@@ -13,7 +13,7 @@ function legend_double(chart, maxLegend, data, setting, scaleColor, i) {
       return `translate(${0}, ${i * setting.legend.lineSpace})`
     })
     .attr("class", "legened_item")
-    .attr("data-content", d => d)
+    .attr("data-content", d => scaleLabel(d))
     .each(function(d, i) {
 
         d3.select(this)
@@ -28,7 +28,7 @@ function legend_double(chart, maxLegend, data, setting, scaleColor, i) {
 
         d3.select(this)
         .append("text")
-        .text(d)
+        .text(scaleLabel(d))
         .attr("x", setting.legend.boxToText + setting.legend.colorBoxWidth)
         .attr("y", 12);
         
@@ -42,7 +42,7 @@ function legend_double(chart, maxLegend, data, setting, scaleColor, i) {
         
         let lineWidth = d3.select(this).select("text").node().getBBox().width;
         if (lineWidth > maxLegend) {
-        let words = d.split(" ");
+        let words = scaleLabel(d).split(" ");
         d3.select(this).select("text").text("");
         let newLine = true;
         let j = -1;

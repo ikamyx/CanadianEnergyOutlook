@@ -1,7 +1,7 @@
 "use strict";
 
-function bar_grouped_stacked_percent(data, metadata, colors, settings, language) {
-
+function bar_grouped_stacked_negative(data, metadata, colors, settings, language) {
+    
     // setting
     let setting = settings[metadata.chart.type];
 
@@ -24,8 +24,7 @@ function bar_grouped_stacked_percent(data, metadata, colors, settings, language)
 
     // data conversion and re arrange
     /* **************************************************** */
-    dataCoversion(data, attrList);
-    dataPercentCalculation(data, attrList);
+    dataCoversionNegative(data, attrList);
     /* **************************************************** */
 
 
@@ -43,8 +42,8 @@ function bar_grouped_stacked_percent(data, metadata, colors, settings, language)
     let color = mapColor(colors, attrList);
     let colorList = color.map(x => x.color);
     /* **************************************************** */
-    
 
+    
 
     // scale for color
     let scaleColor = d3.scaleOrdinal()
@@ -80,7 +79,7 @@ function bar_grouped_stacked_percent(data, metadata, colors, settings, language)
 
     // scale for Y
     /* **************************************************** */
-    let scaleY = scaleY_bar(data, yAxisHeight);
+    let scaleY = scaleY_negative_bar(data, yAxisHeight);
     /* **************************************************** */
 
 
@@ -147,6 +146,8 @@ function bar_grouped_stacked_percent(data, metadata, colors, settings, language)
         .append("g")
         .each(function(d, j) {
             let y = 0;
+            let yPositive = 0;
+            let yNegative = 0;
             d3.select(this)
             .attr("data-content", d[metadata.chart.level_1])
             .attr("class", "bar")
@@ -158,16 +159,30 @@ function bar_grouped_stacked_percent(data, metadata, colors, settings, language)
             .enter()
             .append("rect")
             .attr("x", 0)
-            .attr("y", cat => (scaleY(0) - (scaleY(0) - scaleY(d[cat]))))
             .attr("width", distribution.barWidth)
-            .attr("height", cat => scaleY(0) - scaleY(d[cat]))
+            .attr("height", cat => Math.abs(scaleY(0) - scaleY(d[cat])))
             .attr("fill", cat => scaleColor(cat))
             .attr("data-field", cat => cat)
             // adjusting bar positions
             .each(function(_, k) {
-                y = y + (scaleY(0) - scaleY(d[attrList[k]]));
+                if(d[attrList[k]] > 0) {
+                    yPositive = yPositive + scaleY(0) - scaleY(d[attrList[k]]);
+                    y = yPositive;
+                }
+                else {
+                    yNegative = scaleY(0) - scaleY(d[attrList[k]]) - yNegative;
+                    y = yNegative;
+                }
+                
                 d3.select(this)
-                .attr("y", scaleY(0) - y + setting.padding.top);
+                .attr("y",  () => {
+                    if(d[attrList[k]] > 0) {
+                        return scaleY(0) - y + setting.padding.top;
+                    }
+                    else {
+                        return y + scaleY(d[attrList[k]]) + setting.padding.top
+                    }
+                });
             });
         });  
     });
@@ -199,5 +214,5 @@ function bar_grouped_stacked_percent(data, metadata, colors, settings, language)
     /* **************************************************** */
     ticks_2_horizontal_if_ticks_horizontal_bar(chart, level_2, metadata, yAxisHeight, setting, barGroupWidth);
     /* **************************************************** */
-
+    
 }

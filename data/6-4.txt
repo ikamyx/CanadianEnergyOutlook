@@ -1,15 +1,15 @@
-metadata;chart.title;Electricity installed capacity by energy source;;;;;;;
-metadata;chart.subtitle;;;;;;;;
-metadata;chart.xLabel;;;;;;;;
-metadata;chart.yLabel;PJ;;;;;;;
-metadata;chart.source;Statistics Canada 2018;;;;;;;
-metadata;chart.section;6-4;;;;;;;
-metadata;chart.type;bar.grouped.stacked;;;;;;;
-metadata;chart.level_1;scenario;;;;;;;
-metadata;chart.level_2;year;;;;;;;
-metadata;chart.note;;;;;;;;
-metadata;data.source;NATEM_2020_11_09;;;;;;;
-metadata;data.file;https://docs.google.com/spreadsheets/d/1flPduWBOdfgdgQjV2VppNI/edit#gid=0;;;;;;;
+metadata;chart.title;Electricity installed capacity by energy source
+metadata;chart.subtitle
+metadata;chart.xLabel
+metadata;chart.yLabel;PJ
+metadata;chart.source;Statistics Canada 2018
+metadata;chart.section;6-4
+metadata;chart.type;bar.grouped.stacked
+metadata;chart.level_1;scenario
+metadata;chart.level_2;year
+metadata;chart.note
+metadata;data.source;NATEM_2020_11_09
+metadata;data.file;https://docs.google.com/spreadsheets/d/1flPduWBOdfgdgQjV2VppNI/edit#gid=0
 data;year;scenario;Hydro;Thermal;Nuclear;Biomass;Wind;Solar;Other renewables
 data;2015;__;617;177;1739;1995;3159;19;0
 data;2030;BAU;704;253;1933;3030;2490;67;0

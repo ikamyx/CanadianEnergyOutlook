@@ -9,7 +9,7 @@ function parser(raw) {
     }
     let data = lines.filter(d => !d.includes("metadata"));
     let metadata = lines.filter(d => d.includes("metadata"));
-    
+
     let metaObj = {};
     metadata.forEach(d => {
         let split1, split2, split3;
@@ -17,16 +17,19 @@ function parser(raw) {
         split2 = getPosition(d, ";", 2);
         split3 = getPosition(d, ";", 3);
         let attribute = d.substring(split1, split2).substr(1);
-        let value = d.substring(split2, split3).substr(1);
+        let value = d.substring(split2, split3).substr(1).slice(0, -1);
         let pointer = attribute.indexOf(".");
         let subCat = attribute.substring(0, pointer);
         attribute = attribute.substring(pointer + 1);
+        if(split2 == split3) {
+            attribute = attribute.slice(0, -1);
+        }
         if(!metaObj[subCat]) {
             metaObj[subCat] = {}
         }
         metaObj[subCat][attribute] = value;
     });
-
+    /************************************************************************/
     let num = 1; // change from 1 to zero
     for(let i=0;i<=data[0].length - 1;i++) {
         if(data[0][i] == ";") num++;
@@ -62,11 +65,6 @@ function parser(raw) {
 
     let dataAr = [];
 
-    // atrs.forEach((d,i) => {
-    //     dataObj[d] = values[i];
-    //     dataAr.push(dataObj);
-    // })
-
     values.forEach((d, i) => {
         let dataObj = {};
         atrs.forEach((D, j) => {
@@ -82,10 +80,8 @@ function parser(raw) {
     function getPosition(string, subString, index) {
         return string.split(subString, index).join(subString).length;
     }
-    
     return {
         data: dataAr,
         metadata: metaObj
-        
     }
 }

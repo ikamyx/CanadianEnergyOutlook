@@ -7,6 +7,7 @@
 
     /***** DOM *****/
     let $input = document.querySelector("input[type='text'"),
+    $select = document.querySelector("select"),
     $buttonShow = document.querySelector("button#show"),
     $buttonPrint = document.querySelector("button#print"),
     $buttonClear = document.querySelector("button#clear"),
@@ -128,6 +129,7 @@
 
     function loadData() {
         let value = $input.value;
+        let language = $select.value;
         let firstSpace = value.indexOf(" ");
         if(figures.includes(value)) {
             let textfile;
@@ -140,7 +142,7 @@
                     let parsed = parser(content);
                     $figure.classList = "";
                     $figure.classList.add(value.substring(0, firstSpace));
-                    draw(new Array(parsed));
+                    draw(new Array(parsed), language);
                 }
             }
             textfile.open("GET", `./data/${value.substring(0, firstSpace)}.txt`);
@@ -149,7 +151,7 @@
         } else if(fileData) {
             $figure.classList = "";
             $figure.classList.add(className);
-            draw(fileData);
+            draw(fileData, language);
         }
     }
 
@@ -214,22 +216,22 @@
     }
 
 
-    function draw(content) {
+    function draw(content, language) {
         clearChart();
         document.querySelector("svg").classList.remove("hide");
             let parsed = content[0];
             switch(parsed.metadata.chart.type) {
                 case "bar.grouped.stacked":
-                    bar_grouped_stacked(parsed.data, parsed.metadata, colors, settings);
+                    bar_grouped_stacked_negative(parsed.data, parsed.metadata, colors, settings, language);
                     break;
                 case "bar.grouped.stacked.percent":
-                        bar_grouped_stacked_percent(parsed.data, parsed.metadata, colors, settings);
+                        bar_grouped_stacked_percent(parsed.data, parsed.metadata, colors, settings, language);
                         break;
                 case "bar.grouped.stacked.multi":
-                    bar_grouped_stacked_multi(parsed.data, parsed.metadata, colors, settings);
+                    bar_grouped_stacked_multi(parsed.data, parsed.metadata, colors, settings, language);
                     break;
                 case "bar.grouped.stacked.double":
-                    bar_grouped_stacked_double_joiner(content, colors, settings);
+                    bar_grouped_stacked_double_joiner(content, colors, settings, language);
                     break;
     
                 case "bar.grouped":

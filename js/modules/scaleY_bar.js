@@ -2,7 +2,7 @@
 
 function scaleY_bar(data, yAxisHeight) {
     let scaleY = d3.scaleLinear()
-    .domain([0, d3.max(data, d => d.sum) + 0])
+    .domain([0, d3.max(data, d => d.sum)])
     .range([yAxisHeight, 0]);
     let ticks = scaleY.ticks(),
         lastTick = ticks[ticks.length - 1],

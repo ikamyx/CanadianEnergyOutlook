@@ -4,11 +4,11 @@ function mapColor(colors, attrList) {
     let colorList = [];
     attrList.forEach(d => {
         let result = colors.find(obj => {
-            if((obj.label == d)) {
+            if((obj.variable == d)) {
                 return obj;
             }
           });
-        colorList.push(result.color);
+        colorList.push(result);
     });
     return colorList;
 }

@@ -1,6 +1,6 @@
 "use strict";
 
-function bar_grouped_stacked_double(data, metadata, colors, settings, index) {
+function bar_grouped_stacked_double(data, metadata, colors, settings, language, index) {
 
     // setting
     let setting = settings[metadata.chart.type];
@@ -51,7 +51,8 @@ function bar_grouped_stacked_double(data, metadata, colors, settings, index) {
     
     // map the colors
     /* **************************************************** */
-    let colorList = mapColor(colors, attrList);
+    let color = mapColor(colors, attrList);
+    let colorList = color.map(x => x.color);
     /* **************************************************** */
 
 
@@ -60,6 +61,14 @@ function bar_grouped_stacked_double(data, metadata, colors, settings, index) {
     let scaleColor = d3.scaleOrdinal()
     .domain(attrList)
     .range(colorList);
+
+
+
+    // scale for label
+    let scaleLabel = d3.scaleOrdinal()
+    .domain(attrList)
+    .range(color.map(x => x[language]));
+
 
 
 
@@ -75,7 +84,7 @@ function bar_grouped_stacked_double(data, metadata, colors, settings, index) {
     const maxLegend = setting.dimension.width*(setting.distribution.legendRatio/100) - (setting.padding.right + setting.legend.colorBoxWidth + setting.legend.boxToText);
     let attrListLegened = attrList.map(x => x).reverse();
     /* **************************************************** */
-    legend_double(chart, maxLegend, attrListLegened, setting, scaleColor, index);
+    legend_double(chart, maxLegend, attrListLegened, setting, scaleColor, scaleLabel, index);
     /* **************************************************** */
     chart.selectAll(`g.row${index} g.legend`)
     .each(function(d, i) {

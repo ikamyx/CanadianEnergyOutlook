@@ -5,7 +5,7 @@ function scaleY_bar_multi(data, metadata, level_3, yAxisHeight) {
     level_3.forEach((d,i) => {
         let _data = data.filter(g => g[metadata.chart.level_3] == d);
         scaleY.push(d3.scaleLinear()
-        .domain([0, d3.max(_data, d_ => d_.sum) + 0])
+        .domain([0, d3.max(_data, d_ => d_.sum)])
         .range([yAxisHeight, 0]));
         let ticks = scaleY[scaleY.length - 1].ticks(),
         lastTick = ticks[ticks.length - 1],
