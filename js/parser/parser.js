@@ -1,8 +1,7 @@
 "use strict";
 
-function parser(raw) {
-    console.log(raw)
-    let parsedData;
+function parser(raw, connection, dataSource) {
+    console.log(connection, dataSource)
     let lineBreaks = (raw.match(/\n/g)||[]).length;
     let lines = [];
     for(let i=0; i<=lineBreaks; i++){
@@ -18,8 +17,8 @@ function parser(raw) {
         split2 = getPosition(d, ";", 2);
         split3 = getPosition(d, ";", 3);
         let attribute = d.substring(split1, split2).substr(1);
-        // let value = d.substring(split2, split3).substr(1).slice(0, -1);
-        let value = d.substring(split2, split3).substr(1);
+        // let value = d.substring(split2, split3).substr(1).slice(0, -1); // server: file load / local: all
+        let value = d.substring(split2, split3).substr(1); // server: dropdown
         let pointer = attribute.indexOf(".");
         let subCat = attribute.substring(0, pointer);
         attribute = attribute.substring(pointer + 1);
@@ -46,7 +45,7 @@ function parser(raw) {
         atrs.push(split);
     }
     /***/
-    // atrs[atrs.length - 1] = atrs[atrs.length - 1].slice(0, -1);
+    // atrs[atrs.length - 1] = atrs[atrs.length - 1].slice(0, -1); // server: file load / local: all
     /***/
     atrPos.shift();
     data.shift();

@@ -2,7 +2,7 @@
 
 (function (d3) {
     /***** settings *****/
-    let figures, currentFocus, colors, className, settings;
+    let figures, currentFocus, colors, className, settings, connection, dataSource;
     let fileData = [];
 
     /***** DOM *****/
@@ -139,7 +139,13 @@
             textfile.onreadystatechange = function() {
                 if(textfile.readyState == 4 && textfile.status == 200) {
                     let content = textfile.responseText;
-                    let parsed = parser(content);
+                    if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+                        connection = 'local';
+                    } else {
+                        connection = 'online';
+                    }
+                    dataSource = 'list';
+                    let parsed = parser(content, connection, dataSource);
                     $figure.classList = "";
                     $figure.classList.add(value.substring(0, firstSpace));
                     draw(new Array(parsed), language);
@@ -183,7 +189,13 @@
                 reader.onload = function(e) {
                     let content = reader.result;
                     //Here the content has been read successfuly
-                    fileData[i] = parser(content);
+                    if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+                        connection = 'local';
+                    } else {
+                        connection = 'online';
+                    }
+                    dataSource = 'file';
+                    fileData[i] = parser(content, connection, dataSource);
                 }
                 reader.readAsText(fileData[i]);
             } else {
