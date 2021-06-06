@@ -1,6 +1,7 @@
 "use strict";
 
 function parser(raw, connection, dataSource) {
+    let value;
     console.log(connection, dataSource)
     let lineBreaks = (raw.match(/\n/g)||[]).length;
     let lines = [];
@@ -17,8 +18,15 @@ function parser(raw, connection, dataSource) {
         split2 = getPosition(d, ";", 2);
         split3 = getPosition(d, ";", 3);
         let attribute = d.substring(split1, split2).substr(1);
-        // let value = d.substring(split2, split3).substr(1).slice(0, -1); // server: file load / local: all
-        let value = d.substring(split2, split3).substr(1); // server: dropdown
+        if(connection == 'local' || ((connection == 'online') && (dataSource == 'file'))) {
+            console.log("yes")
+            value = d.substring(split2, split3).substr(1).slice(0, -1);
+        }
+        else if((connection == 'online') && (dataSource == 'list')) {
+            value = d.substring(split2, split3).substr(1);
+        }
+        //  // server: file load / local: all
+         // server: dropdown
         let pointer = attribute.indexOf(".");
         let subCat = attribute.substring(0, pointer);
         attribute = attribute.substring(pointer + 1);
@@ -45,7 +53,10 @@ function parser(raw, connection, dataSource) {
         atrs.push(split);
     }
     /***/
-    // atrs[atrs.length - 1] = atrs[atrs.length - 1].slice(0, -1); // server: file load / local: all
+    if(connection == 'local' || ((connection == 'online') && (dataSource == 'file'))) {
+        atrs[atrs.length - 1] = atrs[atrs.length - 1].slice(0, -1);
+    }
+    //  // server: file load / local: all
     /***/
     atrPos.shift();
     data.shift();
