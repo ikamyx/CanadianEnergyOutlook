@@ -146,6 +146,8 @@ function bar_grouped_stacked_ticks_horizontal(data, metadata, colors, settings, 
         .append("g")
         .each(function(d, j) {
             let y = 0;
+            let yPositive = 0;
+            let yNegative = 0;
             d3.select(this)
             .attr("data-content", d[metadata.chart.level_1])
             .attr("class", "bar")
@@ -157,16 +159,30 @@ function bar_grouped_stacked_ticks_horizontal(data, metadata, colors, settings, 
             .enter()
             .append("rect")
             .attr("x", 0)
-            .attr("y", cat => (scaleY(0) - (scaleY(0) - scaleY(d[cat]))))
             .attr("width", distribution.barWidth)
-            .attr("height", cat => scaleY(0) - scaleY(d[cat]))
+            .attr("height", cat => Math.abs(scaleY(0) - scaleY(d[cat])))
             .attr("fill", cat => scaleColor(cat))
             .attr("data-field", cat => cat)
             // adjusting bar positions
             .each(function(_, k) {
-                y = y + (scaleY(0) - scaleY(d[attrList[k]]));
+                if(d[attrList[k]] > 0) {
+                    yPositive = yPositive + scaleY(0) - scaleY(d[attrList[k]]);
+                    y = yPositive;
+                }
+                else {
+                    yNegative = yNegative + scaleY(0) - scaleY(d[attrList[k]]);
+                    y = yNegative;
+                }
+                
                 d3.select(this)
-                .attr("y", scaleY(0) - y + setting.padding.top);
+                .attr("y",  () => {
+                    if(d[attrList[k]] > 0) {
+                        return scaleY(0) - y + setting.padding.top;
+                    }
+                    else {
+                        return 2*scaleY(0) - y - scaleY(d[attrList[k]]) + setting.padding.top
+                    }
+                });
             });
         });  
     });
