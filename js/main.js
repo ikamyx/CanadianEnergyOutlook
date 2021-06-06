@@ -232,6 +232,7 @@
         clearChart();
         document.querySelector("svg").classList.remove("hide");
             let parsed = content[0];
+            console.log(parsed)
             switch(parsed.metadata.chart.type) {
                 case "bar.grouped.stacked":
                     bar_grouped_stacked(parsed.data, parsed.metadata, colors, settings, language);
