@@ -1,6 +1,6 @@
 "use strict";
 
-function parser(raw, connection, dataSource) {
+function parser(raw) {
     let value;
     let lineBreaks = (raw.match(/\n/g)||[]).length;
     let lines = [];
@@ -17,27 +17,18 @@ function parser(raw, connection, dataSource) {
         split2 = getPosition(d, ";", 2);
         split3 = getPosition(d, ";", 3);
         let attribute = d.substring(split1, split2).substr(1);
-        // if(connection == 'local' || ((connection == 'online') && (dataSource == 'file'))) {
-            value = d.substring(split2, split3).substr(1).trim();
-        // }
-        // else if((connection == 'online') && (dataSource == 'list')) {
-        //     value = d.substring(split2, split3).substr(1);
-        // }
+        value = d.substring(split2, split3).substr(1).trim(); // escape sequence
         let pointer = attribute.indexOf(".");
         let subCat = attribute.substring(0, pointer);
         attribute = attribute.substring(pointer + 1);
-        // if(connection == 'local' || ((connection == 'online') && (dataSource == 'file'))) {
-        //     if(split2 == split3) {
-                attribute = attribute.trim();
-        //     }
-        // }
+        attribute = attribute.trim(); // escape sequence
         if(!metaObj[subCat]) {
             metaObj[subCat] = {}
         }
         metaObj[subCat][attribute] = value;
     });
     /************************************************************************/
-    let num = 1; // change from 1 to zero
+    let num = 1;
     for(let i=0;i<=data[0].length - 1;i++) {
         if(data[0][i] == ";") num++;
     }
@@ -50,11 +41,7 @@ function parser(raw, connection, dataSource) {
         let split = data[0].substring(atrPos[i], atrPos[i+1]).substr(1);
         atrs.push(split);
     }
-    /***/
-    // if(connection == 'local' || ((connection == 'online') && (dataSource == 'file'))) {
-        atrs[atrs.length - 1] = atrs[atrs.length - 1].trim();
-    // }
-    /***/
+    atrs[atrs.length - 1] = atrs[atrs.length - 1].trim(); // escape sequence
     atrPos.shift();
     data.shift();
 
