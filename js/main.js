@@ -220,9 +220,9 @@
         clearChart();
         document.querySelector("svg").classList.remove("hide");
             let parsed = content[0];
+            console.log(parsed)
             switch(parsed.metadata.chart.type) {
                 case "bar.grouped.stacked":
-                    console.log("yes")
                     bar_grouped_stacked(parsed.data, parsed.metadata, colors, settings, language);
                     break;
                 case "bar.grouped.stacked.percent":
