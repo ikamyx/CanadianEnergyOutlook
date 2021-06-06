@@ -222,7 +222,7 @@
             let parsed = content[0];
             switch(parsed.metadata.chart.type) {
                 case "bar.grouped.stacked":
-                    bar_grouped_stacked_ticks_vertical(parsed.data, parsed.metadata, colors, settings, language);
+                    bar_grouped_stacked(parsed.data, parsed.metadata, colors, settings, language);
                     break;
                 case "bar.grouped.stacked.percent":
                         bar_grouped_stacked_percent(parsed.data, parsed.metadata, colors, settings, language);
