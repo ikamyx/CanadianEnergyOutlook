@@ -26,8 +26,10 @@ function parser(raw, connection, dataSource) {
         let pointer = attribute.indexOf(".");
         let subCat = attribute.substring(0, pointer);
         attribute = attribute.substring(pointer + 1);
-        if(split2 == split3) {
-            attribute = attribute.slice(0, -1);
+        if(connection == 'local' || ((connection == 'online') && (dataSource == 'file'))) {
+            if(split2 == split3) {
+                attribute = attribute.slice(0, -1);
+            }
         }
         if(!metaObj[subCat]) {
             metaObj[subCat] = {}
