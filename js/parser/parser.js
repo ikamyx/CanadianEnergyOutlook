@@ -17,20 +17,20 @@ function parser(raw, connection, dataSource) {
         split2 = getPosition(d, ";", 2);
         split3 = getPosition(d, ";", 3);
         let attribute = d.substring(split1, split2).substr(1);
-        if(connection == 'local' || ((connection == 'online') && (dataSource == 'file'))) {
-            value = d.substring(split2, split3).substr(1).slice(0, -1);
-        }
-        else if((connection == 'online') && (dataSource == 'list')) {
-            value = d.substring(split2, split3).substr(1);
-        }
+        // if(connection == 'local' || ((connection == 'online') && (dataSource == 'file'))) {
+            value = d.substring(split2, split3).substr(1).trim();
+        // }
+        // else if((connection == 'online') && (dataSource == 'list')) {
+        //     value = d.substring(split2, split3).substr(1);
+        // }
         let pointer = attribute.indexOf(".");
         let subCat = attribute.substring(0, pointer);
         attribute = attribute.substring(pointer + 1);
-        if(connection == 'local' || ((connection == 'online') && (dataSource == 'file'))) {
-            if(split2 == split3) {
-                attribute = attribute.slice(0, -1);
-            }
-        }
+        // if(connection == 'local' || ((connection == 'online') && (dataSource == 'file'))) {
+        //     if(split2 == split3) {
+                attribute = attribute.trim();
+        //     }
+        // }
         if(!metaObj[subCat]) {
             metaObj[subCat] = {}
         }
@@ -51,9 +51,9 @@ function parser(raw, connection, dataSource) {
         atrs.push(split);
     }
     /***/
-    if(connection == 'local' || ((connection == 'online') && (dataSource == 'file'))) {
-        atrs[atrs.length - 1] = atrs[atrs.length - 1].slice(0, -1);
-    }
+    // if(connection == 'local' || ((connection == 'online') && (dataSource == 'file'))) {
+        atrs[atrs.length - 1] = atrs[atrs.length - 1].trim();
+    // }
     /***/
     atrPos.shift();
     data.shift();
