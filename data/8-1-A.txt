@@ -29,7 +29,7 @@ data;Primary energy consumption;2030;PRO;10;13;23;22;20;96;5;2
 data;Primary energy consumption;2030;FIM;87;12;21;25;22;94;5;2
 data;Primary energy consumption;2030;FED;43;11;3;23;59;94;5;22
 data;Primary energy consumption;2030;80P;12;21;23;53;59;24;5;2
-data;Primary energy consumption;2050;BAU;41;12;65;70;24;91;5;12
+data;Primary energy consumption;2050;BAU;41;12;65;-170;24;91;5;12
 data;Primary energy consumption;2050;PRO;12;8;42;19;11;12;5;2
 data;Primary energy consumption;2050;FIM;11;8;46;43;12;42;5;32
 data;Primary energy consumption;2050;FED;13;7;51;49;80;14;5;2

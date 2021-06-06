@@ -180,7 +180,7 @@ function bar_grouped_stacked(data, metadata, colors, settings, language) {
                         return scaleY(0) - y + setting.padding.top;
                     }
                     else {
-                        return 2*scaleY(0) - y - scaleY(d[attrList[k]]) + setting.padding.top
+                        return 2*scaleY(0) - y - scaleY(d[attrList[k]]) + setting.padding.top;
                     }
                 });
             });

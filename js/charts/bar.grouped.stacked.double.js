@@ -186,6 +186,8 @@ function bar_grouped_stacked_double(data, metadata, colors, settings, language, 
             .append("g")
             .each(function(d, j) {
                 let y = 0;
+                let yPositive = 0;
+                let yNegative = 0;
                 let m = (t % 2);
                 let n = Math.floor(t / 2) + (index - 1);
                 d3.select(this)
@@ -198,16 +200,28 @@ function bar_grouped_stacked_double(data, metadata, colors, settings, language, 
                 .enter()
                 .append("rect")
                 .attr("x", 0)
-                .attr("y", cat => (scaleY[t](0) - (scaleY[t](0) - scaleY[t](d[cat]))))
                 .attr("width", distribution[t].barWidth)
-                .attr("height", cat => scaleY[t](0) - scaleY[t](d[cat]))
+                .attr("height", cat => Math.abs(scaleY[t](0) - scaleY[t](d[cat])))
                 .attr("fill", cat => scaleColor(cat))
                 .attr("data-field", cat => cat)
             // adjusting bar positions
                 .each(function(_, k) {
-                    y = y + (scaleY[t](0) - scaleY[t](d[attrList[k]]));
+                    if(d[attrList[k]] > 0) {
+                        yPositive = yPositive + (scaleY[t](0) - scaleY[t](d[attrList[k]]));
+                        y = yPositive;
+                    } else {
+                        yNegative = yNegative + (scaleY[t](0) - scaleY[t](d[attrList[k]]));
+                        y = yNegative;
+                    }
+                    
                     d3.select(this)
-                    .attr("y", scaleY[t](0) - y + setting.padding.top);
+                    .attr("y", () => {
+                        if(d[attrList[k]] > 0) {
+                            return scaleY[t](0) - y + setting.padding.top;
+                        } else {
+                            return 2*scaleY[t](0) - y - scaleY[t](d[attrList[k]]) + setting.padding.top;
+                        }
+                    });
                 });
             });
         });
