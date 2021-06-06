@@ -18,7 +18,8 @@ function parser(raw) {
         split2 = getPosition(d, ";", 2);
         split3 = getPosition(d, ";", 3);
         let attribute = d.substring(split1, split2).substr(1);
-        let value = d.substring(split2, split3).substr(1).slice(0, -1);
+        // let value = d.substring(split2, split3).substr(1).slice(0, -1);
+        let value = d.substring(split2, split3).slice(0, -1);
         let pointer = attribute.indexOf(".");
         let subCat = attribute.substring(0, pointer);
         attribute = attribute.substring(pointer + 1);
