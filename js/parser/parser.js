@@ -1,6 +1,7 @@
 "use strict";
 
 function parser(raw) {
+    console.log(raw)
     let parsedData;
     let lineBreaks = (raw.match(/\n/g)||[]).length;
     let lines = [];
