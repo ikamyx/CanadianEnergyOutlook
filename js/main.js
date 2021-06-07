@@ -233,6 +233,9 @@
                 case "bar.grouped.stacked.double":
                     bar_grouped_stacked_double_joiner(content, colors, settings, language);
                     break;
+                case "bar.stacked":
+                    bar_stacked(parsed.data, parsed.metadata, colors, settings, language);
+                    break;
     
                 case "bar.grouped":
                     groupBarChart(parsed.data, parsed.metadata, colors);
@@ -245,9 +248,6 @@
                     break;
                 case "bar.grouped.grouped":
                     groupBarChart(parsed.data, parsed.metadata, colors);
-                    break;
-                case "bar.stacked":
-                    stackedBarChart(parsed.data, parsed.metadata, colors);
                     break;
                 case "bar.stacked.narrow":
                     stackedBarChartNarrow(parsed.data, parsed.metadata, colors);
