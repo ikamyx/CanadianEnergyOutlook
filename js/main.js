@@ -236,31 +236,33 @@
                 case "bar.stacked":
                     bar_stacked(parsed.data, parsed.metadata, colors, settings, language);
                     break;
-    
-                case "bar.grouped":
-                    groupBarChart(parsed.data, parsed.metadata, colors);
+                case "bar.stacked.center":
+                    bar_stacked_center(parsed.data, parsed.metadata, colors, settings, language);
                     break;
-                case "bar.grouped.horizontal":
-                    groupBarChartHorizontal(parsed.data, parsed.metadata, colors);
+                case "bar.grouped":
+                    bar_grouped(parsed.data, parsed.metadata, colors, settings, language);
                     break;
                 case "bar.grouped.overlap":
-                    groupBarChartOverlap(parsed.data, parsed.metadata, colors);
+                    bar_grouped_overlap(parsed.data, parsed.metadata, colors, settings, language);
+                    break;
+                case "bar.grouped.horizontal":
+                    bar_grouped_horizontal(parsed.data, parsed.metadata, colors, settings, language);
                     break;
                 case "bar.grouped.grouped":
-                    groupBarChart(parsed.data, parsed.metadata, colors);
-                    break;
-                case "bar.stacked.narrow":
-                    stackedBarChartNarrow(parsed.data, parsed.metadata, colors);
-                    break;
+                    bar_grouped_grouped(parsed.data, parsed.metadata, colors, settings, language);
+                    break; 
                 case "line":
-                    lineChart(parsed.data, parsed.metadata, colors);
+                    line(parsed.data, parsed.metadata, colors, settings, language);
                     break;
                 case "area":
-                    areaChart(parsed.data, parsed.metadata, colors);
-                    break;
+                    area(parsed.data, parsed.metadata, colors, settings, language);
+                    break;    
                 case "scatter":
-                    scatterPlot(parsed.data, parsed.metadata);
+                    scatter(parsed.data, parsed.metadata, colors, settings, language);
                     break;
+                case "line.multi":
+                    line_multi(parsed.data, parsed.metadata, colors, settings, language);
+                    break;    
             }
         
     }

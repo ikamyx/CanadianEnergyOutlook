@@ -1,21 +1,25 @@
 "use strict";
 
-function bar_grouped_stacked(data, metadata, colors, settings, language) {
-    
+function bar_grouped(data, metadata, colors, settings, language) {
+
     // setting
     let setting = settings[metadata.chart.type];
 
 
 
     // consts
-    const yAxisHeight = setting.dimension.height - (setting.padding.top + setting.padding.bottom + setting.xTicks.row1Margin + setting.xTicks.lineSeparatorMargin + setting.xTicks.row2Margin + setting.xTicks.fontHeight*2),
+    const yAxisHeight = setting.dimension.height - (setting.padding.top + setting.padding.bottom + setting.xTicks.row1Margin + setting.xTicks.lineSeparatorMargin + setting.xTicks.fontHeight),
           xAxisWidth = setting.dimension.width*(setting.distribution.plotRatio/100) - (setting.padding.left + setting.padding.legend + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yAxis.lineWidth);
 
 
 
     // attributes
     let attrList = Object.keys(data[0]).filter(e => (e != metadata.chart.level_1) && (e != metadata.chart.level_2));
+    let level_1 = data.map(d => d[metadata.chart.level_1]);
     let level_2 = data.map(d => d[metadata.chart.level_2]);
+    level_1 = level_1.filter(function(item, pos) {
+        return level_1.indexOf(item) == pos;
+    });
     level_2 = level_2.filter(function(item, pos) {
         return level_2.indexOf(item) == pos;
     });
@@ -39,7 +43,7 @@ function bar_grouped_stacked(data, metadata, colors, settings, language) {
 
     // map the colors
     /* **************************************************** */
-    let color = mapColor(colors, attrList);
+    let color = mapColor(colors, level_1);
     let colorList = color.map(x => x.color);
     /* **************************************************** */
 
@@ -47,7 +51,7 @@ function bar_grouped_stacked(data, metadata, colors, settings, language) {
 
     // scale for color
     let scaleColor = d3.scaleOrdinal()
-    .domain(attrList)
+    .domain(level_1)
     .range(colorList);
 
 
@@ -68,7 +72,7 @@ function bar_grouped_stacked(data, metadata, colors, settings, language) {
 
     // legend
     const maxLegend = setting.dimension.width*(setting.distribution.legendRatio/100) - (setting.padding.right + setting.legend.colorBoxWidth + setting.legend.boxToText);
-    let attrListLegened = attrList.map(x => x).reverse();
+    let attrListLegened = level_1.map(x => x).reverse();
     /* **************************************************** */
     legend(chart, maxLegend, attrListLegened, setting, scaleColor, scaleLabel);
     /* **************************************************** */
@@ -160,7 +164,7 @@ function bar_grouped_stacked(data, metadata, colors, settings, language) {
             .attr("x", 0)
             .attr("width", distribution.barWidth)
             .attr("height", cat => Math.abs(scaleY(0) - scaleY(d[cat])))
-            .attr("fill", cat => scaleColor(cat))
+            .attr("fill", cat => scaleColor(d[metadata.chart.level_1]))
             .attr("data-field", cat => cat)
             // adjusting bar positions
             .each(function(_, k) {
@@ -202,16 +206,10 @@ function bar_grouped_stacked(data, metadata, colors, settings, language) {
     
 
 
-    // add ticks for x axis
-    /* **************************************************** */
-    ticks_horizontal_bar(chart, data, metadata, yAxisHeight, setting, distribution);
-    /* **************************************************** */
 
-
-
-    // add ticks level 2 for x axis
+    // add ticks level 1 for x axis
     /* **************************************************** */
-    ticks_2_horizontal_if_ticks_horizontal_bar(chart, level_2, metadata, yAxisHeight, setting, barGroupWidth);
+    ticks_grouped_horizontal_bar(chart, level_2, metadata, yAxisHeight, setting, barGroupWidth);
     /* **************************************************** */
     
 }

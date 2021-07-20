@@ -6,11 +6,11 @@ id,figure,type
 5,2-5,Mixed
 6,2-6,Bar.Stacked
 7,2-7,Bar.Stacked
-8,2-8,Bar.Stacked.Narrow
-9,2-9,Bar.Stacked.Narrow
+8,2-8,Bar.Stacked.Center
+9,2-9,Bar.Stacked.Center
 10,2-10,Scatter
 11,2-11,Bar.Stacked
-12,3-1,Bar.Stacked.Narrow
+12,3-1,Bar.Stacked.Center
 13,3-2,Bar.Grouped.Overlap
 14,3-3,Bar.Grouped
 15,4-1,Bar.Grouped.Stacked

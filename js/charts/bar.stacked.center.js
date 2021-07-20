@@ -1,24 +1,20 @@
 "use strict";
 
-function bar_grouped_stacked(data, metadata, colors, settings, language) {
-    
+function bar_stacked_center(data, metadata, colors, settings, language) {
+
     // setting
     let setting = settings[metadata.chart.type];
 
 
 
     // consts
-    const yAxisHeight = setting.dimension.height - (setting.padding.top + setting.padding.bottom + setting.xTicks.row1Margin + setting.xTicks.lineSeparatorMargin + setting.xTicks.row2Margin + setting.xTicks.fontHeight*2),
-          xAxisWidth = setting.dimension.width*(setting.distribution.plotRatio/100) - (setting.padding.left + setting.padding.legend + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yAxis.lineWidth);
+    const yAxisHeight = setting.dimension.height - (setting.padding.top + setting.padding.bottom + setting.xTicks.row1Margin + setting.xTicks.fontHeight),
+        xAxisWidth = setting.dimension.width*(setting.distribution.plotRatio/100) - (setting.padding.left + setting.padding.legend + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yAxis.lineWidth);
 
 
 
     // attributes
-    let attrList = Object.keys(data[0]).filter(e => (e != metadata.chart.level_1) && (e != metadata.chart.level_2));
-    let level_2 = data.map(d => d[metadata.chart.level_2]);
-    level_2 = level_2.filter(function(item, pos) {
-        return level_2.indexOf(item) == pos;
-    });
+    let attrList = Object.keys(data[0]).filter(e => (e != metadata.chart.level_1));
 
 
 
@@ -29,21 +25,13 @@ function bar_grouped_stacked(data, metadata, colors, settings, language) {
 
 
 
-    // data re arrange by aggregation level 2
-    let data_ = [];
-    level_2.forEach(e => {
-        data_.push(data.filter(g => g[metadata.chart.level_2] == e))
-    });
-    
-
-
     // map the colors
     /* **************************************************** */
     let color = mapColor(colors, attrList);
     let colorList = color.map(x => x.color);
     /* **************************************************** */
 
-    
+
 
     // scale for color
     let scaleColor = d3.scaleOrdinal()
@@ -60,9 +48,10 @@ function bar_grouped_stacked(data, metadata, colors, settings, language) {
 
 
     // initialize
-    /* **************************************************** */
-    let chart = initChart(data_, setting, level_2);
-    /* **************************************************** */
+    let chart = d3.select("body svg")
+    .attr("width", setting.dimension.width)
+    .attr("viewBox", `0 0 ${setting.dimension.width} ${setting.dimension.height}`)
+    .style("max-width", "100%");
 
 
 
@@ -114,18 +103,16 @@ function bar_grouped_stacked(data, metadata, colors, settings, language) {
     // bar distribution calculations
     let distribution = {
         barSpace: null,
-        groupSpace: null,
         barWidth: null,
-        groupSpaceNumber: data_.length - 1,
-        barSpaceNumber: 0,
+        barSpaceNumber: data.length - 1,
         barNumber: data.length,
         preSpace: xAxisWidth * (setting.distribution.preSpacePercent/100)
     }
     /* **************************************************** */
-    distributionCalculation_bar(distribution, data_, xAxisWidth, setting);
+    distributionCalculation_bar_stacked(distribution, xAxisWidth, setting);
     /* **************************************************** */
 
-    
+
         
     // add grid lines for y axis
     /* **************************************************** */
@@ -137,69 +124,63 @@ function bar_grouped_stacked(data, metadata, colors, settings, language) {
 
 
     //drawing bars
-    chart.selectAll("g.bar_groups")
-    .each(function(d, i) {
+    chart.append("g")
+    .attr("class", "bar_group")
+    .selectAll("g")
+    .data(data)
+    .enter()
+    .append("g")
+    .each(function(d, j) {
+        let y = 0;
+        let yPositive = 0;
+        let yNegative = 0;
         d3.select(this)
-        .selectAll("g")
-        .data(data_[i])
+        .attr("data-content", d[metadata.chart.level_1])
+        .attr("class", "bar")
+        .attr("transform", `translate(${(distribution.barSpace + distribution.barWidth) * j}, 0)`);
+        d3.select(this)
+        .selectAll("rect")
+        .data(attrList)
         .enter()
-        .append("g")
-        .each(function(d, j) {
-            let y = 0;
-            let yPositive = 0;
-            let yNegative = 0;
+        .append("rect")
+        .attr("x", 0)
+        .attr("width", distribution.barWidth)
+        .attr("height", cat => Math.abs(scaleY(0) - scaleY(d[cat])))
+        .attr("fill", cat => scaleColor(cat))
+        .attr("data-field", cat => cat)
+        // adjusting bar positions
+        .each(function(_, k) {
+            if(d[attrList[k]] > 0) {
+                yPositive = yPositive + (scaleY(0) - scaleY(d[attrList[k]]));
+                y = yPositive;
+            }
+            else {
+                yNegative = yNegative + (scaleY(0) - scaleY(d[attrList[k]]));
+                y = yNegative;
+            }
+
             d3.select(this)
-            .attr("data-content", d[metadata.chart.level_1])
-            .attr("class", "bar")
-            .attr("transform", `translate(${(distribution.barSpace + distribution.barWidth) * j}, 0)`);
-            d3.select(this)
-            .selectAll("rect")
-            .data(attrList)
-            .enter()
-            .append("rect")
-            .attr("x", 0)
-            .attr("width", distribution.barWidth)
-            .attr("height", cat => Math.abs(scaleY(0) - scaleY(d[cat])))
-            .attr("fill", cat => scaleColor(cat))
-            .attr("data-field", cat => cat)
-            // adjusting bar positions
-            .each(function(_, k) {
+            .attr("y", () => {
                 if(d[attrList[k]] > 0) {
-                    yPositive = yPositive + scaleY(0) - scaleY(d[attrList[k]]);
-                    y = yPositive;
+                    return scaleY(0) - y + setting.padding.top;
                 }
                 else {
-                    yNegative = yNegative + scaleY(0) - scaleY(d[attrList[k]]);
-                    y = yNegative;
+                    return 2*scaleY(0) - y - scaleY(d[attrList[k]]) + setting.padding.top;
                 }
                 
-                d3.select(this)
-                .attr("y",  () => {
-                    if(d[attrList[k]] > 0) {
-                        return scaleY(0) - y + setting.padding.top;
-                    }
-                    else {
-                        return 2*scaleY(0) - y - scaleY(d[attrList[k]]) + setting.padding.top;
-                    }
-                });
             });
-        });  
+        });
     });
 
 
 
-    
-    let barGroupWidth = [];
-    let barGroupPos = data_.map(d => 0);
-    /* **************************************************** */
-    groupPosition_bar(chart, barGroupWidth, barGroupPos, setting, distribution);
-    /* **************************************************** */
-    chart.selectAll("g.bar_groups")
+    // positioning bar group
+    chart.selectAll("g.bar_group")
     .each(function(_, i) {
         d3.select(this)
-        .attr("transform", `translate(${barGroupPos[i]}, 0)`)
+        .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width + setting.yAxis.lineWidth + distribution.preSpace}, 0)`)
     });
-    
+
 
 
     // add ticks for x axis
@@ -207,11 +188,4 @@ function bar_grouped_stacked(data, metadata, colors, settings, language) {
     ticks_horizontal_bar(chart, data, metadata, yAxisHeight, setting, distribution);
     /* **************************************************** */
 
-
-
-    // add ticks level 2 for x axis
-    /* **************************************************** */
-    ticks_2_horizontal_if_ticks_horizontal_bar(chart, level_2, metadata, yAxisHeight, setting, barGroupWidth);
-    /* **************************************************** */
-    
 }

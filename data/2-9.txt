@@ -4,7 +4,7 @@ metadata;chart.xLabel
 metadata;chart.yLabel;PJ
 metadata;chart.source;Statistics Canada 2018
 metadata;chart.section;2-9
-metadata;chart.type;bar.stacked.narrow
+metadata;chart.type;bar.stacked.center
 metadata;chart.level_1;year
 metadata;chart.note
 metadata;data.source;NATEM_2020_11_09

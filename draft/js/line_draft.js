@@ -1,7 +1,4 @@
-"use strict";
-
-function lineChart(data, metadata, colors) {
-
+function line_old(x) {
     let chart = d3.select("body svg#single");
     let level_2_List = data.map(d => d[metadata.chart.level_2]), // sorting by aggregation level 2 in separate array
         level_1_List = data.map(d => d[metadata.chart.level_1]),
@@ -240,5 +237,4 @@ function lineChart(data, metadata, colors) {
 
     chart.select("g.figureTitle")
     .attr("transform", `translate(${width / 2 - titleWidth / 2},${padding.top + titleHeight + figureTitleMargin + yAxisHeight + secondTickLineMargin + secondTickMargin + minTickFontHeight})`)
-    
 }

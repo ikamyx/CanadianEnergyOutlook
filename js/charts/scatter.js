@@ -1,6 +1,6 @@
 "use strict";
 
-function scatterPlot(data, metadata) {
+function scatter(data, metadata) {
 
     let chart = d3.select("body svg#single");
     //let level_2_List = data.map(d => d[metadata.chart.level_2]), // sorting by aggregation level 2 in separate array

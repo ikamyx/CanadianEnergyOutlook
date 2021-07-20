@@ -1,6 +1,6 @@
 "use strict";
 
-function bar_grouped_stacked_percent(data, metadata, colors, settings, language) {
+function line(data, metadata, colors, settings, language) {
 
     // setting
     let setting = settings[metadata.chart.type];
@@ -8,14 +8,18 @@ function bar_grouped_stacked_percent(data, metadata, colors, settings, language)
 
 
     // consts
-    const yAxisHeight = setting.dimension.height - (setting.padding.top + setting.padding.bottom + setting.xTicks.row1Margin + setting.xTicks.lineSeparatorMargin + setting.xTicks.row2Margin + setting.xTicks.fontHeight*2),
+    const yAxisHeight = setting.dimension.height - (setting.padding.top + setting.padding.bottom + setting.xTicks.row1Margin + setting.xTicks.fontHeight),
           xAxisWidth = setting.dimension.width*(setting.distribution.plotRatio/100) - (setting.padding.left + setting.padding.legend + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yAxis.lineWidth);
 
 
 
     // attributes
     let attrList = Object.keys(data[0]).filter(e => (e != metadata.chart.level_1) && (e != metadata.chart.level_2));
+    let level_1 = data.map(d => d[metadata.chart.level_1]);
     let level_2 = data.map(d => d[metadata.chart.level_2]);
+    level_1 = level_1.filter(function(item, pos) {
+        return level_1.indexOf(item) == pos;
+    });
     level_2 = level_2.filter(function(item, pos) {
         return level_2.indexOf(item) == pos;
     });
@@ -24,8 +28,7 @@ function bar_grouped_stacked_percent(data, metadata, colors, settings, language)
 
     // data conversion and re arrange
     /* **************************************************** */
-    dataCoversion(data, attrList);
-    dataPercentCalculation(data, attrList);
+    dataCoversion_line(data, metadata, attrList, level_1);
     /* **************************************************** */
 
 
@@ -40,22 +43,22 @@ function bar_grouped_stacked_percent(data, metadata, colors, settings, language)
 
     // map the colors
     /* **************************************************** */
-    let color = mapColor(colors, attrList);
+    let color = mapColor(colors, level_2);
     let colorList = color.map(x => x.color);
     /* **************************************************** */
-    
 
+    
 
     // scale for color
     let scaleColor = d3.scaleOrdinal()
-    .domain(attrList)
+    .domain(level_2)
     .range(colorList);
 
 
 
     // scale for label
     let scaleLabel = d3.scaleOrdinal()
-    .domain(attrList)
+    .domain(level_2)
     .range(color.map(x => x[language]));
 
 
@@ -69,9 +72,9 @@ function bar_grouped_stacked_percent(data, metadata, colors, settings, language)
 
     // legend
     const maxLegend = setting.dimension.width*(setting.distribution.legendRatio/100) - (setting.padding.right + setting.legend.colorBoxWidth + setting.legend.boxToText);
-    let attrListLegened = attrList.map(x => x).reverse();
+    let attrListLegened = level_2.map(x => x);
     /* **************************************************** */
-    legend(chart, maxLegend, attrListLegened, setting, scaleColor, scaleLabel);
+    legend_line(chart, maxLegend, attrListLegened, setting, scaleColor, scaleLabel);
     /* **************************************************** */
     chart.select("g.legend")
     .attr("transform", `translate(${setting.dimension.width*(setting.distribution.plotRatio/100)}, ${setting.padding.top})`);
@@ -98,13 +101,13 @@ function bar_grouped_stacked_percent(data, metadata, colors, settings, language)
 
 
     //scale for X
-    let scaleX = d3.scaleLinear()
-    .domain([0, xAxisWidth])
-    .range([0, xAxisWidth]);
+    /* **************************************************** */
+    let scaleX = scaleX_line(data, metadata, level_1, xAxisWidth);
+    /* **************************************************** */
 
 
 
-    // add the x axis
+    // x axis
     chart.append("g")
     .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width}, ${setting.padding.top + yAxisHeight})`)
     .attr("class", "x_axis")
@@ -112,19 +115,10 @@ function bar_grouped_stacked_percent(data, metadata, colors, settings, language)
 
 
 
-    // bar distribution calculations
-    let distribution = {
-        barSpace: null,
-        groupSpace: null,
-        barWidth: null,
-        groupSpaceNumber: data_.length - 1,
-        barSpaceNumber: 0,
-        barNumber: data.length,
-        preSpace: xAxisWidth * (setting.distribution.preSpacePercent/100)
-    }
-    /* **************************************************** */
-    distributionCalculation_bar(distribution, data_, xAxisWidth, setting);
-    /* **************************************************** */
+    let line = d3.line()
+    .x(d => scaleX(d[metadata.chart.level_1])) // set the x values for the line generator
+    .y(function(d) { return scaleY(d[attrList[0]]); }) // set the y values for the line generator 
+    //.curve(d3.curveMonotoneX) // apply smoothing to the line
 
     
         
@@ -137,65 +131,27 @@ function bar_grouped_stacked_percent(data, metadata, colors, settings, language)
 
 
 
-    //drawing bars
+    // add grid lines for x axis
+    /* **************************************************** */
+    xAxisGrid_line(chart, level_1, yAxisHeight, scaleX, setting);
+    /* **************************************************** */
+    chart.select("g.grid")
+    .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width}, ${setting.padding.top + yAxisHeight})`);
+
+
+
+    //drawing lines
     chart.selectAll("g.bar_groups")
     .each(function(d, i) {
         d3.select(this)
-        .selectAll("g")
-        .data(data_[i])
-        .enter()
-        .append("g")
-        .each(function(d, j) {
-            let y = 0;
-            d3.select(this)
-            .attr("data-content", d[metadata.chart.level_1])
-            .attr("class", "bar")
-            .attr("transform", `translate(${(distribution.barSpace + distribution.barWidth) * j}, 0)`);
-            d3.select(this)
-            .selectAll("rect")
-            .data(attrList)
-            .enter()
-            .append("rect")
-            .attr("x", 0)
-            .attr("width", distribution.barWidth)
-            .attr("height", cat => scaleY(0) - scaleY(d[cat]))
-            .attr("fill", cat => scaleColor(cat))
-            .attr("data-field", cat => cat)
-            // adjusting bar positions
-            .each(function(_, k) {
-                y = y + (scaleY(0) - scaleY(d[attrList[k]]));
-                d3.select(this)
-                .attr("y", scaleY(0) - y + setting.padding.top);
-            });
-        });  
-    });
-
-
-
-    
-    let barGroupWidth = [];
-    let barGroupPos = data_.map(d => 0);
-    /* **************************************************** */
-    groupPosition_bar(chart, barGroupWidth, barGroupPos, setting, distribution);
-    /* **************************************************** */
-    chart.selectAll("g.bar_groups")
-    .each(function(_, i) {
-        d3.select(this)
-        .attr("transform", `translate(${barGroupPos[i]}, 0)`)
-    });
-    
-
-
-    // add ticks for x axis
-    /* **************************************************** */
-    ticks_horizontal_bar(chart, data, metadata, yAxisHeight, setting, distribution);
-    /* **************************************************** */
-
-
-
-    // add ticks level 2 for x axis
-    /* **************************************************** */
-    ticks_2_horizontal_if_ticks_horizontal_bar(chart, level_2, metadata, yAxisHeight, setting, barGroupWidth);
-    /* **************************************************** */
-
+        .attr("class", "")
+        .attr("class", "line")
+        .append("path")
+        .datum(data_[i])
+        .attr("class", "line")
+        .attr("d", line)
+        .attr("stroke", d => scaleColor(d[0][metadata.chart.level_2]))
+        .attr("transform", `translate(${setting.padding.left + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yAxis.lineWidth}, ${setting.padding.top})`);
+    })
 }
+

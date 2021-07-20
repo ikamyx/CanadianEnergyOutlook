@@ -1,6 +1,6 @@
 "use strict";
 
-function groupBarChart(data, metadata, colors) {
+function area(data, metadata, colors) {
 
     let chart = d3.select("body svg#single");
     let level_2_List = data.map(d => d[metadata.chart.level_2]), // sorting by aggregation level 2 in separate array
@@ -16,25 +16,24 @@ function groupBarChart(data, metadata, colors) {
         level_1_List = level_1_List.filter(function(item, pos) {
             return level_1_List.indexOf(item) == pos;
         });
-        let attrListLegened = level_1_List.map(x => x);
-    const width = 900, height = 600,
+        let attrListLegened = level_2_List.map(x => x);
+        const width = 900, height = 600,
           padding = {
-            top: 30,
-            right: 30, // space between legend and chart 
-            bottom: 30,
-            left: 30, // y axis label to left
+            top: 0,
+            right: 0, // space between legend and chart 
+            bottom: 0,
+            left: 0, // y axis label to left
           },
           legendLineSpace = 20,
           legendColorBoxWidth = 15,
           legendBoxToText = 20,
-          legendMargin = 20, // legend to right
-          yAxisLabelMargin = 20, // y axis label to the y axis
+          legendMargin = 0, // legend to right
+          yAxisLabelMargin = 0, // y axis label to the y axis
+          xAxisLabelMargin = 0, // x axis label to the x axis
           yAxisLineWidth = 1,
-          secondTickLineMargin = 10,
-          secondTickMargin = 10,
-          minTickFontHeight = 10, // fixed
-          secondTickLineExtra = 0,
-          figureTitleMargin = 30;
+          figureTitleMargin = 0,
+          xAxisHeightVar = 25,
+          xAxisLabelHeightVar = 15;
 
     // time format
     let parseTime = d3.timeParse("%Y");
@@ -55,20 +54,21 @@ function groupBarChart(data, metadata, colors) {
     });
     
     // map the colors
-    level_1_List.forEach(d => {
+    level_2_List.forEach(d => {
         let result = colors.find(obj => {
             if((obj.label == d)) {
                 return obj;
             }
-          });
+        });
         colorList.push(result.color);
     });
-
+    
+    
     // scale for color
     let scaleColor = d3.scaleOrdinal()
-    .domain(level_1_List)
+    .domain(level_2_List)
     .range(colorList);
-
+    
     // initialize
     chart.selectAll("g")
     .data(data_)
@@ -77,7 +77,7 @@ function groupBarChart(data, metadata, colors) {
     .each(function(_, i) {
         d3.select(this)
         .attr("data-content", level_2_List[i])
-        .attr("class", "bar_groups");
+        .attr("class", "area");
     });
 
     // chart Title
@@ -121,7 +121,7 @@ function groupBarChart(data, metadata, colors) {
     .attr("transform", `translate(${width - legendWidth - padding.right}, ${padding.top})`);
 
     // scale for Y
-    let yAxisHeight = height - padding.top - padding.bottom - figureTitleMargin -titleHeight - secondTickLineMargin - secondTickMargin - minTickFontHeight;
+    let yAxisHeight = height - padding.top - padding.bottom - titleHeight - xAxisLabelHeightVar - xAxisHeightVar - figureTitleMargin - xAxisLabelMargin;
     let scaleY = d3.scaleLinear()
     .domain([0, d3.max(data, d => d.sum) + 0])
     .range([yAxisHeight, 0]);
@@ -160,17 +160,38 @@ function groupBarChart(data, metadata, colors) {
     .attr("transform", `translate(${padding.left + yAxisWidth + yAxisLabelMargin + yAxisLabelHeight}, ${padding.top})`);
 
     
-    //scale for X
+    // scale for x
     let xAxisWidth = width - padding.left - padding.right - legendMargin - legendWidth - yAxisWidth - yAxisLabelMargin - yAxisLabelHeight - yAxisLineWidth;
     let scaleX = d3.scaleLinear()
-    .domain([0, xAxisWidth])
+    .domain([d3.min(level_1_List), d3.max(level_1_List)])
     .range([0, xAxisWidth]);
 
     // add the x axis
     chart.append("g")
     .attr("transform", `translate(${padding.left + yAxisLabelHeight + yAxisLabelMargin + yAxisWidth}, ${padding.top + yAxisHeight})`)
     .attr("class", "x_axis")
-    .call(d3.axisBottom(scaleX).ticks(0));
+    .append("g")
+    .attr("class", "axis")
+    .call(d3.axisBottom(scaleX).tickFormat(d3.format("d")));
+
+    //xAxis Label
+    chart.select("g.x_axis")
+    .append("g")
+    .attr("class", "text")
+    .append("text")
+    .text(metadata.chart.xLabel);
+
+    let xAxisHeight = chart.select("g.x_axis > .axis").node().getBBox().height;
+    let xAxisLabelHeight = chart.select("g.x_axis > .text").node().getBBox().height;
+    let xAxisLabelWidth = chart.select("g.x_axis > .text").node().getBBox().width;
+
+    chart.select("g.x_axis > .text")
+    .attr("transform", `translate(${(xAxisWidth) / 2 - xAxisLabelWidth / 2}, ${(xAxisLabelMargin + xAxisHeight + xAxisLabelHeight)})`);
+
+    let	area = d3.area()	
+    .x(function(d) { return scaleX(d.year); })	
+    .y0(yAxisHeight)					
+    .y1(function(d) { return scaleY(d.value); });
 
     // bar optimization calculations
     const preSpacePercent = 0.02,
@@ -204,116 +225,36 @@ function groupBarChart(data, metadata, colors) {
         .tickFormat("")
     );
 
-    chart.selectAll("g.grid line")
+    // add grid lines for x axis
+    chart.append("g")
+    .lower()	
+    .attr("class", "grid")
+    .attr("transform", `translate(${padding.left + yAxisLabelHeight + yAxisLabelMargin + yAxisWidth}, ${padding.top + yAxisHeight})`)
+    .call(d3.axisBottom(scaleX)
+        .tickSize(-yAxisHeight)
+        .tickFormat("")
+    );
+
+    chart.selectAll("g.grid area")
     .each(function() {
         d3.select(this)
         .attr("stroke-dasharray", "3, 3");
     });
 
-    //drawing bars
-    chart.selectAll("g.bar_groups")
+    //drawing areas
+    chart.selectAll("g.area")
     .each(function(d, i) {
         d3.select(this)
-        .selectAll("g")
-        .data(data_[i])
-        .enter()
-        .append("g")
-        .each(function(d, j) {
-            let y = 0;
-            d3.select(this)
-            .attr("data-content", d[metadata.chart.level_1])
-            .attr("class", "bar")
-            .attr("transform", `translate(${(barSpace + barWidth) * j}, 0)`);
-            d3.select(this)
-            .selectAll("rect")
-            .data(attrList)
-            .enter()
-            .append("rect")
-            .attr("x", 0)
-            .attr("y", cat => (scaleY(0) - (scaleY(0) - scaleY(d[cat]))))
-            .attr("width", barWidth)
-            .attr("height", cat => scaleY(0) - scaleY(d[cat]))
-            .attr("fill", cat => scaleColor(d[metadata.chart.level_1]))
-            .attr("data-field", cat => cat)
-            // adjusting bar positions
-            .each(function(_, k) {
-                y = y + (scaleY(0) - scaleY(d[attrList[k]]));
-                d3.select(this)
-                .attr("y", scaleY(0) - y + padding.top);
-            });
-        });  
-    });
-
-
-    
-    let barGroupWidth = [];
-    chart.selectAll("g.bar_groups")
-    .each(function(_, i){
-        barGroupWidth.push(d3.select(this).node().getBBox().width);
-    });
-    
-
-    let barGroupPos = [];
-    for (let i = 0; i < barGroupWidth.length; i++) barGroupPos[i] = 0;
-
-    barGroupPos.forEach((d, i) => {
-        for(let k=0; k<i; k++) {
-            barGroupPos[i] = barGroupPos[i] + barGroupWidth[k];
-        }
-        barGroupPos[i] = barGroupPos[i] + i*groupSpace + padding.left + yAxisLabelHeight + yAxisLabelMargin + yAxisWidth + yAxisLineWidth + preSpace;
-
-    });
-
-    // positiong the group
-    chart.selectAll("g.bar_groups")
-    .each(function(_, i) {
-        d3.select(this)
-        .attr("transform", `translate(${barGroupPos[i]}, 0)`)
-    });
-
-    // level_2 filter
-    chart.selectAll("g.bar_groups")
-    .data(level_2_List)
-    .each(function(d, i) {
-        let g = d3.select(this)
-        .append("g").attr("class", metadata.chart.level_2 + "_group");
-
-        g.append("line")
-        .attr("x1", secondTickLineExtra)
-        .attr("x2", barGroupWidth[i] + secondTickLineExtra)
-        .attr("y1", yAxisHeight + padding.top + secondTickLineMargin)
-        .attr("y2", yAxisHeight + padding.top + secondTickLineMargin)
-        .attr("stroke", "#999")
-        .attr("stroke-width", 0.7)
-        // .attr("stroke-dasharray", "4, 4");
-
-        g.append("line")
-        .attr("x1", secondTickLineExtra)
-        .attr("x2", secondTickLineExtra)
-        .attr("y1", yAxisHeight + padding.top + secondTickLineMargin - 4)
-        .attr("y2", yAxisHeight + padding.top + secondTickLineMargin)
-        .attr("stroke", "#999")
-        .attr("stroke-width", 0.7);
-
-        g.append("line")
-        .attr("x1", barGroupWidth[i] + secondTickLineExtra)
-        .attr("x2", barGroupWidth[i] + secondTickLineExtra)
-        .attr("y1", yAxisHeight + padding.top + secondTickLineMargin)
-        .attr("y2", yAxisHeight + padding.top + secondTickLineMargin - 4)
-        .attr("stroke", "#999")
-        .attr("stroke-width", 0.7);
-        
-        g.append("text")
-        .text(d => d)
-        .attr("y", yAxisHeight + padding.top + secondTickLineMargin + secondTickMargin + minTickFontHeight);
-
-        let textWidth = g.select("text").node().getBBox().width;
-
-        g.select("text")
-        .attr("x", barGroupWidth[i] / 2 - textWidth / 2);
+        .append("path")
+        .datum(data_[i])
+        .attr("class", "area")
+        .attr("d", area)
+        .attr("fill", d => scaleColor(d[0][metadata.chart.level_2]))
+        .attr("stroke", d => scaleColor(d[0][metadata.chart.level_2]))
+        .attr("transform", `translate(${padding.left + yAxisWidth + yAxisLabelMargin + yAxisLabelHeight + yAxisLineWidth}, ${padding.top})`);
     })
 
     chart.select("g.figureTitle")
-    .attr("transform", `translate(${width / 2 - titleWidth / 2},${padding.top + titleHeight + figureTitleMargin + yAxisHeight + secondTickLineMargin + secondTickMargin + minTickFontHeight})`)
+    .attr("transform", `translate(${width / 2 - titleWidth / 2},${padding.top + titleHeight + figureTitleMargin + yAxisHeight + xAxisHeight + xAxisLabelMargin + xAxisLabelHeight})`)
     
 }

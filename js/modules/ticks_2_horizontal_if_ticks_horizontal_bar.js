@@ -10,7 +10,7 @@ function ticks_2_horizontal_if_ticks_horizontal_bar(chart, level_2, metadata, yA
         .attr("x1", setting.xTicks.lineSeparatorExtra)
         .attr("x2", barGroupWidth[i] + setting.xTicks.lineSeparatorExtra)
         .attr("y1", yAxisHeight + setting.padding.top + setting.xTicks.row1Margin + setting.xTicks.lineSeparatorMargin + setting.xTicks.fontHeight)
-        .attr("y2", yAxisHeight + setting.padding.top + setting.xTicks.row1Margin + setting.xTicks.row2Margin + setting.xTicks.fontHeight)
+        .attr("y2", yAxisHeight + setting.padding.top + setting.xTicks.row1Margin + setting.xTicks.lineSeparatorMargin + setting.xTicks.fontHeight)
         .attr("stroke", "#999")
         .attr("stroke-width", 0.7)
         // .attr("stroke-dasharray", "4, 4");

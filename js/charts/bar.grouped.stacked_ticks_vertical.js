@@ -151,8 +151,7 @@ function bar_grouped_stacked_ticks_vertical(data, metadata, colors, settings, la
             d3.select(this)
             .attr("data-content", d[metadata.chart.level_1])
             .attr("class", "bar")
-            .attr("transform", `translate(${(distribution.barSpace + distribution
-                .barWidth) * j}, 0)`);
+            .attr("transform", `translate(${(distribution.barSpace + distribution.barWidth) * j}, 0)`);
             d3.select(this)
             .selectAll("rect")
             .data(attrList)
