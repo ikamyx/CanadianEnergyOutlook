@@ -1,0 +1,129 @@
+variable,label_fr,label_en,color
+1998,1998,1998,#5487a4
+2008,2008,2008,#88b04b
+2018,2018,2018,#ea5530
+1990 (energy),1990 (li� � l'�nergie),1990 (energy),#5487a4
+1990 (non-energy),1990 (non �nerg�tique ),1990 (non-energy),#a9c4d3
+"1990 (oil & gas, refineries, fugitive sources)","1990 (p�trole, gaz, raffinage, incluant sources fugitives)","1990 (oil & gas, refineries, fugitive sources)",#5487a4
+1990 (other),1990 (autre),1990 (other),#a9c4d3
+2005 (energy),2005 (li� � l'�nergie),2005 (energy),#88b04b
+2005 (non-energy),2005 (non �nerg�tique),2005 (non-energy),#c5d9a7
+"2005 (oil & gas, refineries, fugitive sources)","2005 (p�trole, gaz, raffinage, incluant sources fugitives)","2005 (oil & gas, refineries, fugitive sources)",#88b04b
+2005 (other),2005 (autre),2005 (other),#c5d9a7
+2019 (energy),2019 (li� � l'�nergie),2019 (energy),#ea5530
+2019 (non-energy),2019 (non �nerg�tique),2019 (non-energy),#f6b4a4
+"2019 (oil & gas, refineries, fugitive sources)","2019 (p�trole, gaz, raffinage, incluant sources fugitives)","2019 (oil & gas, refineries, fugitive sources)",#ea5530
+2019 (other),2019 (autre),2019 (other),#f6b4a4
+Agriculture,Agriculture,Agriculture,#88b04b
+Agriculture and Forestry energy use,,Agriculture and Forestry energy use,#bdd030
+Autobus,Autobus,Buses,#88b14b
+Autre renouvelable,Autres renouvelables,Other renewable,#82368c
+Aviation Gasoline,K�ros�ne,Aviation Gasoline,#82368c
+Aviation Gasoline,K�ros�ne,Aviation Gasoline,#82368c
+Aviation Turbo Fuel,K�ros�ne,Aviation Turbo Fuel,#82368c
+Aviation Turbo Fuel,K�ros�ne,Aviation Turbo Fuel,#82368c
+Bio�nergie,Bio�nergie,Bioenergy,#88b04b
+Biogas de site d�enfouissement,Biogaz de site d'enfouissement,Landfill biogas,#88b04b
+Biomasse,Biomasse,Biomass,#88b04b
+Boue d��puration,Boue d��puration,Sludge,#7b3a38
+Camions l�gers,Camions l�gers,Light trucks,#9bd4dd
+Carburant d'aviation,Carburant d'aviation OU K�ros�ne,Aviation fuel,#82368c
+Charbon,Charbon,Coal,#ea5530
+Charbon et mati�re r�siduelle,Charbon et mati�re r�siduelle,Coal and residual material,#ea5530
+"Charbon, coke et mati�re r�siduelle ","Charbon, coke et mati�re r�siduelle ","Coal, coke and residual material",#ea5530
+Chauffage de l�espace,Chauffage des b�timents,Space heating,#d20a11
+Coal,Charbon,Coal,#ea5530
+Commercial,Commercial,Commercial,#f7d255
+Commercial and Institutional,Secteur commercial et institutionnel,Commercial and Institutional,#f7d255
+Conservation d'�nergie,Conservation d'�nergie,Energy conservation,#6ec083
+Crude oil,P�trole brut,Crude oil,#7d4e24
+Culture d�di�e,Culture d�di�e,Dedicated culture,#f39200
+D�chets,D�chets,Waste,#7b3a38
+D�chets,D�chets,Waste,#7b3a38
+Diesel,Diesel,Diesel,#878787
+Diesel Fuel Oil,Diesel,Diesel Fuel Oil,#878787
+�lectricit�,�lectricit�,Electricity,#9bd4dc
+Electricit� - CCS - stok�es,,Electricity � CCS -stored,#346b7c
+�lectricit� - centralis�e,�lectricit� - centralis�e,Centralized electricity,#4f9db6
+�lectricit� - Centralis�e,�lectricit� - Centralis�e,Centralized electricity,#4f9db6
+�lectricit� - d�centralis�e,�lectricit� - d�centralis�e,Decentralized electricity,#bedbe4
+�lectricit� - D�centralis�e,�lectricit� - D�centralis�e,Decentralized electricity,#bedbe4
+Electricit� d�centralis�e,Electricit� d�centralis�e,Decentralized electricity,#bedbe4
+Electricity,�lectricit�,Electricity,#9bd4dc
+�olien,�olien,Wind,#bcdbf4
+Essence,Essence,Gasoline,#b8b7b7
+Exploitation du charbon,Exploitation du charbon,Coal mining,#ea5530
+Fumier,Fumier,Manure,#b6807d
+Gas naturel et Gaz naturel liqu�fi�,Gaz naturel et gaz naturel liqu�fi�,Natural gas and Liquified natural gas,#b1900a
+Gas plant natural gas liquids (NGL's),Liquides de gaz naturel des usines de gaz,,#d29d31
+Gaz naturel,Gaz naturel,Natural gas,#b1900a
+G�o et solaire thermique,G�o et solaire thermique,Geothermal and solar thermal,#ffe36d
+G�othermie,G�othermie,Geothermal,#82368c
+Heating Oil,Mazout,Heating Oil,#b8b7b7
+Heavy Fuel Oil,Mazout lourd,Heavy Fuel Oil,#5d675f
+"Heavy fuel oil, diesel and light fuel oil",Mazout lourd,,#5d675f
+Hors route,Hors route,Off-road,#ea5530
+Hybride rechargeable diesel,Hybride rechargeable diesel,Diesel plug-in hybrid,#4f9db6
+Hydro,Hydro,Hydro,#4f9db6
+Hydro�lectrique,Hydro�lectrique,Hydroelectric,#4f9db6
+Hydro�lectrique,Hydro�lectrique,Hydroelectric,#4f9db6
+Hydrog�ne,Hydrog�ne,Hydrogen,#4f9db6
+Industrial,Industries,Industrial,#5487a4
+Industrial processes,Proc�d�s industriels,Industrial processes,#5487a4
+Industrie,Industrie,Industry,#5d675f
+Industrie - Process,Proc�d�s industriels,Industry � Process,#5487a4
+Industry energy use,,Industry energy use,"#5d675f	"
+Mais et Bl�,Mais et bl�,Corn and wheat,#f7d255
+Mati�re organique municipale,Mati�re organique municipale,Municipal organic waste,#a4aba6
+M�tros & Trains,M�tros & trains,Subways & Trains,#f19100
+Motocyclettes,Motocyclettes,Motorcycles,#f6d254
+Natural gas,Gaz naturel,Natural gas,#b1900a
+Nucl�aire,Nucl�aire,Nuclear,#f39200
+Nucl�aire,Nucl�aire,,#f39200
+"Oil, gas, and refining industries","P�trole, gaz, raffinage","Oil, gas, and refining industries",#b6807d
+P�trole brut,P�trole brut,Crude oil,#7d4e24
+Po�le � bois ou aux granules,Po�le � bois ou aux granules,Wood or pellet stove,#ca9e67
+"Primary electricity (hydro, nuclear, tidal, solar and wind)","�lectricit� primaire (hydro, nucl�aire, mar�e, solaire, �olien)","Primary electricity (hydro, nuclear, tidal, solar and wind)",#9bd4dc
+"Primary electricity, hydro and nuclear",�lectricit� primaire (hydro et nucl�aire),"Primary electricity, hydro and nuclear",#9bd4dc
+Production d��lectricit�,Production d��lectricit�,Production of electricity,"#9bd4dc	"
+Production d�hydrog�ne,Production d�hydrog�ne,Hydrogen production,#4f9db6
+Production de biocarburant,Production de biocarburant,Production of biofuel,#88b04b
+Production de gaz naturel renouvelable,Production de gaz naturel renouvelable,Production of renewable natural gas,#b1900a
+Production de granule de bois,Production de granule de bois,Production of wood pellets,#ca9e67
+Production d'�nergie,Production d'�nergie,Energy generation,"#b6807d	"
+Production d'�nergie,Production d'�nergie,,"#b6807d	"
+Production d'hydrog�ne,Production d'hydrog�ne,,#4f9db6
+Production d'Hydrog�ne,Production d'hydrog�ne,,#4f9db6
+Propane,Propane,Propane,#f9b674
+Propane,Propane,Propane,#f9b674
+Propane,Propane,Propane,#f9b674
+Public Electricity and Heat Production,�lectricit� et production de chaleur,Public Electricity and Heat Production,#9bd4dc
+Residential,R�sidentiel,Residential,#a4aba6
+R�sidu de culture,R�sidu de culture,Crop residue,#bdd030
+Solaire,Solaire,Solar,#ffe36d
+Solaire,Solaire,Solar,#ffe36d
+Solar,Solaire,Solar,#ffe36d
+Sources Fugitives,Sources fugitives,Fugitive sources,#b6807d
+Space Cooling,Climatisation des b�timents,Space Cooling,#88b04b
+Space Heating,Chauffage des b�timents,Space Heating,#d20a11
+Syst�me au charbon,Syst�me au charbon,Coal system,#ea5530
+Syst�me au gaz naturel,Syst�me au gaz naturel,Natural gas system,#b1900a
+Syst�me au mazout,Syst�me au mazout,Oil system,#b8b7b7
+Syst�me au propane,Syst�me au propane,Propane system,#f9b674
+Syst�me �lectrique,Syst�me �lectrique,Electric system,#9bd4dc
+Thermique,Thermique,Thermal,#d20a11
+Thermique,Thermique,Thermal,#d20a11
+Thermopompe au gaz naturel,Thermopompe au gaz naturel,Natural gas heat pump,#f39200
+Thermopompe �lectrique,Thermopompe �lectrique,Electric heat pump,#4f9db6
+Transport,Transport,Transport,#ea5530
+Transport,Transport,Transport,#ea5530
+Transport,Transports,,#ea5530
+Transport,Transports,Transports,#ea5530
+Usage en agriculture,Usage en agriculture,Agriculture applications,#88b04b
+Usage industriel,Usage industriel,Industrial use,#5487a4
+Voitures,Voitures,Cars,"#5d675f	"
+Voitures,Voitures,Cars,"#a4aaa6	"
+Waste,D�chets,Waste,#7b3a38
+Water Heating,Production d�eau chaude,Water Heating,#ea5530
+Wind,�olien,Wind,#bcdbf4
+Wood,Bois,Wood,#ca9e67

@@ -1,9 +1,14 @@
 id,figure,type
+1,2-1,Sunkey
 2,2-2,Area
+3,2-3,Bar.Grouped.Horizontal
+4,2-4,Bar.Grouped.Horizontal
+5,2-5,Mixed
 6,2-6,Bar.Stacked
 7,2-7,Bar.Stacked
 8,2-8,Bar.Stacked.Center
 9,2-9,Bar.Stacked.Center
+10,2-10,Scatter
 11,2-11,Bar.Stacked
 12,3-1,Bar.Stacked.Center
 13,3-2,Bar.Grouped.Overlap
@@ -31,10 +36,12 @@ id,figure,type
 35,7-1,Line
 36,7-2,Line
 37,7-3,Line
+38,7-4,Line.Multi
 39,7-5,Bar.Grouped.Grouped
 40,7-6,Bar.Grouped
 41,7-7,Bar.Grouped
 42,7-8,Bar.Grouped.Stacked
+43,7-9,Area.Ranged.Multi
 44,8-1,Bar.Grouped.Stacked.Double
 45,8-2,Bar.Grouped.Stacked.Double
 46,8-3,Bar.Grouped.Stacked.Double

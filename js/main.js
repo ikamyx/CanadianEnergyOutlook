@@ -34,7 +34,7 @@
     /***** loading data *****/
     var promises = [];
     promises.push(d3.csv("./data/figures.csv"));
-    promises.push(d3.csv("./data/colors.csv"));
+    promises.push(d3.csv("./data/colors20210719.csv"));
     promises.push(d3.csv("./data/setting.csv"));
     Promise.all(promises)
     
@@ -225,8 +225,8 @@
                     bar_grouped_stacked(parsed.data, parsed.metadata, colors, settings, language);
                     break;
                 case "bar.grouped.stacked.percent":
-                        bar_grouped_stacked_percent(parsed.data, parsed.metadata, colors, settings, language);
-                        break;
+                    bar_grouped_stacked_percent(parsed.data, parsed.metadata, colors, settings, language);
+                    break;
                 case "bar.grouped.stacked.multi":
                     bar_grouped_stacked_multi(parsed.data, parsed.metadata, colors, settings, language);
                     break;
@@ -246,7 +246,7 @@
                     bar_grouped_overlap(parsed.data, parsed.metadata, colors, settings, language);
                     break;
                 case "bar.grouped.horizontal":
-                    bar_grouped_horizontal(parsed.data, parsed.metadata, colors, settings, language);
+                    // bar_grouped_horizontal(parsed.data, parsed.metadata, colors, settings, language);
                     break;
                 case "bar.grouped.grouped":
                     bar_grouped_grouped(parsed.data, parsed.metadata, colors, settings, language);
@@ -258,10 +258,10 @@
                     area(parsed.data, parsed.metadata, colors, settings, language);
                     break;    
                 case "scatter":
-                    scatter(parsed.data, parsed.metadata, colors, settings, language);
+                    // scatter(parsed.data, parsed.metadata, colors, settings, language);
                     break;
                 case "line.multi":
-                    line_multi(parsed.data, parsed.metadata, colors, settings, language);
+                    // line_multi(parsed.data, parsed.metadata, colors, settings, language);
                     break;    
             }
         
