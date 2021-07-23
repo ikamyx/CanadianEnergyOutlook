@@ -129,7 +129,9 @@
 
     function loadData() {
         let value = $input.value;
-        let language = $select.value;
+        let language;
+        if($select.value == "english"){language = "label_en"}
+        else if($select.value == "french"){language = "label_fr"}
         let firstSpace = value.indexOf(" ");
         if(figures.includes(value)) {
             let textfile;

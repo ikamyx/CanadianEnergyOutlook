@@ -25,7 +25,6 @@ function legend(chart, maxLegend, data, setting, scaleColor, scaleLabel) {
                 return `translate(${0}, ${(linesCount * setting.legend.lineSpace) + (i * setting.legend.lineBetweenSpace)})`
             }
         });
-        
         d3.select(this)
         .append("text")
         .text(scaleLabel(d))
