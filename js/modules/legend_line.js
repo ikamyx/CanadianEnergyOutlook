@@ -25,7 +25,6 @@ function legend_line(chart, maxLegend, data, setting, scaleColor, scaleLabel) {
                 return `translate(${0}, ${(linesCount * setting.legend.lineSpace) + (i * setting.legend.lineBetweenSpace)})`
             }
         });
-        
         d3.select(this)
         .append("text")
         .text(scaleLabel(d))
@@ -42,6 +41,7 @@ function legend_line(chart, maxLegend, data, setting, scaleColor, scaleLabel) {
         .attr("stroke-width", 2)
         
         let lineWidth = d3.select(this).select("text").node().getBBox().width;
+        
         if (lineWidth > maxLegend) {
         let words = scaleLabel(d).split(" ");
         d3.select(this).select("text").text("");

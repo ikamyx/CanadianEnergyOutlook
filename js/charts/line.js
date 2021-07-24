@@ -71,7 +71,7 @@ function line(data, metadata, colors, settings, language) {
 
 
     // legend
-    const maxLegend = setting.dimension.width*(setting.distribution.legendRatio/100) - (setting.padding.right + setting.legend.colorBoxWidth + setting.legend.boxToText);
+    const maxLegend = setting.dimension.width*(setting.distribution.legendRatio/100) - (setting.padding.right + setting.legend.lineHeight + setting.legend.lineToText);
     let attrListLegened = level_2.map(x => x);
     /* **************************************************** */
     legend_line(chart, maxLegend, attrListLegened, setting, scaleColor, scaleLabel);
