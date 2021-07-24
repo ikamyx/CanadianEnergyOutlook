@@ -34,7 +34,7 @@
     /***** loading data *****/
     var promises = [];
     promises.push(d3.csv("./data/figures.csv"));
-    promises.push(d3.csv("./data/colors20210719.csv"));
+    promises.push(d3.csv("./data/colors.csv"));
     promises.push(d3.csv("./data/setting.csv"));
     Promise.all(promises)
     
