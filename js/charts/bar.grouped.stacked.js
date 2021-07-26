@@ -8,7 +8,8 @@ function bar_grouped_stacked(data, metadata, colors, settings, language) {
 
 
     // consts
-    const yAxisHeight = setting.dimension.height - (setting.padding.top + setting.padding.bottom + setting.xTicks.row1Margin + setting.xTicks.lineSeparatorMargin + setting.xTicks.row2Margin + setting.xTicks.fontHeight*2),
+    const yAxisHeight = setting.dimension.height - setting.padding.top,
+        //yAxisHeight = setting.dimension.height - (setting.padding.top + setting.padding.bottom + setting.xTicks.row1Margin + setting.xTicks.lineSeparatorMargin + setting.xTicks.row2Margin + setting.xTicks.fontHeight*2),
           xAxisWidth = setting.dimension.width*(setting.distribution.plotRatio/100) - (setting.padding.left + setting.padding.legend + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yAxis.lineWidth);
 
 
@@ -202,16 +203,22 @@ function bar_grouped_stacked(data, metadata, colors, settings, language) {
     
 
 
+
     // add ticks for x axis
+    let tickWidth = [];
+    let tickHeight = [];
     /* **************************************************** */
-    ticks_horizontal_bar(chart, data, metadata, yAxisHeight, setting, distribution);
+    // ticks_horizontal_bar(chart, data, metadata, yAxisHeight, setting, distribution);
+    let maxTickWidth = ticks_vertical_bar(chart, data, metadata, yAxisHeight, setting, distribution, tickWidth, tickHeight);
     /* **************************************************** */
+    chart.attr("viewBox", `0 0 ${setting.dimension.width} ${setting.dimension.height + setting.padding.bottom + setting.xTicks.row1Margin + setting.xTicks.lineSeparatorMargin + setting.xTicks.row2Margin + maxTickWidth + setting.xTicks.fontHeight}`);
 
-
+    
 
     // add ticks level 2 for x axis
     /* **************************************************** */
-    ticks_2_horizontal_if_ticks_horizontal_bar(chart, level_2, metadata, yAxisHeight, setting, barGroupWidth);
+    // ticks_2_horizontal_if_ticks_horizontal_bar(chart, level_2, metadata, yAxisHeight, setting, barGroupWidth);
+    ticks_2_horizontal_if_ticks_vertical_bar(chart, level_2, metadata, yAxisHeight, setting, barGroupWidth, maxTickWidth);
     /* **************************************************** */
     
 }

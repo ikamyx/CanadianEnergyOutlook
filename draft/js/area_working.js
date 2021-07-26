@@ -139,7 +139,7 @@ function area(data, metadata, colors, settings, language) {
     .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width}, ${setting.padding.top + yAxisHeight})`);
 
 
-    console.log(data_)
+
     //drawing lines
     chart.selectAll("g.bar_groups")
     .each(function(d, i) {

@@ -17,12 +17,12 @@ function bar_stacked(data, metadata, colors, settings, language) {
     let attrList = Object.keys(data[0]).filter(e => (e != metadata.chart.level_1));
 
 
-
+    
     // data conversion and re arrange
     /* **************************************************** */
     dataCoversion(data, attrList);
     /* **************************************************** */
-
+    
 
 
     // map the colors
