@@ -1,0 +1,34 @@
+metadata;chart.title;;;
+metadata;chart.subtitle;;;
+metadata;chart.xLabel;;;
+metadata;chart.yLabel;PJ;;
+metadata;chart.source;;;
+metadata;chart.section;;;
+metadata;chart.type;bar.grouped.stacked;;
+metadata;chart.level_1;scenario;;
+metadata;chart.level_2;year;;
+metadata;chart.note;;;
+metadata;data.source;IET_NRCAN_NATEM Results_NRG_2021-06-11_Version Finale.xlsm;;
+metadata;data.file;;;
+data;year;scenario;Bioénergie;Carburant synthétique;Charbon et matière résiduelle;Électricité;Gaz naturel;Produit pétrolier;Renouvelable;Hydrogène;Conservation d'énergie;Produit non-énergétique
+data;2016;-;631;0;160;1764;1843;3147;0;85;0;373
+data;2030;REF;729;0;137;2151;1980;3518;3;72;156;267
+data;2030;CP30;928;0;64;2167;1828;3265;3;86;156;267
+data;2030;NZ60;778;0;67;1943;1741;3279;3;61;156;290
+data;2030;NZ50;791;0;41;2005;1554;2958;3;64;156;262
+data;2030;NZ45;798;0;37;2072;1412;2904;3;65;156;258
+data;2040;REF;767;0;117;2422;2064;3729;5;79;196;269
+data;2040;CP30;1004;0;66;2601;1762;3185;5;104;197;270
+data;2040;NZ60;855;0;38;2557;1296;2788;4;78;196;263
+data;2040;NZ50;779;0;38;2924;882;2222;4;197;197;268
+data;2040;NZ45;706;0;37;3179;755;1568;7;302;197;267
+data;2050;REF;849;0;100;2658;2152;4196;6;88;236;279
+data;2050;CP30;1049;0;73;3116;1727;2993;6;104;237;324
+data;2050;NZ60;712;0;39;3579;579;2226;6;293;237;281
+data;2050;NZ50;707;0;37;3958;369;1106;6;477;237;278
+data;2050;NZ45;687;0;37;4006;362;1146;10;472;237;278
+data;2060;REF;905;0;93;2878;2389;4771;9;97;275;333
+data;2060;CP30;1069;0;72;3577;1886;2870;9;108;276;344
+data;2060;NZ60;679;0;39;4369;442;1131;8;525;276;279
+data;2060;NZ50;706;0;38;4389;406;1037;8;525;276;282
+data;2060;NZ45;731;0;39;4346;419;1222;9;516;276;282

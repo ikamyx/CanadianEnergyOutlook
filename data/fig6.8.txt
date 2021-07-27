@@ -1,0 +1,34 @@
+metadata;chart.title;;;;;;;
+metadata;chart.subtitle;;;;;;;
+metadata;chart.xLabel;;;;;;;
+metadata;chart.yLabel;PJ;;;;;;
+metadata;chart.source;;;;;;;
+metadata;chart.section;;;;;;;
+metadata;chart.type;bar.grouped.stacked;;;;;;
+metadata;chart.level_1;scenario;;;;;;
+metadata;chart.level_2;year;;;;;;
+metadata;chart.note;;;;;;;
+metadata;data.source;IET_NRCAN_NATEM Results_NRG_2021-06-11_Version Finale.xlsm;;;;;;
+metadata;data.file;;;;;;;
+data;year;scenario;Voitures;Camions légers;Autobus;Métros & Trains;Avions;Motocyclettes
+data;2016;-;518.2;528.6;44.9;5.6;253.6;5.3
+data;2030;REF;427.1;759.9;65.5;9.0;431.3;9.7
+data;2030;CP30;355.8;759.3;50.5;9.0;426.0;9.7
+data;2030;NZ60;368.6;751.4;56.4;8.2;426.6;9.7
+data;2030;NZ50;346.1;736.6;49.3;8.0;397.5;9.5
+data;2030;NZ45;341.6;735.4;46.2;7.9;383.6;9.6
+data;2040;REF;302.9;825.3;76.3;10.8;552.3;13.1
+data;2040;CP30;118.4;779.1;49.0;10.8;549.1;13.1
+data;2040;NZ60;110.8;776.9;36.4;9.5;521.0;13.1
+data;2040;NZ50;105.8;617.4;35.0;9.3;491.4;13.0
+data;2040;NZ45;105.7;435.3;33.6;9.3;460.7;12.8
+data;2050;REF;279.4;989.6;90.4;12.9;653.1;16.9
+data;2050;CP30;103.5;596.7;50.5;12.9;641.6;12.3
+data;2050;NZ60;94.2;687.4;40.5;11.1;605.2;14.0
+data;2050;NZ50;90.9;375.9;33.8;11.0;541.3;11.5
+data;2050;NZ45;92.4;364.0;38.1;11.1;577.5;12.7
+data;2060;REF;258.6;1191.9;102.9;15.0;795.9;20.8
+data;2060;CP30;94.7;503.0;54.0;15.0;795.3;8.4
+data;2060;NZ60;82.8;466.2;42.5;12.9;603.5;10.1
+data;2060;NZ50;83.4;410.5;43.7;12.8;606.2;8.1
+data;2060;NZ45;83.4;460.2;44.4;12.8;645.4;10.4

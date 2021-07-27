@@ -1,0 +1,34 @@
+metadata;chart.title;;;;;;;;;
+metadata;chart.subtitle;;;;;;;;;
+metadata;chart.xLabel;;;;;;;;;
+metadata;chart.yLabel;PJ;;;;;;;;
+metadata;chart.source;;;;;;;;;
+metadata;chart.section;;;;;;;;;
+metadata;chart.type;bar.grouped.stacked;;;;;;;;
+metadata;chart.level_1;scenario;;;;;;;;
+metadata;chart.level_2;year;;;;;;;;
+metadata;chart.note;;;;;;;;;
+metadata;data.source;IET_NRCAN_NATEM Results_NRG_2021-06-11_Version Finale.xlsm;;;;;;;;
+metadata;data.file;;;;;;;;;
+data;year;scenario;Électricité ;Produit pétrolier;Gaz naturel et Gaz naturel liquéfié;Charbon, coke et matière résiduelle;Bioénergie;Hydrogène ;Carburant synthétique;Produit non énergétique
+data;2016;;34.48;24.26;41.29;0.00;0.00;0.00;0.00;0.00
+data;2030;REF;63.22;3.32;25.58;0.00;0.00;0.00;0.00;0.00
+data;2030;CP30;65.59;0.60;24.10;0.00;0.00;0.00;0.00;0.00
+data;2030;NZ60;31.58;9.57;61.35;0.00;0.00;0.00;0.00;0.00
+data;2030;NZ50;52.44;8.83;29.97;0.00;0.00;0.00;0.00;0.00
+data;2030;NZ45;65.20;8.83;10.46;0.00;0.00;0.00;0.00;0.00
+data;2040;REF;68.18;8.74;21.63;0.00;0.00;0.00;0.00;0.00
+data;2040;CP30;75.61;0.42;16.72;0.00;0.00;0.00;0.00;0.00
+data;2040;NZ60;73.69;5.50;6.50;0.00;0.00;0.00;0.00;0.00
+data;2040;NZ50;73.69;5.50;6.50;0.00;0.00;0.00;0.00;0.00
+data;2040;NZ45;73.69;5.50;6.50;0.00;0.00;0.00;0.00;0.00
+data;2050;REF;72.29;9.18;22.34;0.00;0.00;0.00;0.00;0.00
+data;2050;CP30;81.30;0.65;15.15;0.00;0.00;0.00;0.00;0.00
+data;2050;NZ60;82.15;1.89;2.24;0.00;0.00;0.00;0.00;0.00
+data;2050;NZ50;81.24;1.88;1.83;0.00;0.31;0.00;0.00;0.00
+data;2050;NZ45;82.15;1.89;1.93;0.00;0.31;0.00;0.00;0.00
+data;2060;REF;80.03;3.38;22.45;0.00;0.00;0.00;0.00;0.00
+data;2060;CP30;85.75;0.39;16.01;0.00;0.00;0.00;0.00;0.00
+data;2060;NZ60;85.95;1.93;2.31;0.00;0.00;0.00;0.00;0.00
+data;2060;NZ50;85.95;1.93;2.31;0.00;0.00;0.00;0.00;0.00
+data;2060;NZ45;85.95;1.93;2.31;0.00;0.00;0.00;0.00;0.00

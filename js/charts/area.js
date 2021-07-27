@@ -14,14 +14,10 @@ function area(data, metadata, colors, settings, language) {
 
 
     // attributes
-    let attrList = Object.keys(data[0]).filter(e => (e != metadata.chart.level_1) && (e != metadata.chart.level_2));
+    let attrList = Object.keys(data[0]).filter(e => (e != metadata.chart.level_1));
     let level_1 = data.map(d => d[metadata.chart.level_1]);
-    let level_2 = data.map(d => d[metadata.chart.level_2]);
     level_1 = level_1.filter(function(item, pos) {
         return level_1.indexOf(item) == pos;
-    });
-    level_2 = level_2.filter(function(item, pos) {
-        return level_2.indexOf(item) == pos;
     });
 
 
@@ -33,17 +29,26 @@ function area(data, metadata, colors, settings, language) {
 
 
 
-    // data re arrange by aggregation level 2
+    // data re arrange by aggregation attrList
     let data_ = [];
-    level_2.forEach(e => {
-        data_.push(data.filter(g => g[metadata.chart.level_2] == e))
+    attrList.forEach(e => {
+        data_.push(new Array());
     });
-    
+    data_.forEach((g, i) => {
+        data.forEach(r => {
+            g.push({
+                [attrList[i]]: r[attrList[i]],
+                [metadata.chart.level_1]: r[metadata.chart.level_1]
+
+            })
+        })
+    })
+
 
 
     // map the colors
     /* **************************************************** */
-    let color = mapColor(colors, level_2);
+    let color = mapColor(colors, attrList);
     let colorList = color.map(x => x.color);
     /* **************************************************** */
 
@@ -51,28 +56,28 @@ function area(data, metadata, colors, settings, language) {
 
     // scale for color
     let scaleColor = d3.scaleOrdinal()
-    .domain(level_2)
+    .domain(attrList)
     .range(colorList);
 
 
 
     // scale for label
     let scaleLabel = d3.scaleOrdinal()
-    .domain(level_2)
+    .domain(attrList)
     .range(color.map(x => x[language]));
 
 
 
     // initialize
     /* **************************************************** */
-    let chart = initChart(data_, setting, level_2);
+    let chart = initChart(data_, setting, attrList);
     /* **************************************************** */
 
 
 
     // legend
     const maxLegend = setting.dimension.width*(setting.distribution.legendRatio/100) - (setting.padding.right + setting.legend.colorBoxWidth + setting.legend.boxToText);
-    let attrListLegened = level_2.map(x => x);
+    let attrListLegened = attrList.map(x => x).reverse();
     /* **************************************************** */
     legend(chart, maxLegend, attrListLegened, setting, scaleColor, scaleLabel);
     /* **************************************************** */
@@ -81,9 +86,19 @@ function area(data, metadata, colors, settings, language) {
 
 
 
+
+    let stackedData = d3.stack().keys(attrList)(data);
+    let	area = d3.area()
+    .x(d => scaleX(d.data[metadata.chart.level_1]))
+    .y0(d => scaleY(d[0]))
+    .y1(d => scaleY(d[1]));
+
+
+
+
     // scale for Y
     /* **************************************************** */
-    let scaleY = scaleY_bar(data, yAxisHeight);
+    let scaleY = scaleY_area(stackedData, yAxisHeight);
     /* **************************************************** */
 
 
@@ -114,12 +129,6 @@ function area(data, metadata, colors, settings, language) {
     .call(d3.axisBottom(scaleX).ticks(0));
 
 
-
-    let	area = d3.area()	
-    .x(d => scaleX(d[metadata.chart.level_1]))
-    .y0(yAxisHeight)					
-    .y1(d => scaleY(d[attrList[0]]));
-
     
         
     // add grid lines for y axis
@@ -139,20 +148,18 @@ function area(data, metadata, colors, settings, language) {
     .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width}, ${setting.padding.top + yAxisHeight})`);
 
 
-    console.log(data_)
-    //drawing lines
+
+    //drawing area
     chart.selectAll("g.bar_groups")
     .each(function(d, i) {
-        d3.select(this)
-        .attr("class", "")
-        .attr("class", "area")
-        .append("path")
-        .datum(data_[i])
-        .attr("class", "area")
-        .attr("d", area)
-        .attr("fill", d => scaleColor(d[0][metadata.chart.level_2]))
-        .attr("stroke", d => scaleColor(d[0][metadata.chart.level_2]))
-        .attr("transform", `translate(${setting.padding.left + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yAxis.lineWidth}, ${setting.padding.top})`);
-    })
+    d3.select(this)
+    .attr("class", "")
+    .attr("class", "area")
+    .append("path")
+    .datum(stackedData[i])
+    .attr("d", d => area(d))
+    .attr("fill", d => scaleColor(d.key))
+    .attr("stroke", d => scaleColor(d.key))
+    .attr("transform", `translate(${setting.padding.left + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yAxis.lineWidth}, ${setting.padding.top})`);
+    });
 }
-

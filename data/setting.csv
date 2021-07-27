@@ -318,7 +318,7 @@ area,legend,boxToText,5,no
 area,legend,colorBoxWidth,15,no
 area,yAxis,labelMargin,0,yes
 area,yAxis,lineWidth,1,no
-area,yAxis,width,75,no
+area,yAxis,width,60,no
 area,yAxis,labelHeight,18,no
 area,xTicks,row1Margin,10,yes
 area,xTicks,lineSeparatorExtra,0,no
