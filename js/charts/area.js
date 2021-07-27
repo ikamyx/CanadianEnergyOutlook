@@ -111,7 +111,7 @@ function area(data, metadata, colors, settings, language) {
     chart.select("g.y_axis > .text")
     .attr("transform", `translate(${-1 * (setting.yAxis.labelMargin + setting.yAxis.width + setting.yTicks.rowMargin)}, ${(yAxisHeight) / 2 + yAxisLabelWidth / 2}) rotate(-90)`);
     chart.select("g.y_axis")
-    .attr("transform", `translate(${setting.padding.left + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight}, ${setting.padding.top})`);
+    .attr("transform", `translate(${setting.padding.left + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yTicks.rowMargin}, ${setting.padding.top})`);
 
 
 
@@ -124,7 +124,7 @@ function area(data, metadata, colors, settings, language) {
 
     // x axis
     chart.append("g")
-    .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width}, ${setting.padding.top + yAxisHeight})`)
+    .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width + setting.yTicks.rowMargin}, ${setting.padding.top + yAxisHeight})`)
     .attr("class", "x_axis")
     .call(d3.axisBottom(scaleX).ticks(0));
 
@@ -136,7 +136,7 @@ function area(data, metadata, colors, settings, language) {
     yAxisGrid_bar(chart, xAxisWidth, scaleY, setting);
     /* **************************************************** */  
     chart.select("g.yGrid")
-    .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width}, ${setting.padding.top})`);
+    .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width + setting.yTicks.rowMargin}, ${setting.padding.top})`);
 
 
 
@@ -145,7 +145,7 @@ function area(data, metadata, colors, settings, language) {
     xAxisGrid_line(chart, level_1, yAxisHeight, scaleX, setting);
     /* **************************************************** */
     chart.select("g.xGrid")
-    .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width}, ${setting.padding.top + yAxisHeight})`);
+    .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width + setting.yTicks.rowMargin}, ${setting.padding.top + yAxisHeight})`);
 
 
 
@@ -160,6 +160,6 @@ function area(data, metadata, colors, settings, language) {
     .attr("d", d => area(d))
     .attr("fill", d => scaleColor(d.key))
     .attr("stroke", d => scaleColor(d.key))
-    .attr("transform", `translate(${setting.padding.left + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yAxis.lineWidth}, ${setting.padding.top})`);
+    .attr("transform", `translate(${setting.padding.left + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yAxis.lineWidth + setting.yTicks.rowMargin}, ${setting.padding.top})`);
     });
 }

@@ -6,7 +6,7 @@ metadata;chart.source
 metadata;chart.note
 metadata;data.source
 metadata;data.file
-metadata;chart.type;area
+metadata;chart.type;bar.stacked
 metadata;chart.level_1;year
 data;year;Coal;Crude oil;Natural gas;Gas plant natural gas liquids (NGL's);Primary electricity (hydro, nuclear, tidal, solar and wind)
 data;1999;1198794;3949766;3388075;473522;1377649
@@ -30,3 +30,4 @@ data;2016;755748;4253694;4293022;689684;1555952
 data;2017;758047;4397820;4454857;675958;1647562
 data;2018;622159;4297121;4692768;679214;1670374
 data;2019;598413;4269827;4754785;742500;1652277
+data;2020;398413;8269827;7547851;242500;4652277

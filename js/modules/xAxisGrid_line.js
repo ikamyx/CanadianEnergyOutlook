@@ -1,7 +1,7 @@
 "use strict";
 
 function xAxisGrid_line(chart, level_1, yAxisHeight, scaleX, setting) {
-    let ticks = level_1.map(d => d3.timeParse("%Y")(d)).filter((_,i) => i % 5 == 0)
+    let ticks = level_1.map(d => d3.timeParse("%Y")(d)).filter((_,i) => (i % 5 == 0))
     chart.append("g")
     .lower()	
     .attr("class", "xGrid grid")

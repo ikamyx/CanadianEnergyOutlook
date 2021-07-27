@@ -1,8 +1,8 @@
 "use strict";
 
 function yAxisGrid_bar(chart, xAxisWidth, scaleY, setting) {
-    let ticks = scaleY.ticks().filter((_,i) => i % 3 == 0);
-    console.log(ticks)
+    let ticks = scaleY.ticks().filter((_,i) => (i % 4 == 0));
+    console.log(scaleY.ticks(), scaleY.ticks().length - 2, scaleY.ticks()[0], scaleY.ticks()[1], scaleY.ticks()[1] - scaleY.ticks()[0])
     chart.append("g")
     .lower()	
     .attr("class", "yGrid grid")

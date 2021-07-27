@@ -8,7 +8,7 @@ function bar_stacked(data, metadata, colors, settings, language) {
 
 
     // consts
-    const yAxisHeight = setting.dimension.height - (setting.padding.top + setting.padding.bottom + setting.xTicks.row1Margin + setting.xTicks.fontHeight),
+    const yAxisHeight = setting.dimension.height - (setting.padding.top + setting.padding.bottom + setting.xTicks.row1Margin + setting.xTicks.fontHeight + setting.yTicks.rowMargin),
         xAxisWidth = setting.dimension.width*(setting.distribution.plotRatio/100) - (setting.padding.left + setting.padding.legend + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yAxis.lineWidth);
 
 
@@ -79,9 +79,9 @@ function bar_stacked(data, metadata, colors, settings, language) {
     /* **************************************************** */
     let yAxisLabelWidth = chart.select("g.y_axis > .text").node().getBBox().width;
     chart.select("g.y_axis > .text")
-    .attr("transform", `translate(${-1 * (setting.yAxis.labelMargin + setting.yAxis.width)}, ${(yAxisHeight) / 2 + yAxisLabelWidth / 2}) rotate(-90)`);
+    .attr("transform", `translate(${-1 * (setting.yAxis.labelMargin + setting.yAxis.width + setting.yTicks.rowMargin)}, ${(yAxisHeight) / 2 + yAxisLabelWidth / 2}) rotate(-90)`);
     chart.select("g.y_axis")
-    .attr("transform", `translate(${setting.padding.left + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight}, ${setting.padding.top})`);
+    .attr("transform", `translate(${setting.padding.left + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yTicks.rowMargin}, ${setting.padding.top})`);
 
 
 
@@ -94,7 +94,7 @@ function bar_stacked(data, metadata, colors, settings, language) {
 
     // add the x axis
     chart.append("g")
-    .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width}, ${setting.padding.top + yAxisHeight})`)
+    .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width + setting.yTicks.rowMargin}, ${setting.padding.top + yAxisHeight})`)
     .attr("class", "x_axis")
     .call(d3.axisBottom(scaleX).ticks(0));
 
@@ -116,10 +116,10 @@ function bar_stacked(data, metadata, colors, settings, language) {
         
     // add grid lines for y axis
     /* **************************************************** */
-    yAxisGrid_bar(chart, xAxisWidth, scaleY);
+    yAxisGrid_bar(chart, xAxisWidth, scaleY, setting);
     /* **************************************************** */  
     chart.select("g.grid")
-    .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width}, ${setting.padding.top})`);
+    .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width + setting.yTicks.rowMargin}, ${setting.padding.top})`);
 
 
 
@@ -178,7 +178,7 @@ function bar_stacked(data, metadata, colors, settings, language) {
     chart.selectAll("g.bar_group")
     .each(function(_, i) {
         d3.select(this)
-        .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width + setting.yAxis.lineWidth + distribution.preSpace}, 0)`)
+        .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width + setting.yAxis.lineWidth + setting.yTicks.rowMargin + distribution.preSpace}, 0)`)
     });
 
 
