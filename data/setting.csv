@@ -323,5 +323,6 @@ area,yAxis,labelHeight,18,no
 area,xTicks,row1Margin,10,yes
 area,xTicks,lineSeparatorExtra,0,no
 area,xTicks,fontHeight,10,no
+area,yTicks,rowMargin,10,yes
 area,distribution,plotRatio,85,yes
 area,distribution,legendRatio,15,yes

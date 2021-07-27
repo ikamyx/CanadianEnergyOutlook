@@ -9,7 +9,7 @@ function area(data, metadata, colors, settings, language) {
 
     // consts
     const yAxisHeight = setting.dimension.height - (setting.padding.top + setting.padding.bottom + setting.xTicks.row1Margin + setting.xTicks.fontHeight),
-          xAxisWidth = setting.dimension.width*(setting.distribution.plotRatio/100) - (setting.padding.left + setting.padding.legend + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yAxis.lineWidth);
+          xAxisWidth = setting.dimension.width*(setting.distribution.plotRatio/100) - (setting.padding.left + setting.padding.legend + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yAxis.lineWidth + setting.yTicks.rowMargin);
 
 
 
@@ -109,7 +109,7 @@ function area(data, metadata, colors, settings, language) {
     /* **************************************************** */
     let yAxisLabelWidth = chart.select("g.y_axis > .text").node().getBBox().width;
     chart.select("g.y_axis > .text")
-    .attr("transform", `translate(${-1 * (setting.yAxis.labelMargin + setting.yAxis.width)}, ${(yAxisHeight) / 2 + yAxisLabelWidth / 2}) rotate(-90)`);
+    .attr("transform", `translate(${-1 * (setting.yAxis.labelMargin + setting.yAxis.width + setting.yTicks.rowMargin)}, ${(yAxisHeight) / 2 + yAxisLabelWidth / 2}) rotate(-90)`);
     chart.select("g.y_axis")
     .attr("transform", `translate(${setting.padding.left + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight}, ${setting.padding.top})`);
 
@@ -133,9 +133,9 @@ function area(data, metadata, colors, settings, language) {
         
     // add grid lines for y axis
     /* **************************************************** */
-    yAxisGrid_bar(chart, xAxisWidth, scaleY);
+    yAxisGrid_bar(chart, xAxisWidth, scaleY, setting);
     /* **************************************************** */  
-    chart.select("g.grid")
+    chart.select("g.yGrid")
     .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width}, ${setting.padding.top})`);
 
 
@@ -144,7 +144,7 @@ function area(data, metadata, colors, settings, language) {
     /* **************************************************** */
     xAxisGrid_line(chart, level_1, yAxisHeight, scaleX, setting);
     /* **************************************************** */
-    chart.select("g.grid")
+    chart.select("g.xGrid")
     .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width}, ${setting.padding.top + yAxisHeight})`);
 
 
