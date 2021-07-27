@@ -323,9 +323,5 @@ area,yAxis,labelHeight,18,no
 area,xTicks,row1Margin,10,yes
 area,xTicks,lineSeparatorExtra,0,no
 area,xTicks,fontHeight,10,no
-area,distribution,preSpacePercent,10,yes
-area,distribution,postSpacePercent,10,yes
-area,distribution,barSpacePercent,36,yes
-area,distribution,barWidthPercent,44,yes
 area,distribution,plotRatio,85,yes
 area,distribution,legendRatio,15,yes
