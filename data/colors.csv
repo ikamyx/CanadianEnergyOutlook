@@ -1,5 +1,7 @@
 variable,label_fr,label_en,color
 1998,1998,1998,#5487a4
+2008,2008,2008,#88b04b
+2018,2018,2018,#ea5530
 1990 (energy),1990 (lié à l'énergie),1990 (energy),#5487a4
 1990 (non-energy),1990 (non énergétique ),1990 (non-energy),#a9c4d3
 "1990 (oil & gas, refineries, fugitive sources)","1990 (pétrole, gaz, raffinage, incluant sources fugitives)","1990 (oil & gas, refineries, fugitive sources)",#5487a4
@@ -8,8 +10,6 @@ variable,label_fr,label_en,color
 2005 (non-energy),2005 (non énergétique),2005 (non-energy),#c5d9a7
 "2005 (oil & gas, refineries, fugitive sources)","2005 (pétrole, gaz, raffinage, incluant sources fugitives)","2005 (oil & gas, refineries, fugitive sources)",#88b04b
 2005 (other),2005 (autre),2005 (other),#c5d9a7
-2008,2008,2008,#88b04b
-2018,2018,2018,#ea5530
 2019 (energy),2019 (lié à l'énergie),2019 (energy),#ea5530
 2019 (non-energy),2019 (non énergétique),2019 (non-energy),#f6b4a4
 "2019 (oil & gas, refineries, fugitive sources)","2019 (pétrole, gaz, raffinage, incluant sources fugitives)","2019 (oil & gas, refineries, fugitive sources)",#ea5530
@@ -17,25 +17,25 @@ variable,label_fr,label_en,color
 AB,AB,AB,#d3c2ac
 Aérien,Aérien,Air,#9bd4dd
 Agriculture,Agriculture,Agriculture,#88b04b
-Agriculture and Forestry energy use,,Agriculture and Forestry energy use,#bdd030
-Appliances,Appareils ménagers (ou électroménagers),Appliances,#f6b4a4
+Agriculture and Forestry energy use,Utilisation d'énergie en agriculture et foresterie,Agriculture and Forestry energy use,#bdd030
+Appliances,Électroménagers,Appliances,#f6b4a4
 Australia,Australie,Australia,#5487a4
 Austria,Autriche,Austria,#5487a4
-Autobus,Autobus,Buses,#88b14b
-Autres renouvelables,Autres renouvelables,Other renewable,#82368c
-Aviation Gasoline,Kérosène,Aviation Gasoline,#82368c
-Aviation Gasoline,Kérosène,Aviation Gasoline,#82368c
+Autobus,Autobus,Buses,#4a3b4d
+Autres renouvelables,Autres renouvelables,Other renewable,#a17591
+Aviation Gasoline,Kérosène,Aviation Gasoline,#314deb
+Aviation Gasoline,Kérosène,Aviation Gasoline,#314deb
 Aviation Turbo Fuel,Kérosène,Aviation Turbo Fuel,#82368c
 Aviation Turbo Fuel,Kérosène,Aviation Turbo Fuel,#82368c
-Avions,Avions,Airplanes,#82368c
+Avions,Avions,Airplanes,#378c50
 BC,BC,BC,#bdd030
 Belgium,Belgique,Belgium,#5487a4
 Bioénergie,Bioénergie,Bioenergy,#88b04b
-Biogas de site d’enfouissement,Biogaz de site d'enfouissement,Landfill biogas,#88b04b
-Biomasse,Biomasse,Biomass,#88b04b
+Biogaz de site d’enfouissement,Biogaz de site d'enfouissement,Landfill biogas,#88b04b
+Biomasse,Biomasse,Biomass,#b04c4c
 Boue d’épuration,Boue d’épuration,Sludge,#7b3a38
 CA,CA,CA,#000000
-Camions légers,Camions légers,Light trucks,#9bd4dd
+Camions légers,Camions légers,Light trucks,#d3ed40
 CAN,CAN,CAN,#000000
 Canada,Canada,Canada,#d20a11
 Carburant d'aviation,Carburant d'aviation OU Kérosène,Aviation fuel,#82368c
@@ -46,10 +46,10 @@ Caténaire diesel,Caténaire diesel,Diesel catenary,#bfa904
 Caténaire électrique,Caténaire électrique,Electric catenary,#e8d4b7
 Caténaire gaz naturel,Caténaire gaz naturel,Natural gas catenary,#e85810
 Chaleur,Chaleur,Heat,#d20a11
-Changement de carburant,,Fuel change,#d20a11
-Charbon,Charbon,Coal,#ea5530
-Charbon et matière résiduelle,Charbon et matière résiduelle,Coal and residual material,#ea5530
-"Charbon, coke et matière résiduelle","Charbon, coke et matière résiduelle","Coal, coke and residual material",#ea5530
+Changement de carburant,Changement de carburant,Fuel change,#415243
+Charbon,Charbon,Coal,#573e37
+Charbon et matière résiduelle,Charbon et matière résiduelle,Coal and residual material,#385737
+"Charbon, coke et matière résiduelle","Charbon, coke et matière résiduelle","Coal, coke and residual material",#374957
 Chauffage de l’espace,Chauffage des bâtiments,Space heating,#d20a11
 Chauffage urbain,Chauffage urbain,Urban heating,#820344
 "Chaulage, application d'urée et autres engrais carbonés","Chaulage, application d'urée et autres engrais carbonés","Liming, application of urea and other carbon fertilizers",#5487a4
@@ -59,7 +59,7 @@ Ciment - Portland,Ciment – Portland,Cement – Portland,#63625a
 Ciment - Portland - Changement carburant,Ciment – Portland – Changement carburant,Cement – Portland – Fuel change,#325a11
 Ciment - Variation de la production,Ciment – Variation de la production,Cement – Production change,#84a569
 Coal,Charbon,Coal,#ea5530
-Commercial,Commercial,Commercial,#f7d255
+Commercial,Commercial,Commercial,#367047
 Commercial and Institutional,Secteur commercial et institutionnel,Commercial and Institutional,#f7d255
 Conservation d'énergie,Conservation d'énergie,Energy conservation,#6ec083
 Conventionnel - Diesel,Conventionnel - Diesel,Conventional - Diesel,#8d0bd9
@@ -67,23 +67,22 @@ Conventionnel - Gaz Naturel,Conventionnel - Gaz naturel,Conventional - Natural g
 Crude oil,Pétrole brut,Crude oil,#7d4e24
 Culture dédiée,Culture dédiée,Dedicated culture,#f39200
 Czech Republic,République Tchèque,Czech Republic,#5487a4
-DAC,,DAC,#7d4e24
-DAC - Énergie,,DAC – energy,#878787
-Déchets,Déchets,Waste,#7b3a38
+DAC,DAC,DAC,#7d4e24
+DAC - Énergie,DAC – Énergie,DAC – energy,#878787
 Déchets,Déchets,Waste,#7b3a38
 Denmark,Danemark,Denmark,#5487a4
 Diesel,Diesel,Diesel,#878787
 Diesel Fuel Oil,Diesel,Diesel Fuel Oil,#878787
 Électricité,Électricité,Electricity,#9bd4dc
-Électricité - Biomasse + CCS,Électricité - Biomasse + CCS,Hydrogen – Biomass + CCS,#e8d4b7
-Electricité - CCS - stokées,,Electricity – CCS -stored,#346b7c
+Électricité - Biomasse + CCS,Électricité - Biomasse + CSC,Hydrogen – Biomass + CCS,#e8d4b7
+Electricité - CCS - stokées,Electricité - CSC - stokées,Electricity – CCS -stored,#346b7c
 Électricité - centralisée,Électricité - centralisée,Centralized electricity,#4f9db6
-Électricité - Centralisée,Électricité - Centralisée,Centralized electricity,#4f9db6
+Électricité - Centralisée,Électricité - centralisée,Centralized electricity,#4f9db6
 Électricité - décentralisée,Électricité - décentralisée,Decentralized electricity,#bedbe4
-Électricité - Décentralisée,Électricité - Décentralisée,Decentralized electricity,#bedbe4
-Electricité décentralisée,Electricité décentralisée,Decentralized electricity,#bedbe4
+Électricité - Décentralisée,Électricité - décentralisée,Decentralized electricity,#bedbe4
+Electricité décentralisée,Electricité - décentralisée,Decentralized electricity,#bedbe4
 Electricity,Électricité,Electricity,#9bd4dc
-Engrais - CCS,Engrais – CCS,Fertilizer – CCS,#067906
+Engrais - CCS,Engrais – CSC,Fertilizer – CCS,#067906
 Engrais - Standard,Engrais – Standard,Fertilizer – Standard,#08c408
 Éolien,Éolien,Wind,#bcdbf4
 Essence,Essence,Gasoline,#b8b7b7
@@ -99,60 +98,60 @@ Freight transport,Transport de marchandises,Freight transport,#f39200
 Fumier,Fumier,Manure,#b6807d
 Gas plant natural gas liquids (NGL's),Liquides de gaz naturel des usines de gaz,Gas plant natural gas liquids (NGL's),#d29d31
 Gaz naturel,Gaz naturel,Natural gas,#b1900a
-Gaz naturel - Centralisée,Gaz naturel - Centralisée,Centralized natural gas,#bfa904
-Gaz naturel - Décentralisée,Gaz naturel - Décentralisée,Decentralized natural gas,#5487a4
-Gaz naturel et Gaz naturel liquéfié,Gaz naturel et gaz naturel liquéfié,Natural gas and Liquified natural gas,#b1900a
-Gaz naturel liquefié,Gaz naturel liquéfié,Liquified natural gas,#b1900a
-Gaz naturel renouvelable,Gaz naturel renouvelable,Renewable natural gas,#b1900a
+Gaz naturel - Centralisée,Gaz naturel - centralisée,Centralized natural gas,#bfa904
+Gaz naturel - Décentralisée,Gaz naturel - décentralisée,Decentralized natural gas,#a3536d
+Gaz naturel et Gaz naturel liquéfié,Gaz naturel et gaz naturel liquéfié,Natural gas and Liquified natural gas,#524c35
+Gaz naturel liquéfié,Gaz naturel liquéfié,Liquified natural gas,#b1a548
+Gaz naturel renouvelable,Gaz naturel renouvelable,Renewable natural gas,#c68742
 Géo et solaire thermique,Géo et solaire thermique,Geothermal and solar thermal,#ffe36d
-Géothermie,Géothermie,Geothermal,#82368c
+Géothermie,Géothermie,Geothermal,#374f8c
 Germany,Allemagne,Germany,#5487a4
 Gestion des fumiers,Gestion des fumiers,Management of manure,#bdd030
 Greece,Grèce,Greece,#5487a4
-Heating Oil,Mazout,Heating Oil,#b8b7b7
-Heavy Fuel Oil,Mazout lourd,Heavy Fuel Oil,#5d675f
-"Heavy fuel oil, diesel and light fuel oil","Mazout lourd, diesel et mazout léger","Heavy fuel oil, diesel and light fuel oil",#5d675f
-Hors route,Hors route,Off-road,#ea5530
+Heating Oil,Huile de chauffage,Heating Oil,#626e65
+Heavy Fuel Oil,Mazout lourd,Heavy Fuel Oil,#051b36
+"Heavy fuel oil, diesel and light fuel oil","Mazout lourd, diesel et mazout léger","Heavy fuel oil, diesel and light fuel oil",#051b36
+Hors route,Hors route,Off-road,#a89e9b
 Hungary,Hongrie,Hungary,#5487a4
 Hybride diesel,Hybride diesel,Hybrid diesel,#7d4e24
-Hybride rechargeable diesel,Hybride rechargeable diesel,Diesel plug-in hybrid,#4f9db6
-Hybride rechargeable gaz naturel,Hybride rechargeable gaz naturel,Natural gas plug-in hybrid,#878787
+Hybride rechargeable diesel,Hybride rechargeable diesel,Diesel plug-in hybrid,#245261
+Hybride rechargeable gaz naturel,Hybride rechargeable gaz naturel,Natural gas plug-in hybrid,#47544b
 Hydro,Hydro,Hydro,#4f9db6
-Hydroélectrique,Hydroélectrique,Hydroelectric,#4f9db6
-Hydroélectrique,Hydroélectrique,Hydroelectric,#4f9db6
-Hydrogène,Hydrogène,Hydrogen,#4f9db6
+Hydroélectrique,Hydroélectrique,Hydroelectric,#bacdd4
+Hydroélectrique,Hydroélectrique,Hydroelectric,#002060
+Hydrogène,Hydrogène,Hydrogen,#ffc000
 Hydrogène - Biomasse + CCS,Hydrogène - Biomasse + CCS,Electricity – Biomass + CCS,#8d0bd9
 Incinération des résidus agricoles dans les champs,Incinération des résidus agricoles dans les champs,Burning of agricultural waste in fields,#ca9e67
 Industrial,Industries,Industrial,#5487a4
 Industrial processes,Procédés industriels,Industrial processes,#5487a4
 Industrie,Industrie,Industry,#5d675f
 Industrie - Combustion,Industrie - combustion,Industry – Combustion,#d20a11
-Industrie - Process,Procédés industriels,Industry – Process,#5487a4
-Industrie Combustion - CCS - réutilisées,,Industry Combustion – CCS - reutilized,#d29d31
-Industrie Combustion - CCS - stokées,,Industry Combustion – CCS - stored,#f6b4a4
-Industrie Procédés - CCS - réutilisées,,Industry Processes – CCS – reutilized,#09542a
-Industrie Procédés - CCS - stokées,,Industry Processes – CCS – stored,#414704
+Industrie - Process,Procédés industriels,Industry – Process,#ccc321
+Industrie Combustion - CCS - réutilisées,Industrie Combustion - CSC - réutilisées,Industry Combustion – CCS - reutilized,#d29d31
+Industrie Combustion - CCS - stokées,Industrie Combustion - CSC - stockées,Industry Combustion – CCS - stored,#f6b4a4
+Industrie Procédés - CCS - réutilisées,Industrie Procédés - CSC - réutilisées,Industry Processes – CCS – reutilized,#09542a
+Industrie Procédés - CCS - stokées,Industrie Procédés - CSC - stockées,Industry Processes – CCS – stored,#414704
 Industries chimiques,Industries chimiques,Chemical industries,#6ec083
-Industry energy use,,Industry energy use,#5d675f
+Industry energy use,Utilisation d'énergie en industrie,Industry energy use,#5d675f
 Ireland,Irlande,Ireland,#5487a4
 Israel,Israël,Israel,#5487a4
 Italy,Italie,Italy,#5487a4
 Japan,Japon,Japan,#5487a4
 Journaux - CCS,Journaux – CCS,Newspaper – CCS,#c5d9a7
-Journaux - Standard,Journaux – standard,Newspaper – Standard,#88b04b
+Journaux - Standard,Journaux – standard,Newspaper – Standard,#486682
 "Korea, Rep.",Corée du Sud,"Korea, Rep.",#5487a4
 Lighting,Éclairage,Lighting,#ffe36d
-Liqueur noire,Liqueur noire,Black liquor,#5d675f
+Liqueur noire,Liqueur noire,Black liquor,#1e211e
 Luxembourg,Luxembourg,Luxembourg,#5487a4
 Mais et Blé,Mais et blé,Corn and wheat,#f7d255
 Maritime,Maritime,Maritime,#bcdbf4
 Matière organique municipale,Matière organique municipale,Municipal organic waste,#a4aba6
 Mazout léger & lourd,Mazout léger & lourd,Light & heavy fuel oil,#b6807d
 MB,MB,MB,#e7dad8
-Métros & Trains,Métros & trains,Subways & Trains,#f19100
+Métros & Trains,Métros & trains,Subways & Trains,#e6e854
 Mexico,Mexique,Mexico,#5487a4
 Motocyclettes,Motocyclettes,Motorcycles,#f6d254
-Motor Gasoline,Essence automobile,Motor Gasoline,#b8b7b7
+Motor Gasoline,Essence automobile,Motor Gasoline,#804f4f
 Natural gas,Gaz naturel,Natural gas,#b1900a
 NB,NB,NB,#f09687
 NC,NC,NC,#5f4c8b
@@ -173,27 +172,27 @@ Other,Autre,Other,#88b04b
 Other (including coal and propane),Autres (y compris charbon et propane),Other (including coal and propane),#6ff61d
 Papier - CCS,Papier – CCS,Paper – CCS,#f6d254
 Papier - Standard,Papier – standard,Paper – Standard,#f19100
-Passenger transport,Transport des passagers,Passenger transport,#b1900a
-Pâte Chimique - CCS,Pâte chimique – CCS,Chemical pulp – CCS,#6d2e55
+Passenger transport,Transport des passagers,Passenger transport,#876d03
+Pâte Chimique - CCS,Pâte chimique – CCS,Chemical pulp – CCS,#80093a
 Pâte Mécanique - CCS,Pâte mécanique – CCS,Mechanical pulp – CCS,#6d2e55
 Pâtes Chimique - Standard,Pâte chimique – standard,Chemical pulp -Standard,#a8146e
-Pâtes Mécanique - Standard,Pâte mécanique – standard,Mechanical pulp – Standard,#a8146e
+Pâtes Mécanique - Standard,Pâte mécanique – standard,Mechanical pulp – Standard,#eb367b
 PE,PE,PE,#a6c497
 Pétrochimie - CCS,Pétrochimie – CCS,Petrochemical – CCS,#a9c4d3
-Pétrochimie - Standard,Pétrochimie – Standard,Petrochemical - Standard,#5487a4
-Pétrole,Pétrole,Oil,#7d4e24
+Pétrochimie - Standard,Pétrochimie – Standard,Petrochemical - Standard,#e05904
+Pétrole,Pétrole,Oil,#211a1d
 Pétrole brut,Pétrole brut,Crude oil,#7d4e24
 Poêle à bois ou aux granules,Poêle à bois ou aux granules,Wood or pellet stove,#ca9e67
 Poland,Pologne,Poland,#5487a4
 Portugal,Portugal,Portugal,#5487a4
-"Primary electricity (hydro, nuclear, tidal, solar and wind)","Électricité primaire (hydro, nucléaire, marée, solaire, éolien)","Primary electricity (hydro, nuclear, tidal, solar and wind)",#9bd4dc
+"Primary electricity (hydro, nuclear, tidal, solar and wind)","Électricité primaire (hydro, nucléaire, marée, solaire, éolien)","Primary electricity (hydro, nuclear, tidal, solar and wind)",#07d9f5
 "Primary electricity, hydro and nuclear",Électricité primaire (hydro et nucléaire),"Primary electricity, hydro and nuclear",#9bd4dc
 Prince Edward Island,Île-duPrince-Édouard,Prince Edward Island,#ca9e67
 Producer consumption,Consommation des producteurs,Producer consumption,#bfa904
 Production d’électricité,Production d’électricité,Production of electricity,#9bd4dc
 Production d’hydrogène,Production d’hydrogène,Hydrogen production,#4f9db6
-Production de biocarburant,Production de biocarburant,Production of biofuel,#88b04b
-Production de gaz naturel renouvelable,Production de gaz naturel renouvelable,Production of renewable natural gas,#b1900a
+Production de biocarburant,Production de biocarburant,Production of biofuel,#3af518
+Production de gaz naturel renouvelable,Production de gaz naturel renouvelable,Production of renewable natural gas,#0b3fb0
 Production de granule de bois,Production de granule de bois,Production of wood pellets,#ca9e67
 Production d'énergie,Production d'énergie,Energy generation,#b6807d
 Production d'énergie - CCS - stokées,,Energy production – CCS – stored,#c5d9a7
@@ -206,7 +205,7 @@ Produit chimique basique - CCS,Produit chimique basique – CCS,Basic chemical p
 Produit chimique basique - Standard,Produit chimique basique – Standard,Basic chemical product -Standard,#ea5530
 Produit non énergétique,Produit non énergétique,Non-energy product,#bdd030
 Produit non-énergétique,Produit non énergétique,Non-energy product,#c5d9a7
-Produit pétrolier,Produit pétrolier,Petroleum product,#ca9e67
+Produit pétrolier,Produit pétrolier,Petroleum product,#b87f9c
 Produits minéraux,Produits minéraux,Mineral products,#747571
 Produits non énergétiques provenant de combustibles et de l’utilisation de solvant,Produits non énergétiques provenant de combustibles et de l’utilisation de solvant,Non-energy products from combustibles and use of solvents,#6b305e
 Propane,Propane,Propane,#f9b674
@@ -215,7 +214,7 @@ Propane,Propane,Propane,#f9b674
 Publ. Admin. and Comm./Inst.,Adm. pub. et secteur commercial et institutionnel,Adm. pub. et secteur commercial et institutionnel,#7edeab
 Public Electricity and Heat Production,Électricité et production de chaleur,Public Electricity and Heat Production,#9bd4dc
 QC,QC,QC,#2f6cb0
-Réduction de la production,,Reduction in production,#f6d254
+Réduction de la production,,Reduction in production,#faedbe
 REF,,REF,#bdd030
 Refined petroleum products,Produits pétroliers raffinés,Refined petroleum products,#5d675f
 Renouvelable,Renouvelable,Renewable,#6ec083
@@ -231,12 +230,12 @@ SK,SK,SK,#7b3a38
 Slovak Republic,République slovaque,Slovak Republic,#5487a4
 Slovenia,Slovénie,Slovenia,#5487a4
 "Soja, Canola et residues de graisse","Soja, canola et residus de graisse","Soya, canola and fatty residues",#bfa904
-Solaire,Solaire,Solar,#ffe36d
+Solaire,Solaire,Solar,#ffff00
 Solaire,Solaire,Solar,#ffe36d
 Solar,Solaire,Solar,#ffe36d
 Sols agricoles,Sols agricoles,Agricultural soils,#4d4736
-Sources Fugitives,Sources fugitives,Fugitive sources,#b6807d
-Space Cooling,Climatisation des bâtiments,Space Cooling,#88b04b
+Sources Fugitives,Sources fugitives,Fugitive sources,#20606b
+Space Cooling,Climatisation des bâtiments,Space Cooling,#3d6107
 Space Heating,Chauffage des bâtiments,Space Heating,#d20a11
 Spain,Espagne,Spain,#5487a4
 Stockage,Stockage,Storage,#f6b4a4
@@ -245,29 +244,26 @@ Sweden,Suède,Sweden,#5487a4
 Switzerland,Suisse,Switzerland,#5487a4
 Système à hydrogène,Système à hydrogène,Hydrogen system,#09542a
 Système au charbon,Système au charbon,Coal system,#ea5530
-Système au gaz naturel,Système au gaz naturel,Natural gas system,#b1900a
-Système au mazout,Système au mazout,Oil system,#b8b7b7
-Système au propane,Système au propane,Propane system,#f9b674
-Système électrique,Système électrique,Electric system,#9bd4dc
-Système solaire thermique,Système solaire thermique,Solar thermal system,#ffe36d
+Système au gaz naturel,Système au gaz naturel,Natural gas system,#0b4fb0
+Système au mazout,Système au mazout,Oil system,#036b58
+Système au propane,Système au propane,Propane system,#3d6385
+Système électrique,Système électrique,Electric system,#9bdb9a
+Système solaire thermique,Système solaire thermique,Solar thermal system,#ff7700
 Territories,Territoires,Territories,#bfa904
 Thermique,Thermique,Thermal,#d20a11
 Thermique,Thermique,Thermal,#d20a11
-Thermopompe au gaz naturel,Thermopompe au gaz naturel,Natural gas heat pump,#f39200
-Thermopompe électrique,Thermopompe électrique,Electric heat pump,#4f9db6
+Thermopompe au gaz naturel,Thermopompe au gaz naturel,Natural gas heat pump,#30e3e3
+Thermopompe électrique,Thermopompe électrique,Electric heat pump,#02a199
 Torchage,Torchage,Flaring,#1c324d
-Tout électrique,Tout électrique,All-electric,#9bd4dc
-Transport,Transport,Transport,#ea5530
-Transport,Transport,Transport,#ea5530
-Transport,Transports,,#ea5530
-Transport,Transports,Transports,#ea5530
+Tout électrique,Tout électrique,All-electric,#9aa8db
+Transport,Transport,Transport,#314deb
 Turkey,Turquie,Turkey,#5487a4
 United Kingdom,Royaume-Uni,United Kingdom,#5487a4
 United States,États-Unis,United States,#5487a4
 Uranium,Uranium,Uranium,#000000
-Usage en agriculture,Usage en agriculture,Agriculture applications,#88b04b
-Usage en transport,Usage en agriculture,Transportation applications,#820344
-Usage industriel,Usage industriel,Industrial use,#5487a4
+Usage en agriculture,Usage en agriculture,Agriculture applications,#024a07
+Usage en transport,Usage en transport,Transportation applications,#820344
+Usage industriel,Usage industriel,Industrial use,#024a07
 Usine avec CSC,Usine avec CSC,Plant with CSC,#5487a4
 Voitures,Voitures,Cars,#60613b
 Waste,Déchets,Waste,#7b3a38

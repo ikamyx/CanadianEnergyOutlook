@@ -1,14 +1,21 @@
 "use strict";
 
 function yAxisGrid_bar(chart, xAxisWidth, scaleY, setting) {
-    let ticks = scaleY.ticks().filter((_,i) => (i % 4 == 0));
-    console.log(scaleY.ticks(), scaleY.ticks().length - 2, scaleY.ticks()[0], scaleY.ticks()[1], scaleY.ticks()[1] - scaleY.ticks()[0])
+    let ticks = scaleY.ticks();
+    let distance = (ticks[ticks.length - 1] - ticks[0]) / 5;
+    let newTicks = new Array();
+    if(ticks[0] < 0) newTicks.push(0);
+    for(let i = 0; i <= 5; i++) {
+        let value = ticks[0] + i*distance;
+        newTicks.push(value);
+    }
+    console.log(newTicks)
     chart.append("g")
     .lower()	
     .attr("class", "yGrid grid")
     .call(d3.axisLeft(scaleY)
         .tickSize(-xAxisWidth)
-        .tickValues(ticks)
+        .tickValues(newTicks)
     );
     chart.selectAll("g.grid line")
     .each(function() {

@@ -175,11 +175,11 @@ g.grid g.tick text {
 }
 
 g.y_axis .text text, g.x_axis .text text {
-    font-size: 15px; /*13px*/
+    font-size: 13px; /*13px*/
     fill: #777;
     font-family: "News Cycle";
     word-spacing: 3px;
-    font-variant: all-small-caps;
+    /* font-variant: all-small-caps; */
 }
 
 g.figureTitle text, g.title text {
@@ -190,7 +190,7 @@ g.figureTitle text, g.title text {
 g.figureTitle text {
     font-size: 21px;
     word-spacing: 2px;
-    font-variant: all-small-caps;
+    /* font-variant: all-small-caps; */
 }
 
 g.title text {
