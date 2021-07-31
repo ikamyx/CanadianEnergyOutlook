@@ -1,0 +1,16 @@
+metadata;chart.title;Primary energy supply
+metadata;chart.subtitle
+metadata;chart.xLabel;Years
+metadata;chart.yLabel;TJ
+metadata;chart.source
+metadata;chart.note
+metadata;data.source
+metadata;data.file
+metadata;chart.type;bar.stacked
+metadata;chart.level_1;year
+data;year;Coal;Crude oil;Natural gas;Gas plant natural gas liquids (NGL's);Primary electricity (hydro, nuclear, tidal, solar and wind)
+data;A;1198794;3949766;3388075;473522;1377649
+data;B;1268587;4088024;3589469;416895;1396179
+data;C;1314497;4170052;3381300;491213;1364567
+data;D;1331137;4204736;3519641;520794;1431883
+data;E;1326860;4365104;3614732;490079;1432559
