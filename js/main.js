@@ -161,7 +161,7 @@
         if(language == "label_en"){language = "en"}
         else if(language == "label_fr"){language = "fr"}
         let svg = document.querySelector("svg:not(.hide)");
-        saveSvgAsPng(svg, `${language}_${$figure.classList}.png`, {scale: 4, backgroundColor: "#FFFFFF"});
+        saveSvgAsPng(svg, `${language}_${$figure.classList}.png`, {scale: 8, backgroundColor: "#FFFFFF"});
     }
 
 
