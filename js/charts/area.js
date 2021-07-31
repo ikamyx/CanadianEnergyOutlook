@@ -24,7 +24,7 @@ function area(data, metadata, colors, settings, language) {
 
     // data conversion and re arrange
     /* **************************************************** */
-    dataCoversion_line(data, metadata, attrList, level_1);
+    dataCoversion_area(data, metadata, attrList, level_1);
     /* **************************************************** */
 
 
@@ -68,11 +68,13 @@ function area(data, metadata, colors, settings, language) {
 
 
 
+
     // initialize
     /* **************************************************** */
     let chart = initChart(data_, setting, attrList);
     /* **************************************************** */
 
+    
 
 
     // legend
@@ -142,7 +144,7 @@ function area(data, metadata, colors, settings, language) {
 
     // add grid lines for x axis
     /* **************************************************** */
-    xAxisGrid_line(chart, level_1, yAxisHeight, scaleX, setting);
+    xAxisGrid_area(chart, level_1, yAxisHeight, scaleX, setting);
     /* **************************************************** */
     chart.select("g.xGrid")
     .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width + setting.yTicks.rowMargin}, ${setting.padding.top + yAxisHeight})`);

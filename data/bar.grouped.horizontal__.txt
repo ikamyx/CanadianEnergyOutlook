@@ -1,0 +1,43 @@
+metadata;chart.title;
+metadata;chart.subtitle;
+metadata;chart.xLabel;
+metadata;chart.yLabel;
+metadata;chart.source;
+metadata;chart.section;
+metadata;chart.type;bar.grouped.horizontal;
+metadata;chart.level_1;year;
+metadata;chart.level_2;sector;
+metadata;chart.note;
+metadata;data.source;
+metadata;data.file;
+data;sector;year;value
+data;Forestry (0.7%);1998;12
+data;Forestry (0.7%);2008;31
+data;Forestry (0.7%);2018;27
+data;Cement (1.6%);1998;61
+data;Cement (1.6%);2008;65
+data;Cement (1.6%);2018;60
+data;Construction (3.0%);1998;48
+data;Construction (3.0%);2008;75
+data;Construction (3.0%);2018;114
+data;Iron and Steel (6.5%);1998;256
+data;Iron and Steel (6.5%);2008;247
+data;Iron and Steel (6.5%);2018;243
+data;Smelting and Refining (7.1%);1998;237
+data;Smelting and Refining (7.1%);2008;263
+data;Smelting and Refining (7.1%);2018;264
+data;Chemicals (7.3%);1998;262
+data;Chemicals (7.3%);2008;242
+data;Chemicals (7.3%);2018;274
+data;Petroleum Refining (7.5%);1998;356
+data;Petroleum Refining (7.5%);2008;351
+data;Petroleum Refining (7.5%);2018;285
+data;Other Manufacturing (12.6%);1998;523
+data;Other Manufacturing (12.6%);2008;522
+data;Other Manufacturing (12.6%);2018;470
+data;Pulp and Paper (15.0%);1998;796
+data;Pulp and Paper (15.0%);2008;631
+data;Pulp and Paper (15.0%);2018;561
+data;Mining, Quarrying, and Oil and Gas Extraction (38.6%);1998;445
+data;Mining, Quarrying, and Oil and Gas Extraction (38.6%);2008;860
+data;Mining, Quarrying, and Oil and Gas Extraction (38.6%);2018;1442

@@ -7,19 +7,21 @@ function dataCoversion_line(data, metadata, attrList, level_1) {
         let sum = 0;
         // adding sum of each row of data
         attrList.forEach(d => {
+            let value = e[d];
+            if(value.toString().includes("-")) value = 0;
             e.sumPositive = sumPositive;
             e.sumNegative = sumNegative;
-            if(e[d] >= 0) {
-                sumPositive = e[d] + sumPositive;
+            if(value >= 0) {
+                sumPositive = value + sumPositive;
                 e.sumPositive = sumPositive;
             }
-            else {
-                sumNegative = e[d] + sumNegative;
+            else if(value) {
+                sumNegative = value + sumNegative;
                 e.sumNegative = sumNegative;
             }
-            sum = e[d] + sum;
+            sum = value + sum;
             e.sum = sum;
         });
-        e[metadata.chart[Object.keys({level_1})]] = d3.timeParse("%Y")(e[metadata.chart[Object.keys({level_1})]])
+        // e[metadata.chart[Object.keys({level_1})]] = d3.timeParse("%Y")(e[metadata.chart[Object.keys({level_1})]])
     });
 }

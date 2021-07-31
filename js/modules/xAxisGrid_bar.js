@@ -1,7 +1,7 @@
 "use strict";
 
-function yAxisGrid_bar(chart, xAxisWidth, scaleY, setting) {
-    let ticks = scaleY.ticks();
+function xAxisGrid_bar(chart, yAxisHeight, scaleX, setting) {
+    let ticks = scaleX.ticks();
     let distance = (ticks[ticks.length - 1] - ticks[0]) / 5;
     let newTicks = new Array();
     if(ticks[0] < 0) newTicks.push(0);
@@ -13,8 +13,8 @@ function yAxisGrid_bar(chart, xAxisWidth, scaleY, setting) {
     chart.append("g")
     .lower()	
     .attr("class", "yGrid grid")
-    .call(d3.axisLeft(scaleY)
-        .tickSize(-xAxisWidth)
+    .call(d3.axisBottom(scaleX)
+        .tickSize(-yAxisHeight)
         .tickValues(newTicks)
     );
     chart.selectAll("g.grid line")
@@ -25,7 +25,7 @@ function yAxisGrid_bar(chart, xAxisWidth, scaleY, setting) {
     chart.selectAll("g.yGrid text")
     .each(function() {
         d3.select(this)
-        .attr("transform", `translate(${-1 * setting.yTicks.rowMargin}, 0)`)
+        .attr("transform", `translate(0, ${setting.xTicks.rowMargin})`)
     });
 }
 

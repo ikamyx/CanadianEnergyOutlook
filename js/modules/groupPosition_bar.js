@@ -9,7 +9,7 @@ function groupPosition_bar(chart, barGroupWidth, barGroupPos, setting, distribut
         for(let k=0; k<i; k++) {
             barGroupPos[i] = barGroupPos[i] + barGroupWidth[k];
         }
-        barGroupPos[i] = barGroupPos[i] + i*distribution.groupSpace + setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width + setting.yAxis.lineWidth + distribution.preSpace;
+        barGroupPos[i] = barGroupPos[i] + i*distribution.groupSpace + setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width + setting.yAxis.lineWidth + distribution.preSpace + setting.yTicks.rowMargin;
     });
 }
 

@@ -8,9 +8,11 @@ function bar_grouped_horizontal(data, metadata, colors, settings, language) {
 
 
     // consts
-    const yAxisHeight = setting.dimension.height - (setting.padding.top + setting.padding.bottom + setting.xTicks.row1Margin + setting.xTicks.lineSeparatorMargin + setting.xTicks.fontHeight),
-          xAxisWidth = setting.dimension.width*(setting.distribution.plotRatio/100) - (setting.padding.left + setting.padding.legend + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yAxis.lineWidth);
+    const yAxisHeight = setting.dimension.height - (setting.padding.top + setting.padding.bottom + setting.xAxis.lineHeight + setting.xAxis.height + setting.xAxis.labelMargin + setting.xAxis.labelHeight + setting.xTicks.rowMargin),
+          xAxisWidth = setting.dimension.width*(setting.distribution.plotRatio/100) - (setting.padding.left + setting.padding.legend + setting.yTicks.row1Margin + setting.yTicks.lineSeparatorMargin + setting.yTicks.fontHeight);
 
+    
+          
 
 
     // attributes
@@ -81,37 +83,37 @@ function bar_grouped_horizontal(data, metadata, colors, settings, language) {
 
 
 
-    // scale for Y
+    // scale for X
     /* **************************************************** */
-    let scaleY = scaleY_bar(data, yAxisHeight);
+    let scaleX = scaleX_bar(data, xAxisWidth);
     /* **************************************************** */
 
 
 
-    // y axis + label
+    // X axis + label
     /* **************************************************** */
-    yAxisInit_bar(chart, scaleY, metadata.chart.yLabel);
+    xAxisInit_bar(chart, scaleX, metadata.chart.xLabel);
     /* **************************************************** */
-    let yAxisLabelWidth = chart.select("g.y_axis > .text").node().getBBox().width;
-    chart.select("g.y_axis > .text")
-    .attr("transform", `translate(${-1 * (setting.yAxis.labelMargin + setting.yAxis.width)}, ${(yAxisHeight) / 2 + yAxisLabelWidth / 2}) rotate(-90)`);
-    chart.select("g.y_axis")
-    .attr("transform", `translate(${setting.padding.left + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight}, ${setting.padding.top})`);
+    let xAxisLabelWidth = chart.select("g.x_axis > .text").node().getBBox().width;
+    chart.select("g.x_axis > .text")
+    .attr("transform", `translate(${xAxisWidth / 2 - xAxisLabelWidth / 2},${setting.xTicks.rowMargin + setting.xAxis.height + setting.xAxis.lineHeight + setting.xAxis.labelMargin})`);
+    chart.select("g.x_axis")
+    .attr("transform", `translate(${setting.padding.left + setting.yTicks.fontHeight + setting.yTicks.lineSeparatorMargin + setting.yTicks.lineSeparatorExtra + setting.yTicks.row1Margin},${setting.padding.top + yAxisHeight})`);
 
 
 
-    //scale for X
-    let scaleX = d3.scaleLinear()
-    .domain([0, xAxisWidth])
-    .range([0, xAxisWidth]);
+    //scale for Y
+    let scaleY = d3.scaleLinear()
+    .domain([0, yAxisHeight])
+    .range([0, yAxisHeight]);
 
 
 
-    // add the x axis
+    // add the y axis
     chart.append("g")
-    .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width}, ${setting.padding.top + yAxisHeight})`)
-    .attr("class", "x_axis")
-    .call(d3.axisBottom(scaleX).ticks(0));
+    .attr("transform", `translate(${setting.padding.left + setting.yTicks.row1Margin + setting.yTicks.lineSeparatorMargin + setting.yTicks.lineSeparatorExtra + setting.yTicks.fontHeight}, ${setting.padding.top})`)
+    .attr("class", "y_axis")
+    .call(d3.axisLeft(scaleY).ticks(0));
 
 
 
@@ -123,20 +125,20 @@ function bar_grouped_horizontal(data, metadata, colors, settings, language) {
         groupSpaceNumber: data_.length - 1,
         barSpaceNumber: 0,
         barNumber: data.length,
-        preSpace: xAxisWidth * (setting.distribution.preSpacePercent/100)
+        preSpace: yAxisHeight * (setting.distribution.preSpacePercent/100)
     }
     /* **************************************************** */
-    distributionCalculation_bar(distribution, data_, xAxisWidth, setting);
+    distributionCalculation_bar(distribution, data_, yAxisHeight, setting);
     /* **************************************************** */
 
     
         
-    // add grid lines for y axis
+    // add grid lines for x axis
     /* **************************************************** */
-    yAxisGrid_bar(chart, xAxisWidth, scaleY);
+    xAxisGrid_bar(chart, yAxisHeight, scaleX, setting);
     /* **************************************************** */  
     chart.select("g.grid")
-    .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width}, ${setting.padding.top})`);
+    .attr("transform", `translate(${setting.padding.left + setting.yTicks.row1Margin + setting.yTicks.lineSeparatorMargin + setting.yTicks.lineSeparatorExtra + setting.yTicks.fontHeight}, ${setting.padding.top + yAxisHeight})`);
 
 
 
@@ -149,41 +151,41 @@ function bar_grouped_horizontal(data, metadata, colors, settings, language) {
         .enter()
         .append("g")
         .each(function(d, j) {
-            let y = 0;
-            let yPositive = 0;
-            let yNegative = 0;
+            let x = 0;
+            let xPositive = 0;
+            let xNegative = 0;
             d3.select(this)
             .attr("data-content", d[metadata.chart.level_1])
             .attr("class", "bar")
-            .attr("transform", `translate(${(distribution.barSpace + distribution.barWidth) * j}, 0)`);
+            .attr("transform", `translate(0, ${(distribution.barSpace + distribution.barWidth) * j})`);
             d3.select(this)
             .selectAll("rect")
             .data(attrList)
             .enter()
             .append("rect")
-            .attr("x", 0)
-            .attr("width", distribution.barWidth)
-            .attr("height", cat => Math.abs(scaleY(0) - scaleY(d[cat])))
+            .attr("y", 0)
+            .attr("height", distribution.barWidth)
+            .attr("width", cat => Math.abs(scaleX(0) - scaleX(d[cat])))
             .attr("fill", cat => scaleColor(d[metadata.chart.level_1]))
             .attr("data-field", cat => cat)
             // adjusting bar positions
             .each(function(_, k) {
-                if(d[attrList[k]] > 0) {
-                    yPositive = yPositive + scaleY(0) - scaleY(d[attrList[k]]);
-                    y = yPositive;
-                }
-                else {
-                    yNegative = yNegative + scaleY(0) - scaleY(d[attrList[k]]);
-                    y = yNegative;
-                }
+                // if(d[attrList[k]] > 0) {
+                //     xPositive = xPositive + scaleX(0) - scaleX(d[attrList[k]]);
+                //     x = xPositive;
+                // }
+                // else {
+                //     xNegative = xNegative + scaleX(0) - scaleX(d[attrList[k]]);
+                //     x = xNegative;
+                // }
                 
                 d3.select(this)
-                .attr("y",  () => {
+                .attr("x",  () => {
                     if(d[attrList[k]] > 0) {
-                        return scaleY(0) - y + setting.padding.top;
+                        return scaleX(0) - x + setting.padding.left + setting.yTicks.row1Margin + setting.yTicks.lineSeparatorMargin + setting.yTicks.lineSeparatorExtra + setting.yTicks.fontHeight;
                     }
                     else {
-                        return 2*scaleY(0) - y - scaleY(d[attrList[k]]) + setting.padding.top;
+                        return 2*scaleX(0) - x - scaleX(d[attrList[k]]) + setting.padding.left + setting.yTicks.row1Margin + setting.yTicks.lineSeparatorMargin + setting.yTicks.lineSeparatorExtra + setting.yTicks.fontHeight;
                     }
                 });
             });
@@ -193,23 +195,23 @@ function bar_grouped_horizontal(data, metadata, colors, settings, language) {
 
 
     
-    let barGroupWidth = [];
+    let barGroupHeight = [];
     let barGroupPos = data_.map(d => 0);
     /* **************************************************** */
-    groupPosition_bar(chart, barGroupWidth, barGroupPos, setting, distribution);
+    groupPosition_bar_horizontal(chart, barGroupHeight, barGroupPos, setting, distribution);
     /* **************************************************** */
     chart.selectAll("g.bar_groups")
     .each(function(_, i) {
         d3.select(this)
-        .attr("transform", `translate(${barGroupPos[i]}, 0)`)
+        .attr("transform", `translate(0, ${barGroupPos[i]})`)
     });
     
 
 
 
-    // add ticks level 1 for x axis
+    // add ticks level 1 for y axis
     /* **************************************************** */
-    ticks_grouped_horizontal_bar(chart, level_2, metadata, yAxisHeight, setting, barGroupWidth);
+    ticks_grouped_horizontal_horizontal_bar(chart, level_2, metadata, xAxisWidth, setting, barGroupHeight);
     /* **************************************************** */
     
 }

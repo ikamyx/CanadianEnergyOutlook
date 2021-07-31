@@ -1,6 +1,6 @@
 "use strict";
 
-function scaleX_line(data, metadata, level_1, xAxisWidth) {
+function scaleX_line_time(data, metadata, level_1, xAxisWidth) {
     let scaleX = d3.scaleTime()
     .domain([
         d3.timeYear.offset(d3.min(data, d => d[metadata.chart[Object.keys({level_1})]]), -1), 

@@ -2,7 +2,7 @@
 
 (function (d3) {
     /***** settings *****/
-    let figures, currentFocus, colors, className, settings;
+    let figures, currentFocus, colors, className, settings, language;
     let fileData = [];
 
     /***** DOM *****/
@@ -129,7 +129,6 @@
 
     function loadData() {
         let value = $input.value;
-        let language;
         if($select.value == "english"){language = "label_en"}
         else if($select.value == "french"){language = "label_fr"}
         let firstSpace = value.indexOf(" ");
@@ -159,8 +158,10 @@
 
 
     function saveToPng() {
+        if(language == "label_en"){language = "en"}
+        else if(language == "label_fr"){language = "fr"}
         let svg = document.querySelector("svg:not(.hide)");
-        saveSvgAsPng(svg, `${$figure.classList}.png`, {scale: 2, backgroundColor: "#FFFFFF"});
+        saveSvgAsPng(svg, `${language}_${$figure.classList}.png`, {scale: 2, backgroundColor: "#FFFFFF"});
     }
 
 
@@ -248,7 +249,7 @@
                     bar_grouped_overlap(parsed.data, parsed.metadata, colors, settings, language);
                     break;
                 case "bar.grouped.horizontal":
-                    // bar_grouped_horizontal(parsed.data, parsed.metadata, colors, settings, language);
+                    bar_grouped_horizontal(parsed.data, parsed.metadata, colors, settings, language);
                     break;
                 case "bar.grouped.grouped":
                     bar_grouped_grouped(parsed.data, parsed.metadata, colors, settings, language);

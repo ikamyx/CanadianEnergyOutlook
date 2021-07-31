@@ -31,9 +31,9 @@ Avions,Avions,Airplanes,#378c50
 BC,BC,BC,#bdd030
 Belgium,Belgique,Belgium,#5487a4
 Bioénergie,Bioénergie,Bioenergy,#88b04b
-Biogaz de site d’enfouissement,Biogaz de site d'enfouissement,Landfill biogas,#88b04b
+Biogaz de site d'enfouissement,Biogaz de site d'enfouissement,Landfill biogas,#88b04b
 Biomasse,Biomasse,Biomass,#b04c4c
-Boue d’épuration,Boue d’épuration,Sludge,#7b3a38
+Boue d'épuration,Boue d'épuration,Sludge,#7b3a38
 CA,CA,CA,#000000
 Camions légers,Camions légers,Light trucks,#d3ed40
 CAN,CAN,CAN,#000000
@@ -50,7 +50,7 @@ Changement de carburant,Changement de carburant,Fuel change,#415243
 Charbon,Charbon,Coal,#573e37
 Charbon et matière résiduelle,Charbon et matière résiduelle,Coal and residual material,#385737
 "Charbon, coke et matière résiduelle","Charbon, coke et matière résiduelle","Coal, coke and residual material",#374957
-Chauffage de l’espace,Chauffage des bâtiments,Space heating,#d20a11
+Chauffage de l'espace,Chauffage des bâtiments,Space heating,#d20a11
 Chauffage urbain,Chauffage urbain,Urban heating,#820344
 "Chaulage, application d'urée et autres engrais carbonés","Chaulage, application d'urée et autres engrais carbonés","Liming, application of urea and other carbon fertilizers",#5487a4
 Chile,Chili,Chile,#5487a4
@@ -189,14 +189,14 @@ Portugal,Portugal,Portugal,#5487a4
 "Primary electricity, hydro and nuclear",Électricité primaire (hydro et nucléaire),"Primary electricity, hydro and nuclear",#9bd4dc
 Prince Edward Island,Île-duPrince-Édouard,Prince Edward Island,#ca9e67
 Producer consumption,Consommation des producteurs,Producer consumption,#bfa904
-Production d’électricité,Production d’électricité,Production of electricity,#9bd4dc
-Production d’hydrogène,Production d’hydrogène,Hydrogen production,#4f9db6
+Production d'électricité,Production d'électricité,Production of electricity,#9bd4dc
+Production d'hydrogène,Production d'hydrogène,Hydrogen production,#4f9db6
 Production de biocarburant,Production de biocarburant,Production of biofuel,#3af518
 Production de gaz naturel renouvelable,Production de gaz naturel renouvelable,Production of renewable natural gas,#0b3fb0
 Production de granule de bois,Production de granule de bois,Production of wood pellets,#ca9e67
 Production d'énergie,Production d'énergie,Energy generation,#b6807d
-Production d'énergie - CCS - stokées,,Energy production – CCS – stored,#c5d9a7
-Production d'énergie - CCSS - réutilisées,,Energy production – CCS – reutilized,#0775fa
+Production d'énergie - CCS - stokées,Production d'énergie - CSC - stokées,Energy production – CCS – stored,#c5d9a7
+Production d'énergie - CCS - réutilisées,Production d'énergie - CSC - réutilisées,Energy production – CCS – reutilized,#0775fa
 Production d'hydrogène,Production d'hydrogène,,#4f9db6
 Production d'Hydrogène,Production d'hydrogène,,#4f9db6
 "Production et consommation d'halocarbures, de SF6 et de NF33","Production et consommation d'halocarbures, de SF6 et de NF33","Production and consumption of halocarbons, SF6 and NF3",#b8a2f5
@@ -207,7 +207,7 @@ Produit non énergétique,Produit non énergétique,Non-energy product,#bdd030
 Produit non-énergétique,Produit non énergétique,Non-energy product,#c5d9a7
 Produit pétrolier,Produit pétrolier,Petroleum product,#b87f9c
 Produits minéraux,Produits minéraux,Mineral products,#747571
-Produits non énergétiques provenant de combustibles et de l’utilisation de solvant,Produits non énergétiques provenant de combustibles et de l’utilisation de solvant,Non-energy products from combustibles and use of solvents,#6b305e
+Produits non énergétiques provenant de combustibles et de l'utilisation de solvant,Produits non énergétiques provenant de combustibles et de l'utilisation de solvant,Non-energy products from combustibles and use of solvents,#6b305e
 Propane,Propane,Propane,#f9b674
 Propane,Propane,Propane,#f9b674
 Propane,Propane,Propane,#f9b674
@@ -229,8 +229,7 @@ Routier,Routier,Road,#bff5c3
 SK,SK,SK,#7b3a38
 Slovak Republic,République slovaque,Slovak Republic,#5487a4
 Slovenia,Slovénie,Slovenia,#5487a4
-"Soja, Canola et residues de graisse","Soja, canola et residus de graisse","Soya, canola and fatty residues",#bfa904
-Solaire,Solaire,Solar,#ffff00
+"Soja, Canola et résidus de graisse","Soja, canola et résidus de graisse","Soya, canola and fatty residues",#bfa904
 Solaire,Solaire,Solar,#ffe36d
 Solar,Solaire,Solar,#ffe36d
 Sols agricoles,Sols agricoles,Agricultural soils,#4d4736
@@ -267,7 +266,9 @@ Usage industriel,Usage industriel,Industrial use,#024a07
 Usine avec CSC,Usine avec CSC,Plant with CSC,#5487a4
 Voitures,Voitures,Cars,#60613b
 Waste,Déchets,Waste,#7b3a38
-Water Heating,Production d’eau chaude,Water Heating,#ea5530
+Water Heating,Production d'eau chaude,Water Heating,#ea5530
 Wind,Éolien,Wind,#bcdbf4
 Wood,Bois,Wood,#ca9e67
 Wood and spent pulping liquor,Bois et liqueur résiduaire,Wood and spent pulping liquor,#7b3a38
+CEO2018,PEC2018,CEO2018,#f42892
+CEO2021,PEC2021,CEO2021,#32f402

@@ -1,0 +1,27 @@
+metadata;chart.title;Evolution of per capita GHG Emissions in Canada;;;;;;;
+metadata;chart.subtitle;;;;;;;;
+metadata;chart.xLabel;% of emissions;;;;;;;
+metadata;chart.yLabel;;;;;;;;
+metadata;chart.source;Statistics Canada 2018;;;;;;;
+metadata;chart.section;3-3;;;;;;;
+metadata;chart.type;bar.grouped.horizontal;;;;;;;
+metadata;chart.level_1;year;;;;;;;
+metadata;chart.level_2;province;;;;;;;
+metadata;chart.note;;;;;;;;
+metadata;data.source;NATEM_2020_11_09;;;;;;;
+metadata;data.file;https://docs.google.com/spreadsheets/d/1flPduWBOdfgdgQjV2VppNI/edit#gid=0;;;;;;;
+data;province;year;value
+data;BC;1990 (energy);348
+data;BC;2005 (energy);797
+data;AB;1990 (energy);56
+data;AB;2005 (energy);82
+data;SK;1990 (energy);32
+data;SK;2005 (energy);47
+data;MB;1990 (energy);282
+data;MB;2005 (energy);235
+data;ON;1990 (energy);388
+data;ON;2005 (energy);1085
+data;QC;1990 (energy);345
+data;QC;2005 (energy);624
+data;NB;1990 (energy);36
+data;NB;2005 (energy);650
