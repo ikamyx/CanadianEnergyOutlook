@@ -259,7 +259,10 @@
                     break;
                 case "area":
                     area(parsed.data, parsed.metadata, colors, settings, language);
-                    break;    
+                    break;
+                case "fan":
+                    fan(parsed.data, parsed.metadata, colors, settings, language);
+                    break; 
                 case "scatter":
                     // scatter(parsed.data, parsed.metadata, colors, settings, language);
                     break;

@@ -82,9 +82,9 @@ function bar_grouped_stacked_double(data, metadata, colors, settings, language, 
     // legend
     // const maxLegend = xAxisWidth;
     const maxLegend = setting.dimension.width*(setting.distribution.legendRatio/100) - (setting.padding.right + setting.legend.colorBoxWidth + setting.legend.boxToText);
-    let attrListLegened = attrList.map(x => x).reverse();
+    let attrListLegend = attrList.map(x => x).reverse();
     /* **************************************************** */
-    legend_double(chart, maxLegend, attrListLegened, setting, scaleColor, scaleLabel, index);
+    legend_double(chart, maxLegend, attrListLegend, setting, scaleColor, scaleLabel, index);
     /* **************************************************** */
     chart.selectAll(`g.row${index} g.legend`)
     .each(function(d, i) {

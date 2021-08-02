@@ -57,9 +57,9 @@ function bar_stacked(data, metadata, colors, settings, language) {
 
     // legend
     const maxLegend = setting.dimension.width*(setting.distribution.legendRatio/100) - (setting.padding.right + setting.legend.colorBoxWidth + setting.legend.boxToText);
-    let attrListLegened = attrList.map(x => x).reverse();
+    let attrListLegend = attrList.map(x => x).reverse();
     /* **************************************************** */
-    legend(chart, maxLegend, attrListLegened, setting, scaleColor, scaleLabel);
+    legend(chart, maxLegend, attrListLegend, setting, scaleColor, scaleLabel);
     /* **************************************************** */
     chart.select("g.legend")
     .attr("transform", `translate(${setting.dimension.width*(setting.distribution.plotRatio/100)}, ${setting.padding.top})`);

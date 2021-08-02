@@ -1,7 +1,7 @@
 metadata;chart.title;Evolution of per capita GHG Emissions in Canada;;;;;;;
 metadata;chart.subtitle;;;;;;;;
-metadata;chart.xLabel;;;;;;;;
-metadata;chart.yLabel;% of emissions;;;;;;;
+metadata;chart.yLabel;;;;;;;;
+metadata;chart.xLabel;% of emissions;;;;;;;
 metadata;chart.source;Statistics Canada 2018;;;;;;;
 metadata;chart.section;3-3;;;;;;;
 metadata;chart.type;bar.grouped.horizontal;;;;;;;

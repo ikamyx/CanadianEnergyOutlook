@@ -12,7 +12,7 @@ function legend(chart, maxLegend, data, setting, scaleColor, scaleLabel) {
     .attr("transform", function(d, i) {
       return `translate(${0}, ${i * setting.legend.lineSpace})`
     })
-    .attr("class", "legened_item")
+    .attr("class", "legend_item")
     .attr("data-content", d => scaleLabel(d))
     .each(function(d, i) {
 

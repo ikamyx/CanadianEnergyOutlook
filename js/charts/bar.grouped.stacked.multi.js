@@ -80,9 +80,9 @@ function bar_grouped_stacked_multi(data, metadata, colors, settings, language) {
 
     // legend
     const maxLegend = xAxisWidth;
-    let attrListLegened = attrList.map(x => x).reverse();
+    let attrListLegend = attrList.map(x => x).reverse();
     /* **************************************************** */
-    legend(chart, maxLegend, attrListLegened, setting, scaleColor, scaleLabel);
+    legend(chart, maxLegend, attrListLegend, setting, scaleColor, scaleLabel);
     /* **************************************************** */
     chart.select("g.legend")
     .attr("transform", `translate(${setting.dimension.width - (data_.length % 2) * (xAxisWidth + setting.yAxis.width + setting.yAxis.labelHeight + setting.yAxis.labelMargin) - setting.padding.right}, ${setting.padding.top + setting.title.marginY + (lines - 1)*(yAxisHeight + setting.xTicks.row1Margin + setting.xTicks.lineSeparatorMargin + setting.xTicks.row2Margin + setting.xTicks.fontHeight * 2 + setting.title.fontHeight + setting.title.marginY + setting.padding.middleY)})`);

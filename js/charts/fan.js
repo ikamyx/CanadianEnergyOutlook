@@ -1,6 +1,6 @@
 "use strict";
 
-function area(data, metadata, colors, settings, language) {
+function fan(data, metadata, colors, settings, language) {
 
     // setting
     let setting = settings[metadata.chart.type];
@@ -15,6 +15,7 @@ function area(data, metadata, colors, settings, language) {
 
     // attributes
     let attrList = Object.keys(data[0]).filter(e => (e != metadata.chart.level_1));
+    let attrListExclude = Object.keys(data[0]).filter(e => (e != metadata.chart.level_1) && (e != metadata.chart.min) && (e != metadata.chart.max));
     let level_1 = data.map(d => d[metadata.chart.level_1]);
     level_1 = level_1.filter(function(item, pos) {
         return level_1.indexOf(item) == pos;
@@ -26,7 +27,7 @@ function area(data, metadata, colors, settings, language) {
     /* **************************************************** */
     dataCoversion_area(data, metadata, attrList, level_1);
     /* **************************************************** */
-
+    
 
 
     // data re arrange by aggregation attrList
@@ -43,6 +44,38 @@ function area(data, metadata, colors, settings, language) {
             })
         })
     })
+
+
+    // data re arrange by aggregation attrListExclude
+    let data_exclude = [];
+    attrListExclude.forEach(e => {
+        data_exclude.push(new Array());
+    });
+    data_exclude.forEach((g, i) => {
+        data.forEach(r => {
+            g.push({
+                [attrListExclude[i]]: r[attrListExclude[i]],
+                [metadata.chart.level_1]: r[metadata.chart.level_1]
+
+            })
+        })
+    })
+
+
+    // guide data
+    let gData = [];
+    let gData_guide = [metadata.chart.min, metadata.chart.max]
+    gData_guide.forEach(e => {
+        gData.push(new Array());
+    });
+    gData.forEach((g, i) => {
+        data.forEach(r => {
+            g.push({
+                [gData_guide[i]]: r[gData_guide[i]],
+                [metadata.chart.level_1]: r[metadata.chart.level_1]
+            })
+        })
+    });
 
 
 
@@ -71,7 +104,8 @@ function area(data, metadata, colors, settings, language) {
 
     // initialize
     /* **************************************************** */
-    let chart = initChart(data_, setting, attrList);
+    let data__ = data_.slice(0,data_.length - 1);
+    let chart = initChart(data__, setting, attrList);
     /* **************************************************** */
 
     
@@ -79,7 +113,8 @@ function area(data, metadata, colors, settings, language) {
 
     // legend
     const maxLegend = setting.dimension.width*(setting.distribution.legendRatio/100) - (setting.padding.right + setting.legend.colorBoxWidth + setting.legend.boxToText);
-    let attrListLegend = attrList.map(x => x).reverse();
+    let attrListLegend = attrListExclude.reverse();
+    attrListLegend.push(...gData_guide);
     /* **************************************************** */
     legend(chart, maxLegend, attrListLegend, setting, scaleColor, scaleLabel);
     /* **************************************************** */
@@ -95,12 +130,22 @@ function area(data, metadata, colors, settings, language) {
     .y0(d => scaleY(d[0]))
     .y1(d => scaleY(d[1]));
 
+    let line = d3.line()
+    .x(function(d) {
+        return scaleX(d[metadata.chart.level_1]);
+    }) // set the x values for the line generator
+    .y(function(d) {
+        return scaleY(d[Object.keys(d)[0]]);
+    }) // set the y values for the line generator 
+    //.curve(d3.curveMonotoneX) // apply smoothing to the line
+
+
 
 
 
     // scale for Y
     /* **************************************************** */
-    let scaleY = scaleY_area(stackedData, yAxisHeight);
+    let scaleY = scaleY_fan(stackedData, yAxisHeight);
     /* **************************************************** */
 
 
@@ -144,7 +189,7 @@ function area(data, metadata, colors, settings, language) {
 
     // add grid lines for x axis
     /* **************************************************** */
-    xAxisGrid_area(chart, level_1, yAxisHeight, scaleX, setting);
+    xAxisGrid_fan(chart, level_1, yAxisHeight, scaleX, setting);
     /* **************************************************** */
     chart.select("g.xGrid")
     .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width + setting.yTicks.rowMargin}, ${setting.padding.top + yAxisHeight})`);
@@ -164,4 +209,57 @@ function area(data, metadata, colors, settings, language) {
     .attr("stroke", d => scaleColor(d.key))
     .attr("transform", `translate(${setting.padding.left + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yAxis.lineWidth + setting.yTicks.rowMargin}, ${setting.padding.top})`);
     });
+
+    //draeing dashed line
+    chart.append("g")
+    .attr("class", "line")
+    .attr("data-content", `${metadata.chart.min}`)
+    .datum(gData[0])
+    .append("path")
+    .attr("class", "line min")
+    .attr("d", line)
+    .attr("stroke", "#000")
+    .attr("transform", `translate(${setting.padding.left + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yAxis.lineWidth + setting.yTicks.rowMargin}, ${setting.padding.top})`);
+
+    //draeing dashed line
+    chart.append("g")
+    .attr("class", "line")
+    .attr("data-content", `${metadata.chart.max}`)
+    .datum(gData[1])
+    .append("path")
+    .attr("class", "max")
+    .attr("d", line)
+    .attr("stroke", "#000")
+    .attr("transform", `translate(${setting.padding.left + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yAxis.lineWidth + setting.yTicks.rowMargin}, ${setting.padding.top})`);
+
+
+
+    chart.select(`g.legend_item[data-content=${metadata.chart.min}`)
+    .append("line")
+    .attr("x1", 0)
+    .attr("x2", setting.legend.lineHeight)
+    .attr("y1", 7)
+    .attr("y2", 7)
+    .attr("stroke", "black")
+    .attr("stroke-width", 3)
+    .attr("stroke-dasharray", 7)
+
+    chart.select(`g.legend_item[data-content=${metadata.chart.min}`)
+    .select("text")
+    .attr("x", setting.legend.lineHeight + setting.legend.lineToText)
+
+
+    chart.select(`g.legend_item[data-content=${metadata.chart.max}`)
+    .append("line")
+    .attr("x1", 0)
+    .attr("x2", setting.legend.lineHeight)
+    .attr("y1", 7)
+    .attr("y2", 7)
+    .attr("stroke", "black")
+    .attr("stroke-width", 3)
+
+    chart.select(`g.legend_item[data-content=${metadata.chart.max}`)
+    .select("text")
+    .attr("x", setting.legend.lineHeight + setting.legend.lineToText)
+
 }

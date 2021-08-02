@@ -239,6 +239,14 @@ g.line path {
     stroke-width: 2px;
 }
 
+g.line path.min {
+    stroke-dasharray: 7;
+}
+
+g.line path.max {
+    stroke-width: 3px;
+}
+
 /**********************************/
 
 .autocomplete {

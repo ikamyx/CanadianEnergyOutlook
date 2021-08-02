@@ -153,7 +153,28 @@ bar.grouped.horizontal,distribution,barWidthPercent,64,yes
 bar.grouped.horizontal,distribution,plotRatio,85,yes
 bar.grouped.horizontal,distribution,legendRatio,15,yes
 
-
+fan,dimension,width,1000,yes
+fan,dimension,height,500,yes
+fan,padding,top,30,yes
+fan,padding,bottom,20,yes
+fan,padding,left,15,yes
+fan,padding,right,20,yes
+fan,padding,legend,20,yes
+fan,legend,lineSpace,18,no
+fan,legend,lineBetweenSpace,10,no
+fan,legend,boxToText,5,no
+fan,legend,colorBoxWidth,15,no
+fan,legend,lineToText,10,no
+fan,legend,lineHeight,35,no
+fan,yAxis,labelMargin,20,yes
+fan,yAxis,lineWidth,1,no
+fan,yAxis,width,65,no
+fan,yAxis,labelHeight,15,no
+fan,xTicks,row1Margin,10,yes
+fan,xTicks,fontHeight,10,no
+fan,yTicks,rowMargin,10,yes
+fan,distribution,plotRatio,85,yes
+fan,distribution,legendRatio,15,yes
 
 
 
