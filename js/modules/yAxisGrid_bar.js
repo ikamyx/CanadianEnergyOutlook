@@ -16,6 +16,13 @@ function yAxisGrid_bar(chart, xAxisWidth, scaleY, setting) {
     .call(d3.axisLeft(scaleY)
         .tickSize(-xAxisWidth)
         .tickValues(newTicks)
+        .tickFormat(d3.formatLocale(
+            {
+            decimal: ",",
+            thousands: " ",
+            grouping: [3]
+            }
+        ).format(",.0f"))
     );
     chart.selectAll("g.grid line")
     .each(function() {

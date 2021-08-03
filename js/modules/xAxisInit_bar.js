@@ -15,4 +15,3 @@ function xAxisInit_bar(chart, scaleX, label) {
     .append("text")
     .text(label);
 }
-

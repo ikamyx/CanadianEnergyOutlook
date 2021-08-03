@@ -2,11 +2,11 @@
 
 (function (d3) {
     /***** settings *****/
-    let figures, currentFocus, colors, className, settings, language;
+    let figures, currentFocus, colors, className, settings, language, files;
     let fileData = [];
 
     /***** DOM *****/
-    let $input = document.querySelector("input[type='text'"),
+    let $input = document.querySelector("input[type='text']"),
     $select = document.querySelector("select"),
     $buttonShow = document.querySelector("button#show"),
     $buttonPrint = document.querySelector("button#print"),
@@ -24,12 +24,12 @@
     document.addEventListener("click", function(e) {
         closeAllLists(e.target);
     });
-    $buttonShow.addEventListener("click", loadData);
+    $buttonShow.addEventListener("click", fileLoad);
     $buttonPrint.addEventListener("click", saveToPng);
-    $buttonClear.addEventListener("click", clearChart);
+    $buttonClear.addEventListener("click", resetChart);
     // $file.addEventListener("input", resetInput);
     $file.addEventListener("change", fileLoad);
-    $file.addEventListener("click", fileReset);
+    // $file.addEventListener("click", fileReset);
 
     /***** loading data *****/
     var promises = [];
@@ -164,8 +164,23 @@
         saveSvgAsPng(svg, `${language}_${$figure.classList}.png`, {scale: 8, backgroundColor: "#FFFFFF"});
     }
 
+    // function saveToSvg() {
+    //     if(language == "label_en"){language = "en"}
+    //     else if(language == "label_fr"){language = "fr"}
+    //     let svgs = document.querySelectorAll("svg");
+    //     saveSvg(svgs);
+    // }
+
 
     function clearChart() {
+        document.querySelector("svg").innerHTML = "";
+        document.querySelector("svg").classList.add("hide");
+        $input.value = "";
+        // fileReset();
+        if(document.querySelector("figcaption")) document.querySelector("figcaption").remove();
+    }
+
+    function resetChart() {
         document.querySelector("svg").innerHTML = "";
         document.querySelector("svg").classList.add("hide");
         $input.value = "";
@@ -178,7 +193,10 @@
         $input.value = "";
         let textType = /text.*/;
         fileData = [];
-        Array.from(e.target.files).forEach((element,i) => {
+        if(e.target != $buttonShow) {
+            files = e.target.files;
+        }
+        Array.from(files).forEach((element,i) => {
             fileData.push(element);
             className = fileData[i].name.substring(0, fileData[i].name.length - 4);
             if(fileData[i].type.match(textType)) {
@@ -187,30 +205,14 @@
                     let content = reader.result;
                     // here the content has been read successfuly
                     fileData[i] = parser(content);
+                    clearChart();
+                    loadData();
                 }
                 reader.readAsText(fileData[i]);
             } else {
                 fileDisplayArea.innerText = "File not supported!";
             }
         });
-        
-        
-        // $input.value = "";
-        // fileData = e.target.files[0];
-        // className = fileData.name.substring(0, fileData.name.length - 4);
-        // let textType = /text.*/;
-    
-        // if (fileData.type.match(textType)) {
-        //     let reader = new FileReader();
-        //     reader.onload = function(e) {
-        //         let content = reader.result;
-        //         //Here the content has been read successfuly
-        //         fileData = parser(content);
-        //     }
-        //     reader.readAsText(fileData);	
-        // } else {
-        //     fileDisplayArea.innerText = "File not supported!"
-        // }
     }
 
 
@@ -270,6 +272,26 @@
                     // line_multi(parsed.data, parsed.metadata, colors, settings, language);
                     break;    
             }
-        
     }
+
+    function showData() {
+        // let content = textfile.responseText;
+        // let parsed = parser(content);
+        // draw(new Array(parsed), language);
+        // loadData();
+    }
+
+    // function saveSvg(svgEl, name) {
+    //     svgEl.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+    //     var svgData = svgEl.outerHTML;
+    //     var preface = '<?xml version="1.0" standalone="no"?>\r\n';
+    //     var svgBlob = new Blob([preface, svgData], {type:"image/svg+xml;charset=utf-8"});
+    //     var svgUrl = URL.createObjectURL(svgBlob);
+    //     var downloadLink = document.createElement("a");
+    //     downloadLink.href = svgUrl;
+    //     downloadLink.download = name;
+    //     document.body.appendChild(downloadLink);
+    //     downloadLink.click();
+    //     document.body.removeChild(downloadLink);
+    // }
 })(d3);

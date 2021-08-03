@@ -18,6 +18,13 @@ function xAxisGrid_line(chart, level_1, yAxisHeight, scaleX, setting) {
     .call(d3.axisBottom(scaleX)
         .tickSize(-yAxisHeight)
         .tickValues(newTicks)
+        .tickFormat(d3.formatLocale(
+            {
+            decimal: ",",
+            thousands: " ",
+            grouping: [3]
+            }
+        ).format(",.0f"))
         //.tickValues(ticks)
         //.tickFormat(d3.timeFormat("%Y"))
 
