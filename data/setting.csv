@@ -143,7 +143,7 @@ bar.grouped.horizontal,xAxis,labelHeight,0,no
 bar.grouped.horizontal,yTicks,row1Margin,5,yes
 bar.grouped.horizontal,yTicks,lineSeparatorMargin,10,yes
 bar.grouped.horizontal,yTicks,lineSeparatorExtra,0,no
-bar.grouped.horizontal,yTicks,fontHeight,140,no
+bar.grouped.horizontal,yTicks,fontHeight,180,no
 bar.grouped.horizontal,xTicks,rowMargin,10,yes
 bar.grouped.horizontal,distribution,preSpacePercent,5,yes
 bar.grouped.horizontal,distribution,postSpacePercent,5,yes
