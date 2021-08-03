@@ -69,6 +69,7 @@ Commercial and Institutional,Secteur commercial et institutionnel,Commercial and
 Conservation d'énergie,Conservation d'énergie,Energy conservation,#6ec083
 Conventionnel - Diesel,Conventionnel - Diesel,Conventional - Diesel,#878787
 Conventionnel - Gaz Naturel,Conventionnel - Gaz naturel,Conventional - Natural gas,#b1900a
+CP30,PC30,CP30,#7fbd78
 Crude oil,Pétrole brut,Crude oil,#7d4e24
 Culture dédiée,Culture dédiée,Dedicated culture,#f39200
 Czech Republic,République Tchèque,Czech Republic,#5487a4
@@ -169,7 +170,9 @@ Norway,Norvège,Norway,#5487a4
 NS,NS,NS,#ebd850
 Nucléaire,Nucléaire,Nuclear,#f39200
 Nuclear,Nucléaire,Nuclear,#f39200
-NZ50,CN50,NZ50,#6ff61d
+NZ45,CN45,NZ45,#abd9d6
+NZ50,CN50,NZ50,#0087c0
+NZ60,CN60,NZ60,#017689
 OECD members,Membres de l'OCDE,OECD members,#88b04b
 "Oil, gas, and refining industries","Pétrole, gaz, raffinage","Oil, gas, and refining industries",#b6807d
 Oléoducs,Oléoducs,Pipelines,#0e4282
@@ -219,7 +222,7 @@ Publ. Admin. and Comm./Inst.,Adm. pub. et secteur commercial et institutionnel,A
 Public Electricity and Heat Production,Électricité et production de chaleur,Public Electricity and Heat Production,#9bd4dc
 QC,QC,QC,#2f6cb0
 Réduction de la production,Réduction de la production,Reduction in production,#faedbe
-REF,REF,REF,#bdd030
+REF,REF,REF,#e0e169
 Refined petroleum products,Produits pétroliers raffinés,Refined petroleum products,#5d675f
 Renouvelable,Renouvelable,Renewable,#6ec083
 Residential,Résidentiel,Residential,#a4aba6
