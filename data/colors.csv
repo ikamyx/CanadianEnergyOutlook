@@ -2,9 +2,6 @@
 1998,1998,1998,#5487a4
 2008,2008,2008,#88b04b
 2018,2018,2018,#ea5530
-1999,1999,1999,#5487a4
-2009,2009,2009,#88b04b
-2019,2019,2019,#ea5530
 1990 (energy),1990 (lié à l'énergie),1990 (energy),#5487a4
 1990 (non-energy),1990 (non énergétique ),1990 (non-energy),#a9c4d3
 "1990 (oil & gas, refineries, fugitive sources)","1990 (pétrole, gaz, raffinage, incluant sources fugitives)","1990 (oil & gas, refineries, fugitive sources)",#5487a4
@@ -68,6 +65,7 @@ Ciment - Variation de la production,Ciment – Variation de la production,Cement
 Coal,Charbon,Coal,#ea5530
 Commercial,Commercial,Commercial,#367047
 Commercial and Institutional,Secteur commercial et institutionnel,Commercial and Institutional,#f7d255
+"Commercial, inst. and publ. admin.",Secteur commercial et institutionnel (inc. adm. pub.,Commercial and Institutional (inc. Pub. Adm.),#f7d255
 Conservation d'énergie,Conservation d'énergie,Energy conservation,#6ec083
 Conventionnel - Diesel,Conventionnel - Diesel,Conventional - Diesel,#878787
 Conventionnel - Gaz Naturel,Conventionnel - Gaz naturel,Conventional - Natural gas,#b1900a
