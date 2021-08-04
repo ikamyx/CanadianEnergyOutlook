@@ -1,7 +1,7 @@
 "use strict";
 
 function bar_stacked(data, metadata, colors, settings, language) {
-    console.log(data, metadata)
+    
     // setting
     let setting = settings[metadata.chart.type];
 
