@@ -29,10 +29,12 @@ function ticks_grouped_horizontal_horizontal_bar(chart, level_2, metadata, xAxis
         .attr("stroke", "#999")
         .attr("stroke-width", 0.7);
         g.append("text")
-        .text(d => d)
-        .attr("x",  setting.padding.left + setting.yTicks.row1Margin + setting.yTicks.lineSeparatorMargin + setting.yTicks.lineSeparatorExtra + setting.yTicks.fontHeight - setting.yTicks.lineSeparatorMargin - setting.yTicks.row1Margin - setting.yTicks.fontHeight);
+        .text(d => d);
         let textHeight = g.select("text").node().getBBox().height;
+        let textWidth = g.select("text").node().getBBox().width;
+
         g.select("text")
+        .attr("x",  setting.padding.left + setting.yTicks.row1Margin + setting.yTicks.lineSeparatorMargin + setting.yTicks.lineSeparatorExtra + setting.yTicks.fontHeight - setting.yTicks.lineSeparatorMargin - setting.yTicks.row1Margin - setting.yTicks.fontHeight + (setting.yTicks.fontHeight - textWidth))
         .attr("y", textHeight + barGroupHeight[i] / 2 - textHeight / 2 - 5);
     });
 }

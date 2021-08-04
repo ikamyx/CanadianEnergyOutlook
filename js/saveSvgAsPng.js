@@ -392,12 +392,12 @@
     }
   };
 
-  out$.saveSvg = (el, name, options) => {
-    const downloadOpts = downloadOptions(); // don't inline, can't be async
-    return requireDomNodePromise(el)
-      .then(el => out$.svgAsDataUri(el, options || {}))
-      .then(uri => out$.download(name, uri, downloadOpts));
-  };
+  // out$.saveSvg = (el, name, options) => {
+  //   const downloadOpts = downloadOptions(); // don't inline, can't be async
+  //   return requireDomNodePromise(el)
+  //     .then(el => out$.svgAsDataUri(el, options || {}))
+  //     .then(uri => out$.download(name, uri, downloadOpts));
+  // };
 
   out$.saveSvgAsPng = (el, name, options) => {
     const downloadOpts = downloadOptions(); // don't inline, can't be async

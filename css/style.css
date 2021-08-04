@@ -129,30 +129,6 @@ svg.hide {
     display: none;
 }
 
-/* svg#multi {
-    max-width: 1800px;
-}
-
-svg#multi.hide {
-    display: none;
-}
-
-svg#single {
-    max-width: 900px;
-}
-
-svg#single.hide {
-    display: none;
-}
-
-svg#double {
-    max-width: 1800px;
-}
-
-svg#double.hide {
-    display: none;
-} */
-
 g.bar text, g.year_group text, g.scenario_group text, g.province_group text, g.group_group text, g.grid g.tick text, g.sector_group text {
     fill: #888;
 }
@@ -319,6 +295,10 @@ g.line path.max {
         margin-right: 1.25%;
     }
 
+    button:last-child {
+        margin-right: 0;
+    }
+
     select {
         padding-left: 10px;
     }
@@ -326,6 +306,7 @@ g.line path.max {
     input[type="file"] {
         float: left;
         width: 19%;
+        margin-right: 1.25%;
     }
 
     header:after {
@@ -386,6 +367,7 @@ g.line path.max {
     input[type="file"] {
         width: 10%;
         max-width: 145px;
+        margin-right: 2%;
     }
 
     input[type="file"]:before {
