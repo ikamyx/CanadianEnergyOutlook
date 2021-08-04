@@ -1,7 +1,7 @@
 chart,setting,type,value,isVariable
 ,,,,
 area,dimension,width,1000,yes
-area,dimension,height,350,yes
+area,dimension,height,320,yes
 area,padding,top,30,yes
 area,padding,bottom,20,yes
 area,padding,left,15,yes
@@ -22,7 +22,7 @@ area,distribution,plotRatio,80,yes
 area,distribution,legendRatio,20,yes
 ,,,,
 bar.stacked,dimension,width,1000,yes
-bar.stacked,dimension,height,350,yes
+bar.stacked,dimension,height,320,yes
 bar.stacked,padding,top,10,yes
 bar.stacked,padding,bottom,10,yes
 bar.stacked,padding,left,5,yes
@@ -47,7 +47,7 @@ bar.stacked,distribution,plotRatio,80,yes
 bar.stacked,distribution,legendRatio,20,yes
 ,,,,
 bar.grouped.stacked,dimension,width,1000,yes
-bar.grouped.stacked,dimension,height,350,yes
+bar.grouped.stacked,dimension,height,320,yes
 bar.grouped.stacked,padding,top,10,yes
 bar.grouped.stacked,padding,bottom,10,yes
 bar.grouped.stacked,padding,left,5,yes
@@ -76,7 +76,7 @@ bar.grouped.stacked,distribution,plotRatio,80,yes
 bar.grouped.stacked,distribution,legendRatio,20,yes
 ,,,,
 line,dimension,width,1000,yes
-line,dimension,height,350,yes
+line,dimension,height,320,yes
 line,padding,top,10,yes
 line,padding,bottom,10,yes
 line,padding,left,5,yes
@@ -98,7 +98,7 @@ line,distribution,plotRatio,80,yes
 line,distribution,legendRatio,20,yes
 ,,,,
 bar.grouped,dimension,width,1000,yes
-bar.grouped,dimension,height,350,yes
+bar.grouped,dimension,height,320,yes
 bar.grouped,padding,top,10,yes
 bar.grouped,padding,bottom,10,yes
 bar.grouped,padding,left,5,yes
@@ -126,7 +126,7 @@ bar.grouped,distribution,plotRatio,80,yes
 bar.grouped,distribution,legendRatio,20,yes
 ,,,,
 bar.grouped.horizontal,dimension,width,1000,yes
-bar.grouped.horizontal,dimension,height,350,yes
+bar.grouped.horizontal,dimension,height,320,yes
 bar.grouped.horizontal,padding,top,10,yes
 bar.grouped.horizontal,padding,bottom,10,yes
 bar.grouped.horizontal,padding,left,5,yes
@@ -154,7 +154,7 @@ bar.grouped.horizontal,distribution,plotRatio,90,yes
 bar.grouped.horizontal,distribution,legendRatio,10,yes
 ,,,,
 fan,dimension,width,1000,yes
-fan,dimension,height,350,yes
+fan,dimension,height,320,yes
 fan,padding,top,10,yes
 fan,padding,bottom,10,yes
 fan,padding,left,5,yes
