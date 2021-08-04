@@ -10,6 +10,6 @@ function mapColor(colors, attrList) {
           });
         colorList.push(result);
     });
-    console.log(attrList, colorList)
+    // console.log(attrList, colorList)
     return colorList;
 }
