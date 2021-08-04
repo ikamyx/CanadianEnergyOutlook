@@ -5,8 +5,13 @@ function parser(raw) {
     let lineBreaks = (raw.match(/\n/g)||[]).length;
     let lines = [];
     for(let i=0; i<=lineBreaks; i++){
-        lines[i] = raw.split("\n")[i];
+        let lineString = raw.split("\n")[i];
+        // trim non data metadata lines
+        if(lineString.includes("data", "metadata")) {
+            lines.push(lineString)
+        }
     }
+
     let data = lines.filter(d => !d.includes("metadata"));
     let metadata = lines.filter(d => d.includes("metadata"));
 
@@ -20,6 +25,7 @@ function parser(raw) {
         value = d.substring(split2, split3).substr(1).trim(); // escape sequence
         let pointer = attribute.indexOf(".");
         let subCat = attribute.substring(0, pointer);
+        subCat = subCat.trim() // trim whitespaces from meta data subCat
         attribute = attribute.substring(pointer + 1);
         attribute = attribute.trim(); // escape sequence
         if(!metaObj[subCat]) {
@@ -60,6 +66,11 @@ function parser(raw) {
     });
 
     let dataAr = [];
+    
+    // trim whitespaces from data attribute
+    atrs.forEach((e,i) => {
+        atrs[i] = e.trim();
+    });
 
     values.forEach((d, i) => {
         let dataObj = {};
