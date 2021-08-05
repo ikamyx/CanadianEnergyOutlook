@@ -59,7 +59,7 @@ bar.grouped.stacked,legend,boxToText,5,no
 bar.grouped.stacked,legend,colorBoxWidth,15,no
 bar.grouped.stacked,yAxis,labelMargin,10,yes
 bar.grouped.stacked,yAxis,lineWidth,1,no
-bar.grouped.stacked,yAxis,width,65,no
+bar.grouped.stacked,yAxis,width,45,no
 bar.grouped.stacked,yAxis,labelHeight,20,no
 bar.grouped.stacked,xTicks,row1Margin,10,yes
 bar.grouped.stacked,xTicks,row2Margin,10,yes
