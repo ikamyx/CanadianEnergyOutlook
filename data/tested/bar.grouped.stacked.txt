@@ -1,7 +1,6 @@
 metadata;chart.title;;;;;;;;;;;;;;
 metadata;chart.subtitle;;;;;;;;;;;;;;
-metadata;chart.xLabel;;;;;;;;;;;;;;
-metadata;chart.yLabel;PJ useful energy;;;;;;;;;;;;;
+metadata; chart.yLabel;PJ useful energy;;;;;;;;;;;;;
 metadata;chart.source;;;;;;;;;;;;;;
 metadata;chart.section;;;;;;;;;;;;;;
 metadata;chart.type;bar.grouped.stacked;;;;;;;;;;;;;
