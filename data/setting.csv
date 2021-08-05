@@ -57,7 +57,7 @@ bar.grouped.stacked,legend,lineSpace,18,no
 bar.grouped.stacked,legend,lineBetweenSpace,10,no
 bar.grouped.stacked,legend,boxToText,5,no
 bar.grouped.stacked,legend,colorBoxWidth,15,no
-bar.grouped.stacked,yAxis,labelMargin,20,yes
+bar.grouped.stacked,yAxis,labelMargin,10,yes
 bar.grouped.stacked,yAxis,lineWidth,1,no
 bar.grouped.stacked,yAxis,width,65,no
 bar.grouped.stacked,yAxis,labelHeight,20,no
