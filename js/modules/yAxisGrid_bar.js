@@ -2,12 +2,21 @@
 
 function yAxisGrid_bar(chart, xAxisWidth, scaleY, setting) {
     let ticks = scaleY.ticks();
-    let distance = (ticks[ticks.length - 1] - ticks[0]) / 5;
     let newTicks = new Array();
-    if(ticks[0] < 0) newTicks.push(0);
-    for(let i = 0; i <= 5; i++) {
-        let value = ticks[0] + i*distance;
-        newTicks.push(value);
+    if(ticks[0] < 0) {
+        let distance = ticks[ticks.length - 1] / 5;
+        newTicks.push(ticks[0]);
+        for(let i = 0; i <= 5; i++) {
+            let value = i*distance;
+            newTicks.push(value);
+        }
+    } else {
+        let distance = (ticks[ticks.length - 1] - ticks[0]) / 5;
+        if(ticks[0] < 0) newTicks.push(0);
+        for(let i = 0; i <= 5; i++) {
+            let value = ticks[0] + i*distance;
+            newTicks.push(value);
+        }
     }
     newTicks.sort(function(a, b) { return a - b;});
     chart.append("g")

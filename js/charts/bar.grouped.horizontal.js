@@ -49,6 +49,17 @@ function bar_grouped_horizontal(data, metadata, colors, settings, language) {
     let colorList = color.map(x => x.color);
     /* **************************************************** */
 
+
+
+
+    // map the xLabel and yLabel
+    /* **************************************************** */
+    let axis = [metadata.chart.xLabel, metadata.chart.yLabel];
+    let axisList = mapColor(colors, axis);
+    /* **************************************************** */
+
+
+
     
 
     // scale for color
@@ -62,6 +73,21 @@ function bar_grouped_horizontal(data, metadata, colors, settings, language) {
     let scaleLabel = d3.scaleOrdinal()
     .domain(attrList)
     .range(color.map(x => x[language]));
+
+
+
+
+    // scale for axis
+    let scaleAxis = d3.scaleOrdinal()
+    .domain(axis)
+    .range(axisList.map(function(x,i) {
+        if(x) {
+            return x[language];
+        } else {
+            return axis[i];
+        }
+    }));
+
 
 
 
@@ -92,7 +118,7 @@ function bar_grouped_horizontal(data, metadata, colors, settings, language) {
 
     // X axis + label
     /* **************************************************** */
-    xAxisInit_bar(chart, scaleX, metadata.chart.xLabel);
+    xAxisInit_bar(chart, scaleX, scaleAxis(metadata.chart.xLabel));
     /* **************************************************** */
     let xAxisLabelWidth = chart.select("g.x_axis > .text").node().getBBox().width;
     chart.select("g.x_axis > .text")

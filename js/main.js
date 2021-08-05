@@ -223,6 +223,7 @@
 
     function draw(content, language) {
         clearChart();
+        console.clear();
         document.querySelector("svg").classList.remove("hide");
             let parsed = content[0];
             switch(parsed.metadata.chart.type) {
