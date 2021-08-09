@@ -3,7 +3,7 @@ metadata;chart.subtitle
 metadata;chart.xLabel;Emission reduction in MtCO2eq
 metadata;chart.yLabel;$/tCO2e
 metadata;chart.source
-metadata;chart.type;line
+metadata;chart.type;scatter
 metadata;chart.level_1;Mt
 metadata;chart.note
 metadata;data.source

@@ -101,7 +101,7 @@ function scatter(data, metadata, colors, settings, language) {
     const maxLegend = setting.dimension.width*(setting.distribution.legendRatio/100) - (setting.padding.right + setting.legend.lineHeight + setting.legend.lineToText);
     let attrListLegend = attrList.map(x => x).reverse();
     /* **************************************************** */
-    legend_line(chart, maxLegend, attrListLegend, setting, scaleColor, scaleLabel);
+    legend(chart, maxLegend, attrListLegend, setting, scaleColor, scaleLabel);
     /* **************************************************** */
     chart.select("g.legend")
     .attr("transform", `translate(${setting.dimension.width*(setting.distribution.plotRatio/100)}, ${setting.padding.top})`);
@@ -173,22 +173,22 @@ function scatter(data, metadata, colors, settings, language) {
 
 
     // drawing lines
-    // chart.selectAll("g.bar_groups")
-    // .each(function(d, i) {
-    //         d3.select(this)
-    //         .datum(data_[i].filter(g => !g[attrList[i]].toString().includes("-")))
-    //         .attr("class", "")
-    //         .attr("class", "line")
-    //         .append("path")
-    //         .attr("class", "line")
-    //         .attr("d", line)
-    //         .attr("stroke", d => scaleColor(Object.keys(d)))
-    //         .attr("transform", `translate(${setting.padding.left + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yAxis.lineWidth + setting.yTicks.rowMargin}, ${setting.padding.top})`);
-    // });
+    chart.selectAll("g.bar_groups")
+    .each(function(d, i) {
+            d3.select(this)
+            //.datum(data_[i].filter(g => !g[attrList[i]].toString().includes("-")))
+            .attr("class", "")
+            .attr("class", "dots")
+            //.append("path")
+            //.attr("class", "line")
+            //.attr("d", line)
+            //.attr("stroke", d => scaleColor(Object.keys(d)))
+            //.attr("transform", `translate(${setting.padding.left + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yAxis.lineWidth + setting.yTicks.rowMargin}, ${setting.padding.top})`);
+    });
 
 
     // drawing dots
-    chart.selectAll("g.line")
+    chart.selectAll("g.dots")
     .each(function(d, i) {
             d3.select(this)
             .selectAll("rect")

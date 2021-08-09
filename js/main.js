@@ -267,11 +267,8 @@
                     fan(parsed.data, parsed.metadata, colors, settings, language);
                     break; 
                 case "scatter":
-                    // scatter(parsed.data, parsed.metadata, colors, settings, language);
-                    break;
-                case "line.multi":
-                    // line_multi(parsed.data, parsed.metadata, colors, settings, language);
-                    break;    
+                    scatter(parsed.data, parsed.metadata, colors, settings, language);
+                    break;   
             }
     }
 
