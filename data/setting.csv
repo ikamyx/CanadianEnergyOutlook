@@ -154,7 +154,7 @@ bar.grouped.horizontal,distribution,plotRatio,90,yes
 bar.grouped.horizontal,distribution,legendRatio,10,yes
 ,,,,
 fan,dimension,width,1000,yes
-fan,dimension,height,520,yes
+fan,dimension,height,320,yes
 fan,padding,top,10,yes
 fan,padding,bottom,10,yes
 fan,padding,left,5,yes
