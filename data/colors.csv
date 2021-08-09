@@ -1,4 +1,4 @@
-variable,label_fr,label_en,color
+﻿variable,label_fr,label_en,color
 1998,1998,1998,#5487a4
 2008,2008,2008,#88b04b
 2018,2018,2018,#ea5530
@@ -277,3 +277,7 @@ Water Heating,Production d'eau chaude,Water Heating,#ea5530
 Wind,Éolien,Wind,#bcdbf4
 Wood,Bois,Wood,#ca9e67
 Wood and spent pulping liquor,Bois et liqueur résiduaire,Wood and spent pulping liquor,#7b3a38
+Passenger,Personnes,Passenger,#ffffff
+Freight,Marchandises,Freight,#ffffff
+Space heating,Chauffage des espaces,Space heating,#ffffff
+Water heating,Chauffage de l'eau,Water heating,#ffffff

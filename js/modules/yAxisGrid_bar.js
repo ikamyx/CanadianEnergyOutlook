@@ -4,7 +4,7 @@ function yAxisGrid_bar(chart, xAxisWidth, scaleY, setting) {
     let ticks = scaleY.ticks();
     let newTicks = new Array();
     if(ticks[0] < 0) {
-        let distance = ticks[ticks.length - 1] / 5;
+        let distance = ticks[ticks.length - 1] / 4;
         newTicks.push(ticks[0]);
         for(let i = 0; i <= 5; i++) {
             let value = i*distance;
