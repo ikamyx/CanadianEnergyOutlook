@@ -63,19 +63,8 @@ function fan(data, metadata, colors, settings, language) {
 
 
     // guide data
-    let gData = [];
-    let gData_guide = [metadata.chart.min, metadata.chart.max]
-    gData_guide.forEach(e => {
-        gData.push(new Array());
-    });
-    gData.forEach((g, i) => {
-        data.forEach(r => {
-            g.push({
-                [gData_guide[i]]: r[gData_guide[i]],
-                [metadata.chart.level_1]: r[metadata.chart.level_1]
-            })
-        })
-    });
+    let gData_guide = [metadata.chart.min, metadata.chart.max];
+    
 
 
 
@@ -136,7 +125,7 @@ function fan(data, metadata, colors, settings, language) {
 
     
 
-
+    
     // legend
     const maxLegend = setting.dimension.width*(setting.distribution.legendRatio/100) - (setting.padding.right + setting.legend.colorBoxWidth + setting.legend.boxToText);
     let attrListLegend = attrListExclude.reverse();
@@ -155,6 +144,7 @@ function fan(data, metadata, colors, settings, language) {
     .x(d => scaleX(d.data[metadata.chart.level_1]))
     .y0(d => scaleY(d[0]))
     .y1(d => scaleY(d[1]));
+    
 
     let line = d3.line()
     .x(function(d) {
@@ -167,6 +157,26 @@ function fan(data, metadata, colors, settings, language) {
 
 
 
+
+    let gData = [];
+    gData_guide.forEach(e => {
+        gData.push(new Array());
+    });
+    gData.forEach((g, i) => {
+        data.forEach(r => {
+            g.push({
+                [gData_guide[i]]: r[gData_guide[i]],
+                [metadata.chart.level_1]: r[metadata.chart.level_1]
+            })
+        })
+    });
+
+    gData[1] = gData[1].map(function(g, i){
+        return {
+            [gData_guide[1]]: stackedData[stackedData.length - 1][i][0],
+            [metadata.chart.level_1]: g[metadata.chart.level_1]
+        }
+    });
 
 
     // scale for Y
@@ -236,7 +246,7 @@ function fan(data, metadata, colors, settings, language) {
     .attr("transform", `translate(${setting.padding.left + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yAxis.lineWidth + setting.yTicks.rowMargin}, ${setting.padding.top})`);
     });
 
-    //draeing dashed line
+    //drawing dashed line
     chart.append("g")
     .attr("class", "line")
     .attr("data-content", `${metadata.chart.min}`)
@@ -253,14 +263,20 @@ function fan(data, metadata, colors, settings, language) {
     .attr("data-content", `${metadata.chart.max}`)
     .datum(gData[1])
     .append("path")
-    .attr("class", "max")
+    .attr("class", "line max")
     .attr("d", line)
     .attr("stroke", "#000")
     .attr("transform", `translate(${setting.padding.left + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yAxis.lineWidth + setting.yTicks.rowMargin}, ${setting.padding.top})`);
 
 
+    chart.select(`g.area[data-content=${metadata.chart.min}`)
+    .select("path")
+    .attr("stroke", "transparent")
+    .attr("fill", "transparent");
 
-    chart.select(`g.legend_item[data-content=${metadata.chart.min}`)
+
+
+    chart.select(`g.legend_item[data-content=${scaleLabel(metadata.chart.min)}`)
     .append("line")
     .attr("x1", 0)
     .attr("x2", setting.legend.lineHeight)
@@ -270,12 +286,17 @@ function fan(data, metadata, colors, settings, language) {
     .attr("stroke-width", 3)
     .attr("stroke-dasharray", 7)
 
-    chart.select(`g.legend_item[data-content=${metadata.chart.min}`)
+    chart.select(`g.legend_item[data-content=${scaleLabel(metadata.chart.min)}`)
     .select("text")
     .attr("x", setting.legend.lineHeight + setting.legend.lineToText)
 
+    chart.select(`g.legend_item[data-content=${scaleLabel(metadata.chart.min)}`)
+    .select("rect")
+    .attr("fill", "transparent")
+    .attr("stroke", "transparent")
 
-    chart.select(`g.legend_item[data-content=${metadata.chart.max}`)
+
+    chart.select(`g.legend_item[data-content=${scaleLabel(metadata.chart.max)}`)
     .append("line")
     .attr("x1", 0)
     .attr("x2", setting.legend.lineHeight)
@@ -284,8 +305,13 @@ function fan(data, metadata, colors, settings, language) {
     .attr("stroke", "black")
     .attr("stroke-width", 3)
 
-    chart.select(`g.legend_item[data-content=${metadata.chart.max}`)
+    chart.select(`g.legend_item[data-content=${scaleLabel(metadata.chart.max)}`)
     .select("text")
     .attr("x", setting.legend.lineHeight + setting.legend.lineToText)
+
+    chart.select(`g.legend_item[data-content=${scaleLabel(metadata.chart.max)}`)
+    .select("rect")
+    .attr("fill", "transparent")
+    .attr("stroke", "transparent")
 
 }
