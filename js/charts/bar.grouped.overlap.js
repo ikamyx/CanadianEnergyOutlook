@@ -200,7 +200,7 @@ function bar_grouped_overlap(data, metadata, colors, settings, language) {
     let barGroupWidth = [];
     let barGroupPos = data_.map(d => 0);
     /* **************************************************** */
-    groupPosition_bar(chart, barGroupWidth, barGroupPos, setting, distribution);
+    groupPosition_bar(chart, barGroupWidth, barGroupPos, setting, distribution, data_);
     /* **************************************************** */
     chart.selectAll("g.bar_groups")
     .each(function(_, i) {

@@ -215,18 +215,18 @@ function bar_grouped_stacked(data, metadata, colors, settings, language) {
 
 
 
-    
+
     let barGroupWidth = [];
     let barGroupPos = data_.map(d => 0);
     /* **************************************************** */
-    groupPosition_bar(chart, barGroupWidth, barGroupPos, setting, distribution);
+    groupPosition_bar(chart, barGroupWidth, barGroupPos, setting, distribution, data_);
     /* **************************************************** */
     chart.selectAll("g.bar_groups")
     .each(function(_, i) {
         d3.select(this)
         .attr("transform", `translate(${barGroupPos[i]}, 0)`)
     });
-    
+
 
 
 
@@ -237,12 +237,16 @@ function bar_grouped_stacked(data, metadata, colors, settings, language) {
     // ticks_horizontal_bar(chart, data, metadata, yAxisHeight, setting, distribution);
     let maxTickWidth = ticks_vertical_bar(chart, data, metadata, yAxisHeight, setting, distribution, tickWidth, tickHeight);
     /* **************************************************** */
-    let difference = (d3.select("g.legend").node().getBBox().height + setting.padding.top) - (setting.dimension.height + setting.padding.bottom + setting.xTicks.row1Margin + setting.xTicks.lineSeparatorMargin + setting.xTicks.row2Margin + maxTickWidth + setting.xTicks.fontHeight);
-    if(difference >= 0) {
-        chart.attr("viewBox", `0 0 ${setting.dimension.width} ${setting.dimension.height + 2*setting.padding.bottom + setting.xTicks.row1Margin + setting.xTicks.lineSeparatorMargin + setting.xTicks.row2Margin + maxTickWidth + setting.xTicks.fontHeight + difference}`);
-    } else {
-        chart.attr("viewBox", `0 0 ${setting.dimension.width} ${setting.dimension.height + setting.padding.bottom + setting.xTicks.row1Margin + setting.xTicks.lineSeparatorMargin + setting.xTicks.row2Margin + maxTickWidth + setting.xTicks.fontHeight}`);
-    }
+    // expanding viewBox for vertical bars
+    chart.attr("viewBox", `0 0 ${setting.dimension.width} ${setting.dimension.height + setting.padding.bottom + setting.xTicks.row1Margin + setting.xTicks.lineSeparatorMargin + setting.xTicks.row2Margin + maxTickWidth + setting.xTicks.fontHeight}`);
+
+    // expanding viewBox for legend
+    // let difference = (d3.select("g.legend").node().getBBox().height + setting.padding.top) - (setting.dimension.height + setting.padding.bottom + setting.xTicks.row1Margin + setting.xTicks.lineSeparatorMargin + setting.xTicks.row2Margin + maxTickWidth + setting.xTicks.fontHeight);
+    // if(difference >= 0) {
+    //     chart.attr("viewBox", `0 0 ${setting.dimension.width} ${setting.dimension.height + 2*setting.padding.bottom + setting.xTicks.row1Margin + setting.xTicks.lineSeparatorMargin + setting.xTicks.row2Margin + maxTickWidth + setting.xTicks.fontHeight + difference}`);
+    // } else {
+    //     chart.attr("viewBox", `0 0 ${setting.dimension.width} ${setting.dimension.height + setting.padding.bottom + setting.xTicks.row1Margin + setting.xTicks.lineSeparatorMargin + setting.xTicks.row2Margin + maxTickWidth + setting.xTicks.fontHeight}`);
+    // }
     
 
     

@@ -130,7 +130,8 @@ svg.hide {
 }
 
 g.bar text, g.year_group text, g.scenario_group text, g.province_group text, g.group_group text, g.grid g.tick text, g.sector_group text {
-    fill: #888;
+    /* fill: #888; */
+    fill: black;
 }
 
 g.bar text {
@@ -148,11 +149,13 @@ g.year_group text, g.scenario_group text, g.province_group text, g.group_group t
 
 g.grid g.tick text {
     font-size: 12px;
+    font-size: 13px;
 }
 
 g.y_axis .text text, g.x_axis .text text {
     font-size: 13px; /*13px*/
-    fill: #777;
+    /* fill: #777; */
+    fill: black;
     font-family: "News Cycle";
     word-spacing: 3px;
     /* font-variant: all-small-caps; */
@@ -192,7 +195,9 @@ g.tick_x text {
 
 g.legend text {
     font-size: 14px; /*12px*/
-    fill: #666;
+    font-size: 16px;
+    /* fill: #666; */
+    fill: black;
     font-family: "News Cycle";
 }
 
