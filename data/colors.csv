@@ -66,7 +66,7 @@ Coal,Charbon,Coal,#ea5530
 Commercial,Commercial,Commercial,#367047
 Commercial and Institutional,Secteur commercial et institutionnel,Commercial and Institutional,#f7d255
 "Commercial, inst. and publ. admin.",Secteur commercial et institutionnel (inc. adm. pub.,Commercial and Institutional (inc. Pub. Adm.),#f7d255
-Conservation d'énergie,Conservation d'énergie,Energy conservation,#0775fa
+Conservation d'énergie,Conservation d'énergie,Energy conservation,#5ec3ce
 Conventionnel - Diesel,Conventionnel - Diesel,Conventional - Diesel,#878787
 Conventionnel - Gaz Naturel,Conventionnel - Gaz naturel,Conventional - Natural gas,#b1900a
 CP30,PC30,CP30,#7fbd78
@@ -101,6 +101,7 @@ Fermentation entérique,Fermentation entérique,Enteric fermentation,#e8d4b7
 Ferroviaire,Ferroviaire,Rail,#820344
 Finland,Finlance,Finland,#5487a4
 France,France,France,#5487a4
+Freight,Marchandises,Freight,#ffffff
 Freight transport,Transport de marchandises,Freight transport,#f39200
 Fumier,Fumier,Manure,#b6807d
 Gas plant natural gas liquids (NGL's),Liquides de gaz naturel des usines de gaz,Gas plant natural gas liquids (NGL's),#d29d31
@@ -182,6 +183,7 @@ Other,Autre,Other,#88b04b
 Other (including coal and propane),Autres (y compris charbon et propane),Other (including coal and propane),#6ff61d
 Papier - CCS,Papier – CSC,Paper – CCS,#f6d254
 Papier - Standard,Papier – standard,Paper – Standard,#f19100
+Passenger,Personnes,Passenger,#ffffff
 Passenger transport,Transport des passagers,Passenger transport,#876d03
 Pâte Chimique - CCS,Pâte chimique – CSC,Chemical pulp – CCS,#80093a
 Pâte Mécanique - CCS,Pâte mécanique – CSC,Mechanical pulp – CCS,#f27aa8
@@ -243,6 +245,7 @@ Sols agricoles,Sols agricoles,Agricultural soils,#4d4736
 Sources Fugitives,Sources fugitives,Fugitive sources,#20606b
 Space Cooling,Climatisation des bâtiments,Space Cooling,#3d6107
 Space Heating,Chauffage des bâtiments,Space Heating,#d20a11
+Space heating,Chauffage des espaces,Space heating,#ffffff
 Spain,Espagne,Spain,#5487a4
 Stockage,Stockage,Storage,#f6b4a4
 Substitut (Laitier acier),Substitut (Laitier acier),Substitute (Steel slag),#ffe36d
@@ -274,10 +277,7 @@ Usine avec CCS,Usine avec CSC,Plant with CSC,#5487a4
 Voitures,Voitures,Cars,#60613b
 Waste,Déchets,Waste,#7b3a38
 Water Heating,Production d'eau chaude,Water Heating,#77dba4
+Water heating,Chauffage de l'eau,Water heating,#ffffff
 Wind,Éolien,Wind,#bcdbf4
 Wood,Bois,Wood,#ca9e67
 Wood and spent pulping liquor,Bois et liqueur résiduaire,Wood and spent pulping liquor,#7b3a38
-Passenger,Personnes,Passenger,#ffffff
-Freight,Marchandises,Freight,#ffffff
-Space heating,Chauffage des espaces,Space heating,#ffffff
-Water heating,Chauffage de l'eau,Water heating,#ffffff
