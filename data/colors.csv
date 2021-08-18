@@ -73,7 +73,7 @@ CP30,PC30,CP30,#7fbd78
 Crude oil,Pétrole brut,Crude oil,#7d4e24
 Culture dédiée,Culture dédiée,Dedicated culture,#f39200
 Czech Republic,République Tchèque,Czech Republic,#5487a4
-DAC,DAC,DAC,#7d4e24
+DAC,DAC,DAC,#ca857d
 DAC - Énergie,DAC – Énergie,DAC – energy,#878787
 Déchets,Déchets,Waste,#7b3a38
 Denmark,Danemark,Denmark,#5487a4
@@ -133,10 +133,10 @@ Industrial processes,Procédés industriels,Industrial processes,#5487a4
 Industrie,Industrie,Industry,#5d675f
 Industrie - Combustion,Industrie - combustion,Industry – Combustion,#d20a11
 Industrie - Process,Procédés industriels,Industry – Process,#ccc321
-Industrie Combustion - CCS - réutilisées,Industrie Combustion - CSC - réutilisées,Industry Combustion – CCS - reutilized,#d29d31
-Industrie Combustion - CCS - stokées,Industrie Combustion - CSC - stockées,Industry Combustion – CCS - stored,#f6b4a4
-Industrie Procédés - CCS - réutilisées,Industrie Procédés - CSC - réutilisées,Industry Processes – CCS – reutilized,#09542a
-Industrie Procédés - CCS - stokées,Industrie Procédés - CSC - stockées,Industry Processes – CCS – stored,#414704
+Industrie Combustion - CCS - réutilisées,Industrie Combustion + CUC,Industry Combustion + CCU,#d29d31
+Industrie Combustion - CCS - stokées,Industrie Combustion + CUC,Industry Combustion + CCU,#f6b4a4
+Industrie Procédés - CCS - réutilisées,Industrie Procédés + CUC,Industry Processes + CCU,#09542a
+Industrie Procédés - CCS - stokées,Industrie Procédés + CSC,Industry Processes + CCS,#414704
 "Industries (outside of oil and gas and refineries), including processes","Industrie (excluant pétrole, gaz et raffineries), incluant les procédés","Industries (outside of oil and gas and refineries), including processes",#5487a4
 Industries chimiques,Industries chimiques,Chemical industries,#6ec083
 Industry energy use,Utilisation d'énergie en industrie,Industry energy use,#5d675f
@@ -273,7 +273,7 @@ Usage industriel,Usage industriel,Industrial use,#024a07
 Usine avec CCS,Usine avec CSC,Plant with CSC,#5487a4
 Voitures,Voitures,Cars,#60613b
 Waste,Déchets,Waste,#7b3a38
-Water Heating,Production d'eau chaude,Water Heating,#ea5530
+Water Heating,Production d'eau chaude,Water Heating,#77dba4
 Wind,Éolien,Wind,#bcdbf4
 Wood,Bois,Wood,#ca9e67
 Wood and spent pulping liquor,Bois et liqueur résiduaire,Wood and spent pulping liquor,#7b3a38
