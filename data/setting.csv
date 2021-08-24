@@ -69,9 +69,9 @@ bar.grouped.stacked,xTicks,fontHeight,10,no
 bar.grouped.stacked,yTicks,rowMargin,10,yes
 bar.grouped.stacked,distribution,preSpacePercent,5,yes
 bar.grouped.stacked,distribution,postSpacePercent,5,yes
-bar.grouped.stacked,distribution,barSpacePercent,10,yes
+bar.grouped.stacked,distribution,barSpacePercent,15,yes
 bar.grouped.stacked,distribution,groupSpacePercent,20,yes
-bar.grouped.stacked,distribution,barWidthPercent,60,yes
+bar.grouped.stacked,distribution,barWidthPercent,55,yes
 bar.grouped.stacked,distribution,plotRatio,80,yes
 bar.grouped.stacked,distribution,legendRatio,20,yes
 ,,,,
