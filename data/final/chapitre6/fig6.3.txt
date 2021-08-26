@@ -4,7 +4,7 @@ metadata;chart.xLabel
 metadata;chart.yLabel;PJ
 metadata;chart.source
 metadata;chart.section
-metadata;chart.type;bar.grouped.stacked
+metadata;chart.type;bar.grouped.stacked.percent
 metadata;chart.level_1;scenario
 metadata;chart.level_2;year
 metadata;chart.note
