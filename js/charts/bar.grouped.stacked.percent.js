@@ -8,8 +8,9 @@ function bar_grouped_stacked_percent(data, metadata, colors, settings, language)
 
 
     // consts
-    const yAxisHeight = setting.dimension.height - (setting.padding.top + setting.padding.bottom + setting.xTicks.row1Margin + setting.xTicks.lineSeparatorMargin + setting.xTicks.row2Margin + setting.xTicks.fontHeight*2),
-          xAxisWidth = setting.dimension.width*(setting.distribution.plotRatio/100) - (setting.padding.left + setting.padding.legend + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yAxis.lineWidth);
+    const yAxisHeight = setting.dimension.height - setting.padding.top,
+        //yAxisHeight = setting.dimension.height - (setting.padding.top + setting.padding.bottom + setting.xTicks.row1Margin + setting.xTicks.lineSeparatorMargin + setting.xTicks.row2Margin + setting.xTicks.fontHeight*2),
+          xAxisWidth = setting.dimension.width*(setting.distribution.plotRatio/100) - (setting.padding.left + setting.padding.legend + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yAxis.lineWidth + setting.yTicks.rowMargin);
 
 
 
@@ -46,6 +47,16 @@ function bar_grouped_stacked_percent(data, metadata, colors, settings, language)
     
 
 
+
+    // map the xLabel and yLabel
+    /* **************************************************** */
+    let axis = [metadata.chart.xLabel, metadata.chart.yLabel];
+    let axisList = mapColor(colors, axis);
+    /* **************************************************** */
+
+
+
+
     // scale for color
     let scaleColor = d3.scaleOrdinal()
     .domain(attrList)
@@ -53,10 +64,27 @@ function bar_grouped_stacked_percent(data, metadata, colors, settings, language)
 
 
 
+
     // scale for label
     let scaleLabel = d3.scaleOrdinal()
     .domain(attrList)
     .range(color.map(x => x[language]));
+
+
+
+
+
+    // scale for axis
+    let scaleAxis = d3.scaleOrdinal()
+    .domain(axis)
+    .range(axisList.map(function(x,i) {
+        if(x) {
+            return x[language];
+        } else {
+            return axis[i];
+        }
+    }));
+
 
 
 
@@ -87,13 +115,13 @@ function bar_grouped_stacked_percent(data, metadata, colors, settings, language)
 
     // y axis + label
     /* **************************************************** */
-    yAxisInit_bar(chart, scaleY, metadata.chart.yLabel);
+    yAxisInit_bar(chart, scaleY, scaleAxis(metadata.chart.yLabel));
     /* **************************************************** */
     let yAxisLabelWidth = chart.select("g.y_axis > .text").node().getBBox().width;
     chart.select("g.y_axis > .text")
-    .attr("transform", `translate(${-1 * (setting.yAxis.labelMargin + setting.yAxis.width)}, ${(yAxisHeight) / 2 + yAxisLabelWidth / 2}) rotate(-90)`);
+    .attr("transform", `translate(${-1 * (setting.yAxis.labelMargin + setting.yAxis.width + setting.yTicks.rowMargin)}, ${(yAxisHeight) / 2 + yAxisLabelWidth / 2}) rotate(-90)`);
     chart.select("g.y_axis")
-    .attr("transform", `translate(${setting.padding.left + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight}, ${setting.padding.top})`);
+    .attr("transform", `translate(${setting.padding.left + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yTicks.rowMargin}, ${setting.padding.top})`);
 
 
 
@@ -106,7 +134,7 @@ function bar_grouped_stacked_percent(data, metadata, colors, settings, language)
 
     // add the x axis
     chart.append("g")
-    .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width}, ${setting.padding.top + yAxisHeight})`)
+    .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width + setting.yTicks.rowMargin}, ${setting.padding.top + yAxisHeight})`)
     .attr("class", "x_axis")
     .call(d3.axisBottom(scaleX).ticks(0));
 
@@ -130,10 +158,10 @@ function bar_grouped_stacked_percent(data, metadata, colors, settings, language)
         
     // add grid lines for y axis
     /* **************************************************** */
-    yAxisGrid_bar(chart, xAxisWidth, scaleY);
+    yAxisGrid_bar(chart, xAxisWidth, scaleY, setting);
     /* **************************************************** */  
     chart.select("g.grid")
-    .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width}, ${setting.padding.top})`);
+    .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width + setting.yTicks.rowMargin}, ${setting.padding.top})`);
 
 
 
@@ -187,15 +215,30 @@ function bar_grouped_stacked_percent(data, metadata, colors, settings, language)
 
 
     // add ticks for x axis
+    let tickWidth = [];
+    let tickHeight = [];
     /* **************************************************** */
-    ticks_horizontal_bar(chart, data, metadata, yAxisHeight, setting, distribution);
+    // ticks_horizontal_bar(chart, data, metadata, yAxisHeight, setting, distribution);
+    let maxTickWidth = ticks_vertical_bar(chart, data, metadata, yAxisHeight, setting, distribution, tickWidth, tickHeight);
     /* **************************************************** */
+    // expanding viewBox for vertical bars
+    chart.attr("viewBox", `0 0 ${setting.dimension.width} ${setting.dimension.height + setting.padding.bottom + setting.xTicks.row1Margin + setting.xTicks.lineSeparatorMargin + setting.xTicks.row2Margin + maxTickWidth + setting.xTicks.fontHeight}`);
 
+    // expanding viewBox for legend
+    // let difference = (d3.select("g.legend").node().getBBox().height + setting.padding.top) - (setting.dimension.height + setting.padding.bottom + setting.xTicks.row1Margin + setting.xTicks.lineSeparatorMargin + setting.xTicks.row2Margin + maxTickWidth + setting.xTicks.fontHeight);
+    // if(difference >= 0) {
+    //     chart.attr("viewBox", `0 0 ${setting.dimension.width} ${setting.dimension.height + 2*setting.padding.bottom + setting.xTicks.row1Margin + setting.xTicks.lineSeparatorMargin + setting.xTicks.row2Margin + maxTickWidth + setting.xTicks.fontHeight + difference}`);
+    // } else {
+    //     chart.attr("viewBox", `0 0 ${setting.dimension.width} ${setting.dimension.height + setting.padding.bottom + setting.xTicks.row1Margin + setting.xTicks.lineSeparatorMargin + setting.xTicks.row2Margin + maxTickWidth + setting.xTicks.fontHeight}`);
+    // }
+    
 
+    
 
     // add ticks level 2 for x axis
     /* **************************************************** */
-    ticks_2_horizontal_if_ticks_horizontal_bar(chart, level_2, metadata, yAxisHeight, setting, barGroupWidth);
+    // ticks_2_horizontal_if_ticks_horizontal_bar(chart, level_2, metadata, yAxisHeight, setting, barGroupWidth);
+    ticks_2_horizontal_if_ticks_vertical_bar(chart, level_2, metadata, yAxisHeight, setting, barGroupWidth, maxTickWidth);
     /* **************************************************** */
 
 }

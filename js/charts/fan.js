@@ -64,6 +64,7 @@ function fan(data, metadata, colors, settings, language) {
 
     // guide data
     let gData_guide = [metadata.chart.min, metadata.chart.max];
+    let gData_guide_legend = [metadata.chart.max, metadata.chart.min];
     
 
 
@@ -129,7 +130,7 @@ function fan(data, metadata, colors, settings, language) {
     // legend
     const maxLegend = setting.dimension.width*(setting.distribution.legendRatio/100) - (setting.padding.right + setting.legend.colorBoxWidth + setting.legend.boxToText);
     let attrListLegend = attrListExclude.reverse();
-    attrListLegend.push(...gData_guide);
+    attrListLegend.push(...gData_guide_legend);
     /* **************************************************** */
     legend(chart, maxLegend, attrListLegend, setting, scaleColor, scaleLabel);
     /* **************************************************** */
@@ -257,7 +258,7 @@ function fan(data, metadata, colors, settings, language) {
     .attr("stroke", "#000")
     .attr("transform", `translate(${setting.padding.left + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yAxis.lineWidth + setting.yTicks.rowMargin}, ${setting.padding.top})`);
 
-    //draeing dashed line
+    //draeing solid line
     chart.append("g")
     .attr("class", "line")
     .attr("data-content", `${metadata.chart.max}`)
@@ -274,8 +275,26 @@ function fan(data, metadata, colors, settings, language) {
     .attr("stroke", "transparent")
     .attr("fill", "transparent");
 
+    //drawing legend max
+    chart.select(`g.legend_item[data-content=${scaleLabel(metadata.chart.max)}`)
+    .append("line")
+    .attr("x1", 0)
+    .attr("x2", setting.legend.lineHeight)
+    .attr("y1", 7)
+    .attr("y2", 7)
+    .attr("stroke", "black")
+    .attr("stroke-width", 3)
 
+    chart.select(`g.legend_item[data-content=${scaleLabel(metadata.chart.max)}`)
+    .select("text")
+    .attr("x", setting.legend.lineHeight + setting.legend.lineToText)
 
+    chart.select(`g.legend_item[data-content=${scaleLabel(metadata.chart.max)}`)
+    .select("rect")
+    .attr("fill", "transparent")
+    .attr("stroke", "transparent")
+    
+    //drawing legend min
     chart.select(`g.legend_item[data-content=${scaleLabel(metadata.chart.min)}`)
     .append("line")
     .attr("x1", 0)
@@ -295,23 +314,6 @@ function fan(data, metadata, colors, settings, language) {
     .attr("fill", "transparent")
     .attr("stroke", "transparent")
 
-
-    chart.select(`g.legend_item[data-content=${scaleLabel(metadata.chart.max)}`)
-    .append("line")
-    .attr("x1", 0)
-    .attr("x2", setting.legend.lineHeight)
-    .attr("y1", 7)
-    .attr("y2", 7)
-    .attr("stroke", "black")
-    .attr("stroke-width", 3)
-
-    chart.select(`g.legend_item[data-content=${scaleLabel(metadata.chart.max)}`)
-    .select("text")
-    .attr("x", setting.legend.lineHeight + setting.legend.lineToText)
-
-    chart.select(`g.legend_item[data-content=${scaleLabel(metadata.chart.max)}`)
-    .select("rect")
-    .attr("fill", "transparent")
-    .attr("stroke", "transparent")
+    
 
 }

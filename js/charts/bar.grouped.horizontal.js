@@ -71,9 +71,8 @@ function bar_grouped_horizontal(data, metadata, colors, settings, language) {
 
     // scale for label
     let scaleLabel = d3.scaleOrdinal()
-    .domain(attrList)
+    .domain(level_1)
     .range(color.map(x => x[language]));
-
 
 
 
@@ -100,7 +99,7 @@ function bar_grouped_horizontal(data, metadata, colors, settings, language) {
 
     // legend
     const maxLegend = setting.dimension.width*(setting.distribution.legendRatio/100) - (setting.padding.right + setting.legend.colorBoxWidth + setting.legend.boxToText);
-    let attrListLegend = level_1.map(x => x).reverse();
+    let attrListLegend = level_1.map(x => x);
     /* **************************************************** */
     legend(chart, maxLegend, attrListLegend, setting, scaleColor, scaleLabel);
     /* **************************************************** */
