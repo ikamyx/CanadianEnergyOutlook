@@ -222,6 +222,7 @@ g.line path {
 
 g.line path.min {
     stroke-dasharray: 7;
+    stroke-width: 3px;
 }
 
 g.line path.max {

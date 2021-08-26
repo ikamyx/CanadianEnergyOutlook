@@ -1,0 +1,34 @@
+﻿metadata;chart.title;Final energy consumption by sector
+metadata;chart.subtitle
+metadata;chart.xLabel
+metadata;chart.yLabel;PJ
+metadata;chart.source
+metadata;chart.section
+metadata;chart.type;bar.grouped.stacked
+metadata;chart.level_1;scenario
+metadata;chart.level_2;year
+metadata;chart.note
+metadata;data.source;IET_NRCAN_NATEM Results_NRG_2021-06-11_Version Finale.xlsm
+metadata;data.file
+data;year;scenario;Agriculture;Commercial;Résidentiel;Industrie;Transport
+data;2016;-;100;1062;1426;2425;2991
+data;2030;REF;92;1192;1429;2439;3704
+data;2030;CP30;90;1161;1401;2349;3607
+data;2030;NZ60;102;1084;1306;2124;3546
+data;2030;NZ50;91;1025;1247;1980;3334
+data;2030;NZ45;84;1011;1210;1948;3295
+data;2040;REF;99;1269;1471;2602;4010
+data;2040;CP30;93;1242;1408;2532;3722
+data;2040;NZ60;86;1057;1199;2100;3436
+data;2040;NZ50;86;1022;1182;2054;2971
+data;2040;NZ45;86;1018;1180;2046;2493
+data;2050;REF;104;1342;1519;2784;4580
+data;2050;CP30;97;1315;1429;2782;3769
+data;2050;NZ60;86;1049;1177;2211;3190
+data;2050;NZ50;85;1046;1165;2267;2374
+data;2050;NZ45;86;1052;1173;2249;2437
+data;2060;REF;106;1431;1653;3022;5263
+data;2060;CP30;102;1407;1569;2986;3870
+data;2060;NZ60;90;1118;1276;2391;2599
+data;2060;NZ50;90;1115;1278;2385;2522
+data;2060;NZ45;90;1118;1279;2359;2717
