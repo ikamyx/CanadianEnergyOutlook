@@ -41,7 +41,7 @@ function yAxisGrid_bar(chart, xAxisWidth, scaleY, setting) {
             thousands: " ",
             grouping: [3]
             }
-        ).format(",.0f"))
+        ).format(",.1f"))
     );
     chart.selectAll("g.grid line")
     .each(function() {
