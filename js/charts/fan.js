@@ -1,7 +1,7 @@
 "use strict";
 
 function fan(data, metadata, colors, settings, language) {
-
+    console.log(data)
     // setting
     let setting = settings[metadata.chart.type];
 
@@ -27,7 +27,7 @@ function fan(data, metadata, colors, settings, language) {
     /* **************************************************** */
     dataCoversion_area(data, metadata, attrList, level_1);
     /* **************************************************** */
-    
+
 
 
     // data re arrange by aggregation attrList
@@ -313,7 +313,5 @@ function fan(data, metadata, colors, settings, language) {
     .select("rect")
     .attr("fill", "transparent")
     .attr("stroke", "transparent")
-
-    
 
 }

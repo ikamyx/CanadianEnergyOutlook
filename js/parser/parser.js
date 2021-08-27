@@ -77,7 +77,7 @@ function parser(raw) {
         atrs.forEach((D, j) => {
             let value = values[i][j];
             if(!isNaN(value)) {
-                value = parseInt(value);
+                value = parseFloat(value);
             }
             dataObj[atrs[j]] = value; 
         });
