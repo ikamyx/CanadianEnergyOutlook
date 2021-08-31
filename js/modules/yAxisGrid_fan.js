@@ -1,6 +1,6 @@
 "use strict";
 
-function yAxisGrid_bar(chart, xAxisWidth, scaleY, setting) {
+function yAxisGrid_fan(chart, xAxisWidth, scaleY, setting) {
     let ticks = scaleY.ticks();
     let newTicks = new Array();
     if(ticks[0] < 0) {
@@ -41,7 +41,7 @@ function yAxisGrid_bar(chart, xAxisWidth, scaleY, setting) {
             thousands: " ",
             grouping: [3]
             }
-        ).format(",.1~f"))
+        ).format(",.0f"))
     );
     chart.selectAll("g.grid line")
     .each(function() {
