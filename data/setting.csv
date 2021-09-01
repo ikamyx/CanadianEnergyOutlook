@@ -72,8 +72,8 @@ bar.grouped.stacked,distribution,postSpacePercent,5,yes
 bar.grouped.stacked,distribution,barSpacePercent,15,yes
 bar.grouped.stacked,distribution,groupSpacePercent,20,yes
 bar.grouped.stacked,distribution,barWidthPercent,55,yes
-bar.grouped.stacked,distribution,plotRatio,65,yes
-bar.grouped.stacked,distribution,legendRatio,35,yes
+bar.grouped.stacked,distribution,plotRatio,70,yes
+bar.grouped.stacked,distribution,legendRatio,30,yes
 ,,,,
 line,dimension,width,1000,yes
 line,dimension,height,400,yes
