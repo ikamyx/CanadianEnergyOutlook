@@ -47,7 +47,7 @@ bar.stacked,distribution,plotRatio,80,yes
 bar.stacked,distribution,legendRatio,20,yes
 ,,,,
 bar.grouped.stacked,dimension,width,650,yes
-bar.grouped.stacked,dimension,height,208,yes
+bar.grouped.stacked,dimension,height,200,yes
 bar.grouped.stacked,padding,top,5,yes
 bar.grouped.stacked,padding,bottom,5,yes
 bar.grouped.stacked,padding,left,0,yes
@@ -153,8 +153,8 @@ bar.grouped.horizontal,distribution,barWidthPercent,64,yes
 bar.grouped.horizontal,distribution,plotRatio,90,yes
 bar.grouped.horizontal,distribution,legendRatio,10,yes
 ,,,,
-fan,dimension,width,1000,yes
-fan,dimension,height,400,yes
+fan,dimension,width,650,yes
+fan,dimension,height,280,yes
 fan,padding,top,10,yes
 fan,padding,bottom,10,yes
 fan,padding,left,5,yes
