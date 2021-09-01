@@ -67,11 +67,11 @@ bar.grouped.stacked,xTicks,lineSeparatorMargin,10,yes
 bar.grouped.stacked,xTicks,lineSeparatorExtra,0,no
 bar.grouped.stacked,xTicks,fontHeight,10,no
 bar.grouped.stacked,yTicks,rowMargin,10,yes
-bar.grouped.stacked,distribution,preSpacePercent,5,yes
-bar.grouped.stacked,distribution,postSpacePercent,5,yes
+bar.grouped.stacked,distribution,preSpacePercent,0,yes
+bar.grouped.stacked,distribution,postSpacePercent,0,yes
 bar.grouped.stacked,distribution,barSpacePercent,15,yes
-bar.grouped.stacked,distribution,groupSpacePercent,20,yes
-bar.grouped.stacked,distribution,barWidthPercent,55,yes
+bar.grouped.stacked,distribution,groupSpacePercent,15,yes
+bar.grouped.stacked,distribution,barWidthPercent,70,yes
 bar.grouped.stacked,distribution,plotRatio,70,yes
 bar.grouped.stacked,distribution,legendRatio,30,yes
 ,,,,
