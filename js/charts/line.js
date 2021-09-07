@@ -156,7 +156,7 @@ function line(data, metadata, colors, settings, language) {
         
     // add grid lines for y axis
     /* **************************************************** */
-    yAxisGrid_bar(chart, xAxisWidth, scaleY, setting);
+    yAxisGrid_bar(chart, xAxisWidth, scaleY, setting, language);
     /* **************************************************** */  
     chart.select("g.grid")
     .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width + setting.yTicks.rowMargin}, ${setting.padding.top})`);

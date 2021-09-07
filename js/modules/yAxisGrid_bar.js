@@ -1,6 +1,19 @@
 "use strict";
 
-function yAxisGrid_bar(chart, xAxisWidth, scaleY, setting) {
+function yAxisGrid_bar(chart, xAxisWidth, scaleY, setting, language) {
+    let languageFormatLocale = (language == "label_fr") ? d3.formatLocale(
+        {
+        decimal: ",",
+        thousands: " ",
+        grouping: [3]
+        }
+    ) : d3.formatLocale(
+        {
+        decimal: ".",
+        thousands: ",",
+        grouping: [3]
+        }
+    )
     let ticks = scaleY.ticks();
     let newTicks = new Array();
     if(ticks[0] < 0) {
@@ -29,19 +42,27 @@ function yAxisGrid_bar(chart, xAxisWidth, scaleY, setting) {
         }
     }
     newTicks.sort(function(a, b) { return a - b;});
+
+    // let decimal = new Array(newTicks.length).fill(null).map(g => true);
+    // newTicks.forEach((g, i) => {
+    //     if (Number.isInteger(g)) {
+    //         decimal[i] = false;
+    //     }
+    // });
+
+    let decimal = newTicks.findIndex(function(g) {
+        return g % 1 != 0
+    })
+    decimal = (decimal === -1) ? false : true;
+    
+
     chart.append("g")
     .lower()	
     .attr("class", "yGrid grid")
     .call(d3.axisLeft(scaleY)
         .tickSize(-xAxisWidth)
         .tickValues(newTicks)
-        .tickFormat(d3.formatLocale(
-            {
-            decimal: ",",
-            thousands: " ",
-            grouping: [3]
-            }
-        ).format(",.1~f"))
+        .tickFormat(languageFormatLocale.format(",.1~f"))
     );
     chart.selectAll("g.grid line")
     .each(function() {
@@ -49,9 +70,22 @@ function yAxisGrid_bar(chart, xAxisWidth, scaleY, setting) {
         .attr("stroke-dasharray", "3, 3");
     });
     chart.selectAll("g.yGrid text")
-    .each(function() {
+    .each(function(d, i) {
         d3.select(this)
         .attr("transform", `translate(${-1 * setting.yTicks.rowMargin}, 0)`)
     });
+
+    if(decimal == true) {
+        chart.selectAll("g.yGrid text")
+        .filter(function() {
+            if(language == "label_fr") return !/[,]/.test(d3.select(this).text())
+            else if (language == "label_en") return !/[.]/.test(d3.select(this).text())
+        })
+        .text(function() {
+            if(language == "label_fr") return d3.select(this).text() + ",0"
+            else if (language == "label_en") return d3.select(this).text() + ".0"
+        });
+    }
+
 }
 

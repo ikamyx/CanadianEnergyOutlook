@@ -27,7 +27,7 @@
     $buttonShow.addEventListener("click", fileLoad);
     $buttonPrint.addEventListener("click", saveToPng);
     $buttonClear.addEventListener("click", resetChart);
-    // $file.addEventListener("input", resetInput);
+    // $file.addEventListener("input", fileLoad);
     $file.addEventListener("change", fileLoad);
     // $file.addEventListener("click", fileReset);
 
@@ -226,8 +226,15 @@
         console.clear();
         document.querySelector("svg").classList.remove("hide");
             let parsed = content[0];
+            let chartTitle = $file.value.substring(12);
+            chartTitle = chartTitle.substring(0, chartTitle.length - 4);
+            $input.value = chartTitle;
+            $file.value = "";
             switch(parsed.metadata.chart.type) {
                 case "bar.grouped.stacked":
+                    bar_grouped_stacked(parsed.data, parsed.metadata, colors, settings, language);
+                    break;
+                case "bar.grouped.stacked2":
                     bar_grouped_stacked(parsed.data, parsed.metadata, colors, settings, language);
                     break;
                 case "bar.grouped.stacked.percent":
@@ -265,7 +272,10 @@
                     break;
                 case "fan":
                     fan(parsed.data, parsed.metadata, colors, settings, language);
-                    break; 
+                    break;
+                case "fan2":
+                fan(parsed.data, parsed.metadata, colors, settings, language);
+                break;
                 case "scatter":
                     scatter(parsed.data, parsed.metadata, colors, settings, language);
                     break;   
