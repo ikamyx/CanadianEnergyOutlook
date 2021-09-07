@@ -129,7 +129,7 @@ svg.hide {
     display: none;
 }
 
-g.bar text, g.year_group text, g.scenario_group text, g.province_group text, g.period_group text, g.group_group text, g.grid g.tick text, g.sector_group text {
+g.bar text, g.year_group text, g.scenario_group text, g.province_group text, g.period_group text, g.group_group text, g.grid g.tick text, g.sector_group text, g.usage_group text {
     /* fill: #888; */
     fill: black;
 }
@@ -138,12 +138,12 @@ g.bar text {
     font-size: 13px; /*12px*/
 }
 
-g.year_group text, g.scenario_group text, g.province_group text, g.period_group text, g.group_group text, g.grid g.tick text, g.sector_group text {
+g.year_group text, g.scenario_group text, g.province_group text, g.period_group text, g.group_group text, g.grid g.tick text, g.sector_group text, g.usage_group text {
     font-family: "News Cycle";
     letter-spacing: 1px;
 }
 
-g.year_group text, g.scenario_group text, g.province_group text, g.period_group text, g.group_group text, g.sector_group text {
+g.year_group text, g.scenario_group text, g.province_group text, g.period_group text, g.group_group text, g.sector_group text, g.usage_group text {
     font-size: 14px;
 }
 
