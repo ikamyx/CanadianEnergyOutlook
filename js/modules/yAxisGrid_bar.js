@@ -43,13 +43,6 @@ function yAxisGrid_bar(chart, xAxisWidth, scaleY, setting, language) {
     }
     newTicks.sort(function(a, b) { return a - b;});
 
-    // let decimal = new Array(newTicks.length).fill(null).map(g => true);
-    // newTicks.forEach((g, i) => {
-    //     if (Number.isInteger(g)) {
-    //         decimal[i] = false;
-    //     }
-    // });
-
     let decimal = newTicks.findIndex(function(g) {
         return g % 1 != 0
     })
