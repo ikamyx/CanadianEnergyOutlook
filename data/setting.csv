@@ -105,7 +105,7 @@ bar.grouped.stacked.percent,distribution,plotRatio,80,yes
 bar.grouped.stacked.percent,distribution,legendRatio,20,yes
 ,,,,
 bar.grouped.stacked.mosaic,dimension,width,700,yes
-bar.grouped.stacked.mosaic,dimension,height,323,yes
+bar.grouped.stacked.mosaic,dimension,height,321,yes
 bar.grouped.stacked.mosaic,padding,top,10,yes
 bar.grouped.stacked.mosaic,padding,bottom,10,yes
 bar.grouped.stacked.mosaic,padding,left,0,yes
