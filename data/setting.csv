@@ -234,12 +234,12 @@ fan,yTicks,rowMargin,10,yes
 fan,distribution,plotRatio,80,yes
 fan,distribution,legendRatio,20,yes
 ,,,,
-fan.mosaic,dimension,width,1000,yes
+fan.mosaic,dimension,width,700,yes
 fan.mosaic,dimension,height,400,yes
 fan.mosaic,padding,top,10,yes
 fan.mosaic,padding,bottom,10,yes
-fan.mosaic,padding,left,5,yes
-fan.mosaic,padding,right,5,yes
+fan.mosaic,padding,left,0,yes
+fan.mosaic,padding,right,0,yes
 fan.mosaic,padding,legend,20,yes
 fan.mosaic,legend,lineSpace,18,no
 fan.mosaic,legend,lineBetweenSpace,10,no
@@ -254,8 +254,8 @@ fan.mosaic,yAxis,labelHeight,15,no
 fan.mosaic,xTicks,row1Margin,10,yes
 fan.mosaic,xTicks,fontHeight,10,no
 fan.mosaic,yTicks,rowMargin,10,yes
-fan.mosaic,distribution,plotRatio,80,yes
-fan.mosaic,distribution,legendRatio,20,yes
+fan.mosaic,distribution,plotRatio,70,yes
+fan.mosaic,distribution,legendRatio,30,yes
 ,,,,
 ,,,,
 ,,,,
