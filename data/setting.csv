@@ -110,7 +110,7 @@ bar.grouped.stacked.mosaic,padding,top,10,yes
 bar.grouped.stacked.mosaic,padding,bottom,10,yes
 bar.grouped.stacked.mosaic,padding,left,0,yes
 bar.grouped.stacked.mosaic,padding,right,0,yes
-bar.grouped.stacked.mosaic,padding,legend,10,yes
+bar.grouped.stacked.mosaic,padding,legend,20,yes
 bar.grouped.stacked.mosaic,legend,lineSpace,18,no
 bar.grouped.stacked.mosaic,legend,lineBetweenSpace,10,no
 bar.grouped.stacked.mosaic,legend,boxToText,5,no
