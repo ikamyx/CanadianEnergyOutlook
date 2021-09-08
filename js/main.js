@@ -234,7 +234,7 @@
                 case "bar.grouped.stacked":
                     bar_grouped_stacked(parsed.data, parsed.metadata, colors, settings, language);
                     break;
-                case "bar.grouped.stacked2":
+                case "bar.grouped.stacked.mosaic":
                     bar_grouped_stacked(parsed.data, parsed.metadata, colors, settings, language);
                     break;
                 case "bar.grouped.stacked.percent":
@@ -273,7 +273,7 @@
                 case "fan":
                     fan(parsed.data, parsed.metadata, colors, settings, language);
                     break;
-                case "fan2":
+                case "fan.mosaic":
                 fan(parsed.data, parsed.metadata, colors, settings, language);
                 break;
                 case "scatter":
