@@ -38,6 +38,7 @@ function yAxisGrid_bar(chart, xAxisWidth, scaleY, setting, language) {
         if(ticks[0] < 0) newTicks.push(0);
         for(let i = 0; i <= 4; i++) {
             let value = ticks[0] + i*distance;
+            // let value = i*distance;
             newTicks.push(value);
         }
     }

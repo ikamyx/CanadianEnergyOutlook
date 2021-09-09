@@ -229,7 +229,7 @@
             let chartTitle = $file.value.substring(12);
             chartTitle = chartTitle.substring(0, chartTitle.length - 4);
             $input.value = chartTitle;
-            $file.value = "";
+            // $file.value = "";
             switch(parsed.metadata.chart.type) {
                 case "bar.grouped.stacked":
                     bar_grouped_stacked(parsed.data, parsed.metadata, colors, settings, language);
