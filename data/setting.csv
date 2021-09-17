@@ -39,9 +39,9 @@ bar.stacked,yAxis,labelHeight,15,no
 bar.stacked,xTicks,row1Margin,10,yes
 bar.stacked,xTicks,fontHeight,10,no
 bar.stacked,yTicks,rowMargin,10,yes
-bar.stacked,distribution,preSpacePercent,5,yes
-bar.stacked,distribution,postSpacePercent,5,yes
-bar.stacked,distribution,barSpacePercent,40,yes
+bar.stacked,distribution,preSpacePercent,10,yes
+bar.stacked,distribution,postSpacePercent,10,yes
+bar.stacked,distribution,barSpacePercent,30,yes
 bar.stacked,distribution,barWidthPercent,50,yes
 bar.stacked,distribution,plotRatio,80,yes
 bar.stacked,distribution,legendRatio,20,yes
