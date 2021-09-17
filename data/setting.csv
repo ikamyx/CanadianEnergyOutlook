@@ -177,9 +177,9 @@ bar.grouped,xTicks,fontHeight,10,no
 bar.grouped,yTicks,rowMargin,10,yes
 bar.grouped,distribution,preSpacePercent,5,yes
 bar.grouped,distribution,postSpacePercent,5,yes
-bar.grouped,distribution,barSpacePercent,0,yes
+bar.grouped,distribution,barSpacePercent,10,yes
 bar.grouped,distribution,groupSpacePercent,20,yes
-bar.grouped,distribution,barWidthPercent,70,yes
+bar.grouped,distribution,barWidthPercent,60,yes
 bar.grouped,distribution,plotRatio,80,yes
 bar.grouped,distribution,legendRatio,20,yes
 ,,,,
