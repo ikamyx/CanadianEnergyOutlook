@@ -41,8 +41,8 @@ bar.stacked,xTicks,fontHeight,10,no
 bar.stacked,yTicks,rowMargin,10,yes
 bar.stacked,distribution,preSpacePercent,5,yes
 bar.stacked,distribution,postSpacePercent,15,yes
-bar.stacked,distribution,barSpacePercent,40,yes
-bar.stacked,distribution,barWidthPercent,40,yes
+bar.stacked,distribution,barSpacePercent,45,yes
+bar.stacked,distribution,barWidthPercent,35,yes
 bar.stacked,distribution,plotRatio,80,yes
 bar.stacked,distribution,legendRatio,20,yes
 ,,,,
