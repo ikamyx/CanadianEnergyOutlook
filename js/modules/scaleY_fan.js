@@ -2,10 +2,14 @@
 
 function scaleY_fan(stackedData, yAxisHeight) {
 
-    let scaleY = d3.scaleLinear()
-    .domain([d3.min(stackedData[0], d => d[1]), d3.max(stackedData[stackedData.length - 1], d => d[0])]).nice()
-    .domain([0, d3.max(stackedData[stackedData.length - 1], d => d[0])]).nice()
-    .range([yAxisHeight, 0]);
+    let scaleY = d3.scaleLinear().range([yAxisHeight, 0]);
+    console.log(stackedData)
+    if(d3.min(stackedData[0], d => d[1]) < 0) {
+        scaleY.domain([d3.min(stackedData[0], d => d[1]), d3.max(stackedData[stackedData.length - 1], d => d[0])]).nice();
+    } else {
+        scaleY.domain([0, d3.max(stackedData[stackedData.length - 1], d => d[0])]).nice()
+    }
+    
     let ticks = scaleY.ticks(),
         lastTick = ticks[ticks.length - 1],
         firstTick = ticks[0],
