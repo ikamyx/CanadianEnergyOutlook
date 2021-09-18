@@ -104,7 +104,7 @@ bar.grouped.stacked.percent,distribution,barWidthPercent,55,yes
 bar.grouped.stacked.percent,distribution,plotRatio,80,yes
 bar.grouped.stacked.percent,distribution,legendRatio,20,yes
 ,,,,
-bar.grouped.stacked.mosaic,dimension,width,700,yes
+bar.grouped.stacked.mosaic,dimension,width,680,yes
 bar.grouped.stacked.mosaic,dimension,height,320,yes
 bar.grouped.stacked.mosaic,padding,top,10,yes
 bar.grouped.stacked.mosaic,padding,bottom,10,yes
@@ -234,7 +234,7 @@ fan,yTicks,rowMargin,10,yes
 fan,distribution,plotRatio,80,yes
 fan,distribution,legendRatio,20,yes
 ,,,,
-fan.mosaic,dimension,width,700,yes
+fan.mosaic,dimension,width,680,yes
 fan.mosaic,dimension,height,400,yes
 fan.mosaic,padding,top,10,yes
 fan.mosaic,padding,bottom,10,yes
