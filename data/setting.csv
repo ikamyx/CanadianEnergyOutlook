@@ -40,9 +40,9 @@ bar.stacked,xTicks,row1Margin,10,yes
 bar.stacked,xTicks,fontHeight,10,no
 bar.stacked,yTicks,rowMargin,10,yes
 bar.stacked,distribution,preSpacePercent,5,yes
-bar.stacked,distribution,postSpacePercent,5,yes
-bar.stacked,distribution,barSpacePercent,20,yes
-bar.stacked,distribution,barWidthPercent,70,yes
+bar.stacked,distribution,postSpacePercent,15,yes
+bar.stacked,distribution,barSpacePercent,40,yes
+bar.stacked,distribution,barWidthPercent,40,yes
 bar.stacked,distribution,plotRatio,80,yes
 bar.stacked,distribution,legendRatio,20,yes
 ,,,,
@@ -104,7 +104,7 @@ bar.grouped.stacked.percent,distribution,barWidthPercent,55,yes
 bar.grouped.stacked.percent,distribution,plotRatio,80,yes
 bar.grouped.stacked.percent,distribution,legendRatio,20,yes
 ,,,,
-bar.grouped.stacked.mosaic,dimension,width,680,yes
+bar.grouped.stacked.mosaic,dimension,width,700,yes
 bar.grouped.stacked.mosaic,dimension,height,320,yes
 bar.grouped.stacked.mosaic,padding,top,10,yes
 bar.grouped.stacked.mosaic,padding,bottom,10,yes
@@ -234,7 +234,7 @@ fan,yTicks,rowMargin,10,yes
 fan,distribution,plotRatio,80,yes
 fan,distribution,legendRatio,20,yes
 ,,,,
-fan.mosaic,dimension,width,680,yes
+fan.mosaic,dimension,width,700,yes
 fan.mosaic,dimension,height,400,yes
 fan.mosaic,padding,top,10,yes
 fan.mosaic,padding,bottom,10,yes
