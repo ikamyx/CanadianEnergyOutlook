@@ -40,7 +40,7 @@ CA,CA,CA,#000000
 Camions légers,Camions légers,Light trucks,#d3ed40
 CAN,CAN,CAN,#000000
 Canada,Canada,Canada,#d20a11
-Carburant d'aviation,Carburant d'aviation OU Kérosène,Aviation fuel,#82368c
+Carburant d'aviation,Carburant d'aviation,Aviation fuel,#82368c
 Carburant synthétique,Carburant synthétique,Synthetic fuel,#f19100
 Carton - CCS,Carton – CSC,Cardboard – CCS,#6b422f
 Carton - Standard,Carton – standard,Cardboard – Standard,#aa6647
@@ -82,7 +82,7 @@ Diesel Fuel Oil,Diesel,Diesel Fuel Oil,#878787
 Electricité,Électricité,Electricity,#9bd4dc
 Électricité,Électricité,Electricity,#9bd4dc
 Électricité - Biomasse + CCS,Électricité - Biomasse + CSC,Hydrogen – Biomass + CCS,#e8d4b7
-Electricité - CCS - stokées,Electricité - CSC - stokées,Electricity – CCS -stored,#346b7c
+Electricité - CCS - stokées,Electricité - CSC,Electricity – CCS,#346b7c
 Électricité - centralisée,Électricité - centralisée,Centralized electricity,#4f9db6
 Électricité - Centralisée,Électricité - centralisée,Centralized electricity,#4f9db6
 Électricité - décentralisée,Électricité - décentralisée,Decentralized electricity,#5dcec7
@@ -281,3 +281,7 @@ Water heating,Chauffage de l'eau,Water heating,#ffffff
 Wind,Éolien,Wind,#bcdbf4
 Wood,Bois,Wood,#ca9e67
 Wood and spent pulping liquor,Bois et liqueur résiduaire,Wood and spent pulping liquor,#7b3a38
+CP30,TC30,CP30,#000000
+NZ60,CN60,NZ60,#000000
+NZ50,CN50,NZ50,#000000
+NZ45,CN45,NZ45,#000000
