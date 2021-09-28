@@ -17,6 +17,7 @@
 AB,AB,AB,#d3c2ac
 Aérien,Aérien,Air,#9bd4dd
 Agriculture,Agriculture,Agriculture,#88b04b
+Agriculture (non-energy),Agriculture (hors énergie),Agriculture (non-energy),#88b04b
 Agriculture and forestry (including non-energy),Agriculture et foresterie (incluant usages non énergétiques),Agriculture and Forestry (including non-energy),#bdd030
 Agriculture and Forestry energy use,Utilisation d'énergie en agriculture et foresterie,Agriculture and Forestry energy use,#bdd030
 Appliances,Électroménagers,Appliances,#f6b4a4
@@ -64,8 +65,8 @@ Ciment - Portland - Changement carburant,Ciment – Portland – Changement carb
 Ciment - Variation de la production,Ciment – Variation de la production,Cement – Production change,#84a569
 Coal,Charbon,Coal,#ea5530
 Commercial,Commercial,Commercial,#367047
-Commercial and Institutional,Secteur commercial et institutionnel,Commercial and Institutional,#f7d255
-"Commercial, inst. and publ. admin.",Secteur commercial et institutionnel (inc. adm. pub.,Commercial and Institutional (inc. Pub. Adm.),#f7d255
+Commercial and Institutional,Commercial et institutionnel,Commercial and Institutional,#f7d255
+"Commercial, inst. and publ. admin.",Commercial et institutionnel (inc. adm. pub.),Commercial and Institutional (inc. Pub. Adm.),#f7d255
 Conservation d'énergie,Réaménagement énergétique,Energy retrofit,#5ef0c2
 Conventionnel - Diesel,Conventionnel - Diesel,Conventional - Diesel,#878787
 Conventionnel - Gaz Naturel,Conventionnel - Gaz naturel,Conventional - Natural gas,#b1900a
@@ -214,9 +215,9 @@ Production d'Hydrogène,Production d'hydrogène,Hydrogen production,#4f9db6
 Productions de métaux,Productions de métaux,Metal production,#f08956
 Produit chimique basique - CCS,Produit chimique basique – CSC,Basic chemical product – CCS,#f6b4a4
 Produit chimique basique - Standard,Produit chimique basique – Standard,Basic chemical product -Standard,#ea5530
-Produit non énergétique,Produit non énergétique,Non-energy product,#0775fa
-Produit non-énergétique,Produit non énergétique,Non-energy product,#0775fa
-Produit pétrolier,Produit pétrolier,Petroleum product,#b87f9c
+Produit non énergétique,Produits non énergétiques,Non-energy products,#0775fa
+Produit non-énergétique,Produits non énergétiques,Non-energy products,#0775fa
+Produit pétrolier,Produits pétroliers,Petroleum products,#b87f9c
 Produits minéraux,Produits minéraux,Mineral products,#747571
 Produits non énergétiques provenant de combustibles et de l'utilisation de solvant,Produits non énergétiques provenant de combustibles et de l'utilisation de solvant,Non-energy products from combustibles and use of solvents,#6b305e
 Propane,Propane,Propane,#3d6385
