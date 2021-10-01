@@ -137,7 +137,7 @@ Industrie - Process,Procédés industriels,Industry – Process,#ccc321
 Industrie Combustion - CCS - réutilisées,Industrie Combustion + CUC,Industry Combustion + CCU,#d29d31
 Industrie Combustion - CCS - stokées,Industrie Combustion + CUC,Industry Combustion + CCU,#f6b4a4
 Industrie Procédés - CCS - réutilisées,Industrie Procédés + CUC,Industry Processes + CCU,#09542a
-Industrie Procédés - CCS - stokées,Industrie Procédés + CSC,Industry Processes + CCS,#414704
+Industrie Procédés - CCS - stokées,Industrie Procédés + CSC,Industry Processes + CCS,#13b157
 "Industries (outside of oil and gas and refineries), including processes","Industrie (excluant pétrole, gaz et raffineries), incluant les procédés","Industries (outside of oil and gas and refineries), including processes",#5487a4
 Industries chimiques,Industries chimiques,Chemical industries,#6ec083
 Industry energy use,Utilisation d'énergie en industrie,Industry energy use,#5d675f
@@ -206,8 +206,8 @@ Production de gaz naturel renouvelable,Production de gaz naturel renouvelable,Pr
 Production de granule de bois,Production de granule de bois,Production of wood pellets,#ca9e67
 Production d'électricité,Production d'électricité,Production of electricity,#9bd4dc
 Production d'énergie,Production d'énergie,Energy production,#b6807d
-Production d'énergie - CCS - réutilisées,Production d'énergie + CUC,Energy production + CCU,#0775fa
-Production d'énergie - CCS - stokées,Production d'énergie + CSC,Energy production + CCS,#c5d9a7
+Production d'énergie - CCS - réutilisées,Production d'énergie + CUC,Energy production + CCU,#a0bb50
+Production d'énergie - CCS - stokées,Production d'énergie + CSC,Energy production + CCS,#c5faa7
 Production d'hydrogène,Production d'hydrogène,Hydrogen production,#4f9db6
 Production d'Hydrogène,Production d'hydrogène,Hydrogen production,#4f9db6
 "Production et consommation d'halocarbures, de SF6 et de NF33","Production et consommation d'halocarbures, de SF6 et de NF33","Production and consumption of halocarbons, SF6 and NF3",#b8a2f5
