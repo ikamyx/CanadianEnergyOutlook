@@ -18,8 +18,8 @@ AB,AB,AB,#d3c2ac
 Aérien,Aérien,Air,#9bd4dd
 Agriculture,Agriculture,Agriculture,#88b04b
 Agriculture (non-energy),Agriculture (hors énergie),Agriculture (non-energy),#88b04b
-Agriculture and forestry (including non-energy),Agriculture et foresterie (incluant usages non énergétiques),Agriculture and Forestry (including non-energy),#bdd030
-Agriculture and Forestry energy use,Utilisation d'énergie en agriculture et foresterie,Agriculture and Forestry energy use,#bdd030
+Agriculture and forestry (including non-energy),Agriculture et foresterie (incluant usages non énergétiques),Agriculture and forestry (including non-energy),#bdd030
+Agriculture and Forestry energy use,Utilisation d'énergie en agriculture et foresterie,Agriculture and forestry energy use,#bdd030
 Appliances,Électroménagers,Appliances,#f6b4a4
 Australia,Australie,Australia,#5487a4
 Austria,Autriche,Austria,#5487a4
@@ -96,7 +96,7 @@ Essence,Essence,Gasoline,#b8b7b7
 Estonia,Estonie,Estonia,#5487a4
 Évacuation,Évacuation,Evacuation,#8d0bd9
 Exploitation du charbon,Exploitation du charbon,Coal mining,#ea5530
-Fabrication et utilisation d'autres produits,Fabrication et utilisation d'autres produits,Manufacturing and use of other products,#bfa904
+Fabrication et utilisation d'autres produits,Fabrication et utilisation de produits autres,Manufacturing and use of other products,#bfa904
 Fermentation entérique,Fermentation entérique,Enteric fermentation,#e8d4b7
 Ferroviaire,Ferroviaire,Rail,#820344
 Finland,Finlance,Finland,#5487a4
@@ -221,7 +221,7 @@ Produits minéraux,Produits minéraux,Mineral products,#747571
 Produits non énergétiques provenant de combustibles et de l'utilisation de solvant,Produits non énergétiques provenant de combustibles et de l'utilisation de solvant,Non-energy products from combustibles and use of solvents,#6b305e
 Propane,Propane,Propane,#3d6385
 Commercial and institutional,Commercial et institutionnel,Commercial and institutional,#f7d255
-Public Electricity and Heat Production,Électricité et production de chaleur,Public Electricity and Heat Production,#9bd4dc
+Public Electricity and Heat Production,Électricité et production de chaleur,Public electricity and heat production,#9bd4dc
 QC,QC,QC,#2f6cb0
 Réduction de la production,Réduction de la production,Reduction in production,#faedbe
 REF,REF,REF,#e0e169
