@@ -65,11 +65,13 @@ Ciment - Portland - Changement carburant,Ciment – Portland – Changement carb
 Ciment - Variation de la production,Ciment – Variation de la production,Cement – Production change,#84a569
 Coal,Charbon,Coal,#ea5530
 Commercial,Commercial,Commercial,#367047
+Commercial and Institutional,Commercial et institutionnel,Commercial and institutional,#f7d255
 "Commercial, inst. and publ. admin.",Commercial et institutionnel (inc. adm. pub.),Commercial and institutional (inc. Pub. Adm.),#f7d255
 Conservation d'énergie,Réaménagement énergétique,Energy retrofit,#5ef0c2
-Conventionnel - Diesel,Conventionnel - Diesel,Conventional - Diesel,#878787
-Conventionnel - Gaz Naturel,Conventionnel - Gaz naturel,Conventional - Natural gas,#b1900a
+Conventionnel - Diesel,Conventionnel - diesel,Conventional - Diesel,#878787
+Conventionnel - Gaz Naturel,Conventionnel - gaz naturel,Conventional - Natural gas,#b1900a
 CP30,PC30,CP30,#7fbd78
+CP30,TC30,CP30,#000000
 Crude oil,Pétrole brut,Crude oil,#7d4e24
 Culture dédiée,Culture dédiée,Dedicated culture,#f39200
 Czech Republic,République Tchèque,Czech Republic,#5487a4
@@ -95,18 +97,17 @@ Engrais - Standard,Engrais – Standard,Fertilizer – Standard,#08c408
 Essence,Essence,Gasoline,#b8b7b7
 Estonia,Estonie,Estonia,#5487a4
 Évacuation,Évacuation,Evacuation,#8d0bd9
-Mines de charbon,Mines de charbon,Coal mines,#ea5530
 Fabrication et utilisation d'autres produits,Fabrication et utilisation de produits autres,Manufacturing and use of other products,#bfa904
 Fermentation entérique,Fermentation entérique,Enteric fermentation,#e8d4b7
 Ferroviaire,Ferroviaire,Rail,#820344
 Finland,Finlance,Finland,#5487a4
+Flex (éthanol 85%),Flex (éthanol 85%),Flex (ethanol 85%),#f19100
 France,France,France,#5487a4
 Freight,Marchandises,Freight,#ffffff
 Freight transport,Transport de marchandises,Freight transport,#f39200
 Fumier,Fumier,Manure,#b6807d
 Gas plant natural gas liquids (NGL's),Liquides de gaz naturel des usines de gaz,Gas plant natural gas liquids (NGL's),#d29d31
 Gaz naturel,Gaz naturel,Natural gas,#b1900a
-Puits de gaz naturel,Puits de gaz naturel,Natural gas wells,#b1900a
 Gaz naturel - Centralisée,Gaz naturel – centralisée,Centralized natural gas,#bfa904
 Gaz naturel - Décentralisée,Gaz naturel – décentralisée,Decentralized natural gas,#a3536d
 Gaz naturel et Gaz naturel liquéfié,Gaz naturel et gaz naturel liquéfié,Natural gas and liquefied natural gas,#b1900a
@@ -122,8 +123,10 @@ Heavy Fuel Oil,Mazout lourd,Heavy Fuel Oil,#051b36
 "Heavy fuel oil, diesel and light fuel oil","Mazout lourd, diesel et mazout léger","Heavy fuel oil, diesel and light fuel oil",#051b36
 Hors route,Hors route,Off-road,#a89e9b
 Hungary,Hongrie,Hungary,#5487a4
-Hybride diesel,Hybride diesel,Hybrid diesel,#7d4e24
+Hybride diesel,Hybride diesel,Diesel hybrid,#7d4e24
+Hybride diesel/essence,Hybride diesel/essence,Diesel/gasoline hybrid ,#7d4e24
 Hybride rechargeable diesel,Hybride rechargeable diesel,Diesel plug-in hybrid,#245261
+Hybride rechargeable diesel/essence,Hybride rechargeable diesel/essence,Diesel/gasoline plug-in hybrid,#245261
 Hybride rechargeable gaz naturel,Hybride rechargeable gaz naturel,Natural gas plug-in hybrid,#b1bb0a
 Hydro,Hydro,Hydro,#4f9db6
 Hydroélectrique,Hydroélectrique,Hydroelectric,#4f9db6
@@ -159,6 +162,7 @@ Mazout léger & lourd,Mazout léger & lourd,Light & heavy fuel oil,#b6807d
 MB,MB,MB,#e7dad8
 Métros & Trains,Métros & trains,Subways & Trains,#f6d254
 Mexico,Mexique,Mexico,#5487a4
+Mines de charbon,Mines de charbon,Coal mines,#ea5530
 Motocyclettes,Motocyclettes,Motorcycles,#378c50
 Motor Gasoline,Essence automobile,Motor Gasoline,#804f4f
 Natural gas,Gaz naturel,Natural gas,#b1900a
@@ -173,8 +177,11 @@ NS,NS,NS,#ebd850
 Nucléaire,Nucléaire,Nuclear,#f39200
 Nuclear,Nucléaire,Nuclear,#f39200
 NZ45,CN45,NZ45,#abd9d6
+NZ45,CN45,NZ45,#000000
 NZ50,CN50,NZ50,#0087c0
+NZ50,CN50,NZ50,#000000
 NZ60,CN60,NZ60,#017689
+NZ60,CN60,NZ60,#000000
 OECD members,Membres de l'OCDE,OECD members,#88b04b
 "Oil, gas, and refining industries","Pétrole, gaz, raffinage","Oil, gas, and refining industries",#b6807d
 Oléoducs,Oléoducs,Pipelines,#0e4282
@@ -194,7 +201,6 @@ PE,PE,PE,#a6c497
 Pétrochimie - CCS,Pétrochimie – CSC,Petrochemical – CCS,#fcaa66
 Pétrochimie - Standard,Pétrochimie – Standard,Petrochemical - Standard,#c17603
 Pétrole,Pétrole,Oil,#211a1d
-Puits de pétrole,Puits de pétrole,Oil wells,#4b5152
 Pétrole brut,Pétrole brut,Crude oil,#7d4e24
 Poêle à bois ou aux granules,Poêle à bois ou aux granules,Wood or pellet stove,#ca9e67
 Poland,Pologne,Poland,#5487a4
@@ -222,8 +228,9 @@ Produit pétrolier,Produits pétroliers,Petroleum products,#b87f9c
 Produits minéraux,Produits minéraux,Mineral products,#747571
 Produits non énergétiques provenant de combustibles et de l'utilisation de solvant,Produits non énergétiques provenant de combustibles et de l'utilisation de solvant,Non-energy products from combustibles and use of solvents,#6b305e
 Propane,Propane,Propane,#3d6385
-Commercial and Institutional,Commercial et institutionnel,Commercial and institutional,#f7d255
 Public Electricity and Heat Production,Électricité et production de chaleur,Public electricity and heat production,#9bd4dc
+Puits de gaz naturel,Puits de gaz naturel,Natural gas wells,#b1900a
+Puits de pétrole,Puits de pétrole,Oil wells,#4b5152
 QC,QC,QC,#2f6cb0
 Réduction de la production,Réduction de la production,Reduction in production,#faedbe
 REF,REF,REF,#e0e169
@@ -283,7 +290,3 @@ Water heating,Production d'eau chaude,Water heating,#ffffff
 Wind,Éolien,Wind,#bcdbf4
 Wood,Bois,Wood,#ca9e67
 Wood and spent pulping liquor,Bois et liqueur résiduaire,Wood and spent pulping liquor,#7b3a38
-CP30,TC30,CP30,#000000
-NZ60,CN60,NZ60,#000000
-NZ50,CN50,NZ50,#000000
-NZ45,CN45,NZ45,#000000
