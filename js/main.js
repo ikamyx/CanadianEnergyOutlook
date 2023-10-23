@@ -2,33 +2,41 @@
 
 (function (d3) {
     /***** settings *****/
-    let figures, currentFocus, colors, className, settings, language, files;
-    let fileData = [];
+    let figures, currentFocus, colors, settings, language;
+    const fileInput = document.querySelector("input[type='file']");
 
     /***** DOM *****/
-    let $input = document.querySelector("input[type='text']"),
+    let $buttonPNG = document.querySelector("button#png"),
     $select = document.querySelector("select"),
-    $buttonShow = document.querySelector("button#show"),
-    $buttonPrint = document.querySelector("button#print"),
     $buttonClear = document.querySelector("button#clear"),
-    $figure = document.querySelector("figure"),
-    $file = document.querySelector("input[type='file']");
+    $figure = document.querySelector("figure");
 
     /***** bind events *****/
-    $input.addEventListener("input",  async () => {
-        autoComplete($input, figures);
+    // fileInput.addEventListener("input",  async () => {
+    //     autoComplete(fileInput, figures);
+    // });
+    // fileInput.addEventListener("keydown", async function(e) {
+    //     keydown(e);
+    // });
+    // document.addEventListener("click", function(e) {
+    //     closeAllLists(e.target);
+    // });
+    // document.addEventListener("click", function(e) {
+    //     closeAllLists(e.target);
+    // });
+    $buttonPNG.addEventListener("click", saveToPng);
+    $buttonClear.addEventListener("click", clearChart);
+
+    fileInput.addEventListener("change", async (e) => {
+        const selectedFiles = e.target.files;
+        if (selectedFiles.length > 0) {
+            // Process each selected file
+            for (const file of selectedFiles) {
+                // Handle each file as needed
+                fileLoad(file);
+            }
+        }
     });
-    $input.addEventListener("keydown", async function(e) {
-        keydown(e);
-    });
-    document.addEventListener("click", function(e) {
-        closeAllLists(e.target);
-    });
-    $buttonShow.addEventListener("click", fileLoad);
-    $buttonPrint.addEventListener("click", saveToPng);
-    $buttonClear.addEventListener("click", resetChart);
-    // $file.addEventListener("input", fileLoad);
-    $file.addEventListener("change", fileLoad);
     // $file.addEventListener("click", fileReset);
 
     /***** loading data *****/
@@ -51,117 +59,93 @@
         });
 
     /***** functions *****/
-    function autoComplete(input, data) {
-        let list, el, i, val = input.value;
-        closeAllLists();
-        if (!val) {
-            return false;
-        }
-        currentFocus = -1;
-        list = document.createElement("DIV");
-        list.setAttribute("id", `autocomplete-list`);
-        list.setAttribute("class", "autocomplete-items");
-        input.parentNode.append(list);
+    // function autoComplete(input, data) {
+    //     let list, el, i, val = input.value;
+    //     closeAllLists();
+    //     if (!val) {
+    //         return false;
+    //     }
+    //     currentFocus = -1;
+    //     list = document.createElement("DIV");
+    //     list.setAttribute("id", `autocomplete-list`);
+    //     list.setAttribute("class", "autocomplete-items");
+    //     input.parentNode.append(list);
 
-        for(let i=0; i<data.length; i++){
-            if(data[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-                el = document.createElement("DIV");
-                el.innerHTML = `<strong>${data[i].substr(0, val.length)}</strong>`;
-                el.innerHTML += data[i].substr(val.length);
-                el.innerHTML += `<input type="hidden" value="${data[i]}">`;
-                el.addEventListener("click", function(e) {
-                    input.value = this.getElementsByTagName("input")[0].value;
-                    closeAllLists();
-                    fileReset();
-                });
-                list.appendChild(el);
-            };
-        };
-    }
-
-
-
-    function keydown(e) {
-        let parent = document.getElementById("autocomplete-list");
-        if(parent) parent = parent.getElementsByTagName("div");
-        if(e.key == 40) {
-            currentFocus++;
-            addActive(parent);
-        } else if(e.key == 38) {
-            currentFocus--;
-            addActive(parent);
-        } else if(e.key == 13) {
-            e.preventDefault();
-            if(currentFocus > -1) {
-                if(parent) parent[currentFocus].click();
-            };
-        };
-    };
+    //     for(let i=0; i<data.length; i++){
+    //         if(data[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+    //             el = document.createElement("DIV");
+    //             el.innerHTML = `<strong>${data[i].substr(0, val.length)}</strong>`;
+    //             el.innerHTML += data[i].substr(val.length);
+    //             el.innerHTML += `<input type="hidden" value="${data[i]}">`;
+    //             el.addEventListener("click", function(e) {
+    //                 input.value = this.getElementsByTagName("input")[0].value;
+    //                 closeAllLists();
+    //                 fileReset();
+    //             });
+    //             list.appendChild(el);
+    //         };
+    //     };
+    // }
 
 
 
-    function addActive(el) {
-        if(!el) return false;
-        removeActive(el);
-        if(currentFocus >= el.length) currentFocus = 0;
-        if(currentFocus < 0) currentFocus = (el.length - 1);
-        el[currentFocus].classList.add("autocomplete-active");
-    }
+    // function keydown(e) {
+    //     let parent = document.getElementById("autocomplete-list");
+    //     if(parent) parent = parent.getElementsByTagName("div");
+    //     if(e.key == 40) {
+    //         currentFocus++;
+    //         addActive(parent);
+    //     } else if(e.key == 38) {
+    //         currentFocus--;
+    //         addActive(parent);
+    //     } else if(e.key == 13) {
+    //         e.preventDefault();
+    //         if(currentFocus > -1) {
+    //             if(parent) parent[currentFocus].click();
+    //         };
+    //     };
+    // };
 
 
 
-    function removeActive(el) {
-        for(let i = 0; i < el.length; i++) {
-            el[i].classList.remove("autocomplete-active");
-        };
-    }
+    // function addActive(el) {
+    //     if(!el) return false;
+    //     removeActive(el);
+    //     if(currentFocus >= el.length) currentFocus = 0;
+    //     if(currentFocus < 0) currentFocus = (el.length - 1);
+    //     el[currentFocus].classList.add("autocomplete-active");
+    // }
 
 
-    function closeAllLists(el) {
-        let items = document.getElementsByClassName("autocomplete-items");
-        for(let i=0;i<items.length;i++) {
-            if(el != items[i] && el != $input) {
-                items[i].parentNode.removeChild(items[i]);
-            };
-        };
-    }
+
+    // function removeActive(el) {
+    //     for(let i = 0; i < el.length; i++) {
+    //         el[i].classList.remove("autocomplete-active");
+    //     };
+    // }
 
 
-    function loadData() {
-        let value = $input.value;
-        if($select.value == "english"){language = "label_en"}
-        else if($select.value == "french"){language = "label_fr"}
-        let firstSpace = value.indexOf(" ");
-        if(figures.includes(value)) {
-            let textfile;
-            if(window.XMLHttpRequest) {
-                textfile = new XMLHttpRequest();
-            }
-            textfile.onreadystatechange = function() {
-                if(textfile.readyState == 4 && textfile.status == 200) {
-                    let content = textfile.responseText;
-                    let parsed = parser(content);
-                    $figure.classList = "";
-                    $figure.classList.add(value.substring(0, firstSpace));
-                    draw(new Array(parsed), language);
-                }
-            }
-            textfile.open("GET", `./data/${value.substring(0, firstSpace)}.txt`);
-            textfile.send();
-            
-        } else if(fileData) {
-            $figure.classList = "";
-            $figure.classList.add(className);
-            draw(fileData, language);
-        }
-    }
+    // function closeAllLists(el) {
+    //     let items = document.getElementsByClassName("autocomplete-items");
+    //     for(let i=0;i<items.length;i++) {
+    //         if(el != items[i] && el != fileInput) {
+    //             items[i].parentNode.removeChild(items[i]);
+    //         };
+    //     };
+    // }
 
 
     function saveToPng() {
+        console.log(fileInput);
         if(language == "label_en"){language = "en"}
         else if(language == "label_fr"){language = "fr"}
-        let svg = document.querySelector("svg:not(.hide)");
-        saveSvgAsPng(svg, `${language}_${$figure.classList}.png`, {scale: 8, backgroundColor: "#FFFFFF"});
+        let containers = document.querySelectorAll(".chart-container");
+        containers.forEach((container) => {
+            // Get file name based on the container class
+            let fileName = container.classList[1].replace(".txt", "")
+            let svg = container.querySelector("svg:not(.hide)");
+            saveSvgAsPng(svg, `${language}_${fileName}.png`, {scale: 8, backgroundColor: "#FFFFFF"})
+        })
     }
 
     // function saveToSvg() {
@@ -173,133 +157,126 @@
 
 
     function clearChart() {
-        document.querySelector("svg").innerHTML = "";
-        document.querySelector("svg").classList.add("hide");
-        $input.value = "";
-        // fileReset();
-        if(document.querySelector("figcaption")) document.querySelector("figcaption").remove();
+        // Find all chart containers and remove them
+        const chartContainers = document.querySelectorAll(".chart-container");
+        chartContainers.forEach((container) => {
+            // Remove the chart container, including its contained SVG
+            container.remove();
+        });
+    
+        // Clear the input value and reset other elements as needed
+        fileInput.value = "";
+        // Add any additional reset logic here
     }
 
-    function resetChart() {
-        document.querySelector("svg").innerHTML = "";
-        document.querySelector("svg").classList.add("hide");
-        $input.value = "";
-        fileReset();
-        if(document.querySelector("figcaption")) document.querySelector("figcaption").remove();
-    }
+    // function resetChart() {
+    //     document.querySelector("svg").innerHTML = "";
+    //     document.querySelector("svg").classList.add("hide");
+    //     fileInput.value = "";
+    //     fileReset();
+    //     if(document.querySelector("figcaption")) document.querySelector("figcaption").remove();
+    // }
 
     
-    function fileLoad(e) {
-        $input.value = "";
-        let textType = /text.*/;
-        fileData = [];
-        if(e.target != $buttonShow) {
-            files = e.target.files;
+    function fileLoad(file) {
+        // Check if the selected file is of the desired type (e.g., text)
+        const textType = /text.*/;
+        if (file.type.match(textType)) {
+            const reader = new FileReader();
+    
+            reader.onload = function (e) {
+                const content = reader.result;
+    
+                // Parse and display the chart for this file
+                const parsedData = parser(content);
+    
+                // Create a new container for this chart (and add class of title)
+                const chartContainer = document.createElement("div");
+                chartContainer.classList.add("chart-container", file.name.replace(".txt", ""));
+                $figure.appendChild(chartContainer);
+                const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+                chartContainer.appendChild(svg);
+
+    
+                // Draw the chart inside this container
+                if($select.value == "english"){language = "label_en"}
+                else if($select.value == "french"){language = "label_fr"}
+                draw(parsedData, language, chartContainer);
+            };
+    
+            // Read the content of the selected file
+            reader.readAsText(file);
+        } else {
+            // Handle the case where the file type is not supported
+            console.log("File not supported: " + file.name);
         }
-        Array.from(files).forEach((element,i) => {
-            fileData.push(element);
-            className = fileData[i].name.substring(0, fileData[i].name.length - 4);
-            if(fileData[i].type.match(textType)) {
-                let reader = new FileReader();
-                reader.onload = function(e) {
-                    let content = reader.result;
-                    // here the content has been read successfuly
-                    fileData[i] = parser(content);
-                    clearChart();
-                    loadData();
-                }
-                reader.readAsText(fileData[i]);
-            } else {
-                fileDisplayArea.innerText = "File not supported!";
-            }
-        });
     }
+    
+    
+    // function fileReset() {
+    //     fileInput.value = null;
+    // }
 
-
-    function fileReset() {
-        $file.value = null;
-    }
-
-
-    function draw(content, language) {
-        clearChart();
-        console.clear();
+    
+    function draw(content, language, chartContainer) {
+        //clearChart();
+        //console.clear();
+        // Remove the hide class from the chart container's SVG
+        chartContainer.querySelector("svg").classList.remove("hide");
         document.querySelector("svg").classList.remove("hide");
-            let parsed = content[0];
-            let chartTitle = $file.value.substring(12);
+            let parsed = content;
+            let chartTitle = parsed.metadata.chart.title;
             chartTitle = chartTitle.substring(0, chartTitle.length - 4);
-            $input.value = chartTitle;
-            // $file.value = "";
             switch(parsed.metadata.chart.type) {
                 case "bar.grouped.stacked":
-                    bar_grouped_stacked(parsed.data, parsed.metadata, colors, settings, language);
+                    bar_grouped_stacked(parsed.data, parsed.metadata, colors, settings, language, chartContainer);
                     break;
                 case "bar.grouped.stacked.mosaic":
-                    bar_grouped_stacked(parsed.data, parsed.metadata, colors, settings, language);
+                    bar_grouped_stacked(parsed.data, parsed.metadata, colors, settings, language, chartContainer);
                     break;
                 case "bar.grouped.stacked.percent":
-                    bar_grouped_stacked_percent(parsed.data, parsed.metadata, colors, settings, language);
+                    bar_grouped_stacked_percent(parsed.data, parsed.metadata, colors, settings, language, chartContainer);
                     break;
                 case "bar.grouped.stacked.multi":
-                    bar_grouped_stacked_multi(parsed.data, parsed.metadata, colors, settings, language);
+                    bar_grouped_stacked_multi(parsed.data, parsed.metadata, colors, settings, language, chartContainer);
                     break;
                 case "bar.grouped.stacked.double":
-                    bar_grouped_stacked_double_joiner(content, colors, settings, language);
+                    bar_grouped_stacked_double_joiner(content, colors, settings, language, chartContainer);
                     break;
                 case "bar.stacked":
-                    bar_stacked(parsed.data, parsed.metadata, colors, settings, language);
+                    bar_stacked(parsed.data, parsed.metadata, colors, settings, language, chartContainer);
                     break;
                 case "bar.stacked.center":
-                    bar_stacked_center(parsed.data, parsed.metadata, colors, settings, language);
+                    bar_stacked_center(parsed.data, parsed.metadata, colors, settings, language, chartContainer);
                     break;
                 case "bar.grouped":
-                    bar_grouped(parsed.data, parsed.metadata, colors, settings, language);
+                    bar_grouped(parsed.data, parsed.metadata, colors, settings, language, chartContainer);
                     break;
                 case "bar.grouped.overlap":
-                    bar_grouped_overlap(parsed.data, parsed.metadata, colors, settings, language);
+                    bar_grouped_overlap(parsed.data, parsed.metadata, colors, settings, language, chartContainer);
                     break;
                 case "bar.grouped.horizontal":
-                    bar_grouped_horizontal(parsed.data, parsed.metadata, colors, settings, language);
+                    bar_grouped_horizontal(parsed.data, parsed.metadata, colors, settings, language, chartContainer);
                     break;
                 case "bar.grouped.grouped":
-                    bar_grouped_grouped(parsed.data, parsed.metadata, colors, settings, language);
+                    bar_grouped_grouped(parsed.data, parsed.metadata, colors, settings, language, chartContainer);
                     break; 
                 case "line":
-                    line(parsed.data, parsed.metadata, colors, settings, language);
+                    line(parsed.data, parsed.metadata, colors, settings, language, chartContainer);
                     break;
                 case "area":
-                    area(parsed.data, parsed.metadata, colors, settings, language);
+                    area(parsed.data, parsed.metadata, colors, settings, language, chartContainer);
                     break;
                 case "fan":
-                    fan(parsed.data, parsed.metadata, colors, settings, language);
+                    fan(parsed.data, parsed.metadata, colors, settings, language, chartContainer);
                     break;
                 case "fan.mosaic":
-                fan(parsed.data, parsed.metadata, colors, settings, language);
+                fan(parsed.data, parsed.metadata, colors, settings, language, chartContainer);
                 break;
                 case "scatter":
-                    scatter(parsed.data, parsed.metadata, colors, settings, language);
+                    scatter(parsed.data, parsed.metadata, colors, settings, language, chartContainer);
                     break;   
             }
     }
 
-    function showData() {
-        // let content = textfile.responseText;
-        // let parsed = parser(content);
-        // draw(new Array(parsed), language);
-        // loadData();
-    }
-
-    // function saveSvg(svgEl, name) {
-    //     svgEl.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-    //     var svgData = svgEl.outerHTML;
-    //     var preface = '<?xml version="1.0" standalone="no"?>\r\n';
-    //     var svgBlob = new Blob([preface, svgData], {type:"image/svg+xml;charset=utf-8"});
-    //     var svgUrl = URL.createObjectURL(svgBlob);
-    //     var downloadLink = document.createElement("a");
-    //     downloadLink.href = svgUrl;
-    //     downloadLink.download = name;
-    //     document.body.appendChild(downloadLink);
-    //     downloadLink.click();
-    //     document.body.removeChild(downloadLink);
-    // }
 })(d3);

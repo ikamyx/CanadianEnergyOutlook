@@ -1,6 +1,6 @@
 "use strict";
 
-function fan(data, metadata, colors, settings, language) {
+function fan(data, metadata, colors, settings, language, chartContainer) {
 
     // setting
     let setting = settings[metadata.chart.type];
@@ -121,7 +121,7 @@ function fan(data, metadata, colors, settings, language) {
     // initialize
     /* **************************************************** */
     let data__ = data_.slice(0,data_.length - 1);
-    let chart = initChart(data__, setting, attrList);
+    let chart = initChart(data__, setting, attrList, chartContainer);
     /* **************************************************** */
 
     

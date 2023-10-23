@@ -1,10 +1,9 @@
 "use strict";
 
-function area(data, metadata, colors, settings, language) {
-
+function area(data, metadata, colors, settings, language, chartContainer) {
+    
     // setting
     let setting = settings[metadata.chart.type];
-
 
 
     // consts
@@ -95,7 +94,7 @@ function area(data, metadata, colors, settings, language) {
 
     // initialize
     /* **************************************************** */
-    let chart = initChart(data_, setting, attrList);
+    let chart = initChart(data_, setting, attrList, chartContainer);
     /* **************************************************** */
 
     

@@ -1,6 +1,6 @@
 "use strict";
 
-function bar_grouped_stacked_percent(data, metadata, colors, settings, language) {
+function bar_grouped_stacked_percent(data, metadata, colors, settings, language, chartContainer) {
 
     // setting
     let setting = settings[metadata.chart.type];
@@ -90,7 +90,7 @@ function bar_grouped_stacked_percent(data, metadata, colors, settings, language)
 
     // initialize
     /* **************************************************** */
-    let chart = initChart(data_, setting, level_2);
+    let chart = initChart(data_, setting, level_2, chartContainer);
     /* **************************************************** */
 
 

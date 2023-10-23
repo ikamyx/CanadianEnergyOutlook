@@ -1,6 +1,6 @@
 "use strict";
 
-function bar_grouped_stacked_multi(data, metadata, colors, settings, language) {
+function bar_grouped_stacked_multi(data, metadata, colors, settings, language, chartContainer) {
 
     // setting
     let setting = settings[metadata.chart.type];
@@ -73,7 +73,7 @@ function bar_grouped_stacked_multi(data, metadata, colors, settings, language) {
 
     // initialize
     /* **************************************************** */
-    let chart = initChart_multi(data_, setting, level_2, level_3);
+    let chart = initChart_multi(data_, setting, level_2, level_3, chartContainer);
     /* **************************************************** */
 
 

@@ -1,6 +1,6 @@
 "use strict";
 
-function bar_stacked_center(data, metadata, colors, settings, language) {
+function bar_stacked_center(data, metadata, colors, settings, language, chartContainer) {
 
     // setting
     let setting = settings[metadata.chart.type];
@@ -48,7 +48,7 @@ function bar_stacked_center(data, metadata, colors, settings, language) {
 
 
     // initialize
-    let chart = d3.select("body svg")
+    let chart = d3.select(chartContainer).select("svg")
     .attr("width", setting.dimension.width)
     .attr("viewBox", `0 0 ${setting.dimension.width} ${setting.dimension.height}`)
     .style("max-width", "100%");
