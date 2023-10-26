@@ -2,28 +2,32 @@
 
 (function (d3) {
     /***** settings *****/
-    let figures, currentFocus, colors, settings, language;
+    let figures, currentFocus, colors, settings_default, setting_3Bar, setting_3BarOffset, setting_5BarOffset, setting_singleBar,
+    settings_singleBarOffset, settings_2Bar, settings_map, language;
     const fileInput = document.querySelector("input[type='file']");
 
     /***** DOM *****/
     let $buttonPNG = document.querySelector("button#png"),
     $select = document.querySelector("select"),
     $buttonClear = document.querySelector("button#clear"),
-    $figure = document.querySelector("figure");
+    $figure = document.querySelector("figure"),
+    $showTitle = document.querySelector("#showtitle"),
+    $showSource = document.querySelector("#showsource"),
+    $showFiligrane = document.querySelector("#showfiligrane");
 
     /***** bind events *****/
     // fileInput.addEventListener("input",  async () => {
     //     autoComplete(fileInput, figures);
     // });
-    // fileInput.addEventListener("keydown", async function(e) {
-    //     keydown(e);
-    // });
-    // document.addEventListener("click", function(e) {
-    //     closeAllLists(e.target);
-    // });
-    // document.addEventListener("click", function(e) {
-    //     closeAllLists(e.target);
-    // });
+    fileInput.addEventListener("keydown", async function(e) {
+        keydown(e);
+    });
+    document.addEventListener("click", function(e) {
+        closeAllLists(e.target);
+    });
+    document.addEventListener("click", function(e) {
+        closeAllLists(e.target);
+    });
     $buttonPNG.addEventListener("click", saveToPng);
     $buttonClear.addEventListener("click", clearChart);
 
@@ -41,9 +45,17 @@
 
     /***** loading data *****/
     var promises = [];
-    promises.push(d3.csv("./data/figures.csv"));
+    promises.push(d3.csv("./data/figures.csv")); 
     promises.push(d3.csv("./data/colors.csv"));
-    promises.push(d3.csv("./data/setting.csv"));
+    promises.push(d3.csv("./data/setting_default.csv")); // 2
+    promises.push(d3.csv("./data/setting_3Bar.csv")); // 3 
+    promises.push(d3.csv("./data/setting_3BarOffset.csv")); // 4
+    promises.push(d3.csv("./data/setting_5BarOffset.csv")); // 5
+    promises.push(d3.csv("./data/setting_singleBar.csv")); // 6
+    promises.push(d3.csv("./data/setting_singleBarOffset.csv")); // 7
+    promises.push(d3.csv("./data/setting_2Bar.csv")); // 7
+    promises.push(d3.csv("./data/settings_map.csv")); // 8
+
     Promise.all(promises)
     
         /***** after load *****/
@@ -52,87 +64,59 @@
             /***** data preprocessing *****/
             figures = data[0].map(d => d.figure + " - " + d.type);
             colors = parseColors(data[1]);
-            settings = parserSettings(data[2]);
+            settings_default = parserSettings(data[2]);
+            setting_3Bar = parserSettings(data[3]);
+            setting_3BarOffset = parserSettings(data[4]);
+            setting_5BarOffset = parserSettings(data[5]);
+            setting_singleBar = parserSettings(data[6]);
+            settings_singleBarOffset = parserSettings(data[7]);
+            settings_2Bar = parserSettings(data[8]);
+            settings_map = data[9];
             
             /***** initiate *****/
-            // autoComplete($input, figures);
         });
 
     /***** functions *****/
-    // function autoComplete(input, data) {
-    //     let list, el, i, val = input.value;
-    //     closeAllLists();
-    //     if (!val) {
-    //         return false;
-    //     }
-    //     currentFocus = -1;
-    //     list = document.createElement("DIV");
-    //     list.setAttribute("id", `autocomplete-list`);
-    //     list.setAttribute("class", "autocomplete-items");
-    //     input.parentNode.append(list);
 
-    //     for(let i=0; i<data.length; i++){
-    //         if(data[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-    //             el = document.createElement("DIV");
-    //             el.innerHTML = `<strong>${data[i].substr(0, val.length)}</strong>`;
-    //             el.innerHTML += data[i].substr(val.length);
-    //             el.innerHTML += `<input type="hidden" value="${data[i]}">`;
-    //             el.addEventListener("click", function(e) {
-    //                 input.value = this.getElementsByTagName("input")[0].value;
-    //                 closeAllLists();
-    //                 fileReset();
-    //             });
-    //             list.appendChild(el);
-    //         };
-    //     };
-    // }
+    function keydown(e) {
+        let parent = document.getElementById("autocomplete-list");
+        if(parent) parent = parent.getElementsByTagName("div");
+        if(e.key == 40) {
+            currentFocus++;
+            addActive(parent);
+        } else if(e.key == 38) {
+            currentFocus--;
+            addActive(parent);
+        } else if(e.key == 13) {
+            e.preventDefault();
+            if(currentFocus > -1) {
+                if(parent) parent[currentFocus].click();
+            };
+        };
+    };
 
+    function addActive(el) {
+        if(!el) return false;
+        removeActive(el);
+        if(currentFocus >= el.length) currentFocus = 0;
+        if(currentFocus < 0) currentFocus = (el.length - 1);
+        el[currentFocus].classList.add("autocomplete-active");
+    }
 
+    function removeActive(el) {
+        for(let i = 0; i < el.length; i++) {
+            el[i].classList.remove("autocomplete-active");
+        };
+    }
 
-    // function keydown(e) {
-    //     let parent = document.getElementById("autocomplete-list");
-    //     if(parent) parent = parent.getElementsByTagName("div");
-    //     if(e.key == 40) {
-    //         currentFocus++;
-    //         addActive(parent);
-    //     } else if(e.key == 38) {
-    //         currentFocus--;
-    //         addActive(parent);
-    //     } else if(e.key == 13) {
-    //         e.preventDefault();
-    //         if(currentFocus > -1) {
-    //             if(parent) parent[currentFocus].click();
-    //         };
-    //     };
-    // };
-
-
-
-    // function addActive(el) {
-    //     if(!el) return false;
-    //     removeActive(el);
-    //     if(currentFocus >= el.length) currentFocus = 0;
-    //     if(currentFocus < 0) currentFocus = (el.length - 1);
-    //     el[currentFocus].classList.add("autocomplete-active");
-    // }
-
-
-
-    // function removeActive(el) {
-    //     for(let i = 0; i < el.length; i++) {
-    //         el[i].classList.remove("autocomplete-active");
-    //     };
-    // }
-
-
-    // function closeAllLists(el) {
-    //     let items = document.getElementsByClassName("autocomplete-items");
-    //     for(let i=0;i<items.length;i++) {
-    //         if(el != items[i] && el != fileInput) {
-    //             items[i].parentNode.removeChild(items[i]);
-    //         };
-    //     };
-    // }
+    function closeAllLists(el) {
+        let items = document.getElementsByClassName("autocomplete-items");
+        for(let i=0;i<items.length;i++) {
+            if(el != items[i] && el != fileInput) {
+                items[i].parentNode.removeChild(items[i]);
+            };
+        };
+    }
 
 
     function saveToPng() {
@@ -143,18 +127,20 @@
         containers.forEach((container) => {
             // Get file name based on the container class
             let fileName = container.classList[1].replace(".txt", "")
-            let svg = container.querySelector("svg:not(.hide)");
-            saveSvgAsPng(svg, `${language}_${fileName}.png`, {scale: 8, backgroundColor: "#FFFFFF"})
+            let svg = container.querySelector("svg");
+            let top = 0;
+            let height = svg.viewBox.baseVal.height;
+            if ($showTitle) { // Rectifier la hauteur si titre présent
+                top = -100/2;
+                height += 100; 
+            }
+            if (!$showTitle && $showSource) { // Rectifier la hauteur si source présente (mais pas titre)
+                top = -20/2;
+                height += 20; 
+            }
+            saveSvgAsPng(svg, `${language}_${fileName}.png`, {scale: 8, backgroundColor: "#FFFFFF", height: height, top:top})
         })
     }
-
-    // function saveToSvg() {
-    //     if(language == "label_en"){language = "en"}
-    //     else if(language == "label_fr"){language = "fr"}
-    //     let svgs = document.querySelectorAll("svg");
-    //     saveSvg(svgs);
-    // }
-
 
     function clearChart() {
         // Find all chart containers and remove them
@@ -167,16 +153,8 @@
         // Clear the input value and reset other elements as needed
         fileInput.value = "";
         // Add any additional reset logic here
+        console.clear()
     }
-
-    // function resetChart() {
-    //     document.querySelector("svg").innerHTML = "";
-    //     document.querySelector("svg").classList.add("hide");
-    //     fileInput.value = "";
-    //     fileReset();
-    //     if(document.querySelector("figcaption")) document.querySelector("figcaption").remove();
-    // }
-
     
     function fileLoad(file) {
         // Check if the selected file is of the desired type (e.g., text)
@@ -189,7 +167,34 @@
     
                 // Parse and display the chart for this file
                 const parsedData = parser(content);
-    
+                
+                // Choose the appropriate setting file for the settings
+                let generationType = settings_map.filter(e => e.no == file.name.replace(".txt", ""));
+                let settings = [];
+                switch (generationType.generation) {
+                    case undefined:
+                        settings = settings_default;
+                        break;
+                    case "3Bar":
+                        settings = settings_3Bar;
+                        break;
+                    case "3BarOffset":
+                        settings = settings_3BarOffset;
+                        break;
+                    case "5BarOffset":
+                        settings = settings_5BarOffset;
+                        break;
+                    case "singleBarOffset":
+                        settings = settings_singleBarOffset;
+                        break;
+                    case "singleBar":
+                        settings = settings_singleBar;
+                        break;
+                    case "2Bar":
+                        settings = settings_2Bar;
+                        break;
+                }
+                
                 // Create a new container for this chart (and add class of title)
                 const chartContainer = document.createElement("div");
                 chartContainer.classList.add("chart-container", file.name.replace(".txt", ""));
@@ -201,7 +206,7 @@
                 // Draw the chart inside this container
                 if($select.value == "english"){language = "label_en"}
                 else if($select.value == "french"){language = "label_fr"}
-                draw(parsedData, language, chartContainer);
+                draw(parsedData, language, chartContainer, settings);
             };
     
             // Read the content of the selected file
@@ -213,12 +218,7 @@
     }
     
     
-    // function fileReset() {
-    //     fileInput.value = null;
-    // }
-
-    
-    function draw(content, language, chartContainer) {
+    function draw(content, language, chartContainer, settings) {
         //clearChart();
         //console.clear();
         // Remove the hide class from the chart container's SVG
@@ -226,7 +226,7 @@
         document.querySelector("svg").classList.remove("hide");
             let parsed = content;
             let chartTitle = parsed.metadata.chart.title;
-            chartTitle = chartTitle.substring(0, chartTitle.length - 4);
+            let chartSource = parsed.metadata.chart.source;
             switch(parsed.metadata.chart.type) {
                 case "bar.grouped.stacked":
                     bar_grouped_stacked(parsed.data, parsed.metadata, colors, settings, language, chartContainer);
@@ -277,6 +277,66 @@
                     scatter(parsed.data, parsed.metadata, colors, settings, language, chartContainer);
                     break;   
             }
+            // ADD SVG container for source and title
+            if ($showTitle.checked) {showTitle(chartContainer, chartTitle)}
+            if ($showSource.checked) {showSource(chartContainer, chartSource)};
+            if ($showFiligrane.checked) {showFiligrane(chartContainer)};
+    }
+
+    function showTitle(chartContainer, title) { // Ajoute le titre le padding nécessaire sur le graphique si la case est cochée
+        const titlePad = 100;
+        let svg = chartContainer.querySelector("svg");
+        d3.select(chartContainer).select("svg")
+        .attr("height", svg.viewBox.baseVal.height+titlePad);
+        d3.select(svg)
+        .append("g")
+        .attr("class", "figureTitle")
+        .append("text")
+        .attr("x", svg.viewBox.baseVal.width/2)
+        .attr("y", 0)
+        .attr("text-anchor", "middle")
+        .text(title);
+    }
+
+    function showSource(chartContainer, source) { // Affiche la source et le padding nécessaire sur le graphique si la case est cochée
+        const heightPadSource = 20;
+        const titlePad = 100;
+        const leftPadSource = 15;
+        const svg = chartContainer.querySelector("svg");
+        if (!$showTitle.checked) { // Padding différent si showTitle activé
+            d3.select(chartContainer).select("svg")
+            .attr("height", svg.viewBox.baseVal.height+heightPadSource);
+            d3.select(svg)
+            .append("g")
+            .attr("class", "source")
+            .append('text')
+            .attr("text-anchor", "start")
+            .attr("x", leftPadSource)
+            .attr("y", svg.viewBox.baseVal.height+heightPadSource/3)
+            .text("Source: " + source);
+        } else {
+            d3.select(svg)
+            .append("g")
+            .attr("class", "source")
+            .append('text')
+            .attr("text-anchor", "start")
+            .attr("x", leftPadSource)
+            .attr("y", svg.viewBox.baseVal.height+titlePad/2-heightPadSource/2)
+            .text("Source: " + source);
+        }
+    }
+
+    function showFiligrane(chartContainer) { // Ajoute un filigrane sur le graphique si la case est cochée
+        const svg = chartContainer.querySelector("svg");
+        d3.select(svg)
+        .append("g")
+        .attr("class", "filigrane")
+        .append('text')
+        .attr("text-anchor", "middle")
+        .attr("x", 0)
+        .attr("y", 0)
+        .text("Institut de l'énergie Trottier")
+        .attr('transform', 'translate('+svg.viewBox.animVal.width/2+','+svg.viewBox.animVal.height/2+')rotate(-30)')
     }
 
 })(d3);

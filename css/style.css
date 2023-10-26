@@ -172,6 +172,28 @@ g.figureTitle text {
     /* font-variant: all-small-caps; */
 }
 
+g.filigrane text {
+    font-family: "News Cycle";
+    fill: #000000;
+}
+
+g.filigrane text {
+    font-size: 60px;
+    word-spacing: 4px;
+    opacity: 0.425;
+    text-shadow: 0 0 2px #fff;
+}
+
+g.source text {
+    font-family: "News Cycle";
+    fill: #000000;
+}
+
+g.source text {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
 g.title text {
     font-size: 18px;
 }
