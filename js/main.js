@@ -130,11 +130,11 @@
             let svg = container.querySelector("svg");
             let top = 0;
             let height = svg.viewBox.baseVal.height;
-            if ($showTitle) { // Rectifier la hauteur si titre présent
+            if (svg.querySelector(".figureTitle")) { // Rectifier la hauteur si titre présent
                 top = -100/2;
                 height += 100; 
             }
-            if (!$showTitle && $showSource) { // Rectifier la hauteur si source présente (mais pas titre)
+            else if (!svg.querySelector(".figureTitle")&& svg.querySelector(".source")) { // Rectifier la hauteur si source présente (mais pas titre)
                 top = -20/2;
                 height += 20; 
             }
