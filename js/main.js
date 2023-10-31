@@ -16,18 +16,7 @@
     $showFiligrane = document.querySelector("#showfiligrane");
 
     /***** bind events *****/
-    // fileInput.addEventListener("input",  async () => {
-    //     autoComplete(fileInput, figures);
-    // });
-    fileInput.addEventListener("keydown", async function(e) {
-        keydown(e);
-    });
-    document.addEventListener("click", function(e) {
-        closeAllLists(e.target);
-    });
-    document.addEventListener("click", function(e) {
-        closeAllLists(e.target);
-    });
+   
     $buttonPNG.addEventListener("click", saveToPng);
     $buttonClear.addEventListener("click", clearChart);
 
@@ -41,7 +30,6 @@
             }
         }
     });
-    // $file.addEventListener("click", fileReset);
 
     /***** loading data *****/
     var promises = [];
@@ -77,46 +65,6 @@
         });
 
     /***** functions *****/
-
-    function keydown(e) {
-        let parent = document.getElementById("autocomplete-list");
-        if(parent) parent = parent.getElementsByTagName("div");
-        if(e.key == 40) {
-            currentFocus++;
-            addActive(parent);
-        } else if(e.key == 38) {
-            currentFocus--;
-            addActive(parent);
-        } else if(e.key == 13) {
-            e.preventDefault();
-            if(currentFocus > -1) {
-                if(parent) parent[currentFocus].click();
-            };
-        };
-    };
-
-    function addActive(el) {
-        if(!el) return false;
-        removeActive(el);
-        if(currentFocus >= el.length) currentFocus = 0;
-        if(currentFocus < 0) currentFocus = (el.length - 1);
-        el[currentFocus].classList.add("autocomplete-active");
-    }
-
-    function removeActive(el) {
-        for(let i = 0; i < el.length; i++) {
-            el[i].classList.remove("autocomplete-active");
-        };
-    }
-
-    function closeAllLists(el) {
-        let items = document.getElementsByClassName("autocomplete-items");
-        for(let i=0;i<items.length;i++) {
-            if(el != items[i] && el != fileInput) {
-                items[i].parentNode.removeChild(items[i]);
-            };
-        };
-    }
 
 
     function saveToPng() {
