@@ -10,7 +10,7 @@
     let $buttonPNG = document.querySelector("button#png"),
     $select = document.querySelector("select"),
     $buttonClear = document.querySelector("button#clear"),
-    $figure = document.querySelector("figure"),
+    $figures = document.querySelector("figures"),
     $showTitle = document.querySelector("#showtitle"),
     $showSource = document.querySelector("#showsource"),
     $showFiligrane = document.querySelector("#showfiligrane");
@@ -146,7 +146,7 @@
                 // Create a new container for this chart (and add class of title)
                 const chartContainer = document.createElement("div");
                 chartContainer.classList.add("chart-container", file.name.replace(".txt", ""));
-                $figure.appendChild(chartContainer);
+                $figures.appendChild(chartContainer);
                 const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
                 chartContainer.appendChild(svg);
 

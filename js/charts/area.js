@@ -172,7 +172,10 @@ function area(data, metadata, colors, settings, language, chartContainer) {
     chart.select("g.xGrid")
     .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width + setting.yTicks.rowMargin}, ${setting.padding.top + yAxisHeight})`);
 
-
+    // Adding div for tooltip
+    var div = d3.select(chartContainer).append("div")
+     .attr("class", "tooltip")
+     .style("opacity", 0);
 
     //drawing area
     chart.selectAll("g.bar_groups")
@@ -185,6 +188,24 @@ function area(data, metadata, colors, settings, language, chartContainer) {
     .attr("d", d => area(d))
     .attr("fill", d => scaleColor(d.key))
     .attr("stroke", d => scaleColor(d.key))
-    .attr("transform", `translate(${setting.padding.left + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yAxis.lineWidth + setting.yTicks.rowMargin}, ${setting.padding.top})`);
+    .attr("transform", `translate(${setting.padding.left + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yAxis.lineWidth + setting.yTicks.rowMargin}, ${setting.padding.top})`)
+    .on('mouseover', function (d, i) {
+        d3.select(this).transition()
+             .duration('50')
+             .attr('opacity', '.85');
+        div.transition()
+             .duration(50)
+             .style("opacity", 1);
+        div.html(scaleLabel(d.key))
+             .style("left", (d3.event.pageX + 10) + "px")
+             .style("top", (d3.event.pageY - 15) + "px");
+   })     .on('mouseout', function (d, i) {
+        d3.select(this).transition()
+             .duration('50')
+             .attr('opacity', '1');
+        div.transition()
+             .duration('50')
+             .style("opacity", 0);
+   });
     });
 }
