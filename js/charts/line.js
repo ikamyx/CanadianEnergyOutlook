@@ -20,34 +20,36 @@ function line(data, metadata, colors, settings, language, chartContainer) {
         return level_1.indexOf(item) == pos;
     });
 
-
+    function onlyUnique(value, index, array) {
+        return array.indexOf(value) === index;
+      }
+    // Get referenceNames
+    let referenceNames = data.map(d => d.reference)
+    referenceNames = referenceNames.filter(onlyUnique);
 
     // data conversion and re arrange
     /* **************************************************** */
     dataCoversion_line(data, metadata, attrList, level_1);
     /* **************************************************** */
 
-
-
-    // data re arrange by aggregation attrList
+    // data re arrange by aggregation referenceNames
     let data_ = [];
-    attrList.forEach(e => {
+    referenceNames.forEach(e => {
         data_.push(new Array());
     });
     data_.forEach((g, i) => {
-        data.forEach(r => {
+        data.filter(el => el.reference == referenceNames[i]).forEach(r => {
             g.push({
-                [attrList[i]]: r[attrList[i]],
+                [attrList[0]]: r[attrList[0]],
                 [metadata.chart.level_1]: r[metadata.chart.level_1]
             })
         })
     });
-
     
 
     // map the colors
     /* **************************************************** */
-    let color = mapColor(colors, attrList);
+    let color = mapColor(colors, referenceNames);
     let colorList = color.map(x => x.color);
     /* **************************************************** */
 
@@ -61,17 +63,16 @@ function line(data, metadata, colors, settings, language, chartContainer) {
     /* **************************************************** */
 
     
-
     // scale for color
     let scaleColor = d3.scaleOrdinal()
-    .domain(attrList)
+    .domain(referenceNames)
     .range(colorList);
 
 
 
     // scale for label
     let scaleLabel = d3.scaleOrdinal()
-    .domain(attrList)
+    .domain(referenceNames)
     .range(color.map(x => x[language]));
 
 
@@ -92,14 +93,14 @@ function line(data, metadata, colors, settings, language, chartContainer) {
 
     // initialize
     /* **************************************************** */
-    let chart = initChart(data_, setting, attrList, chartContainer);
+    let chart = initChart(data_, setting, referenceNames, chartContainer);
     /* **************************************************** */
 
 
 
     // legend
     const maxLegend = setting.dimension.width*(setting.distribution.legendRatio/100) - (setting.padding.right + setting.legend.lineHeight + setting.legend.lineToText);
-    let attrListLegend = attrList.map(x => x).reverse();
+    let attrListLegend = referenceNames.map(x => x).reverse();
     /* **************************************************** */
     legend_line(chart, maxLegend, attrListLegend, setting, scaleColor, scaleLabel);
     /* **************************************************** */
@@ -132,16 +133,10 @@ function line(data, metadata, colors, settings, language, chartContainer) {
     .domain([d3.min(level_1), d3.max(level_1)])
     .range([0, xAxisWidth]);
 
-
-
-
-    // x axis
-    chart.append("g")
-    .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width + setting.yTicks.rowMargin}, ${setting.padding.top + yAxisHeight})`)
-    .attr("class", "x_axis")
-    .call(d3.axisBottom(scaleX).ticks(0));
-
-
+    // x axis + label
+    xAxisInit_bar(chart, scaleX, scaleAxis(metadata.chart.xLabel));
+    chart.select("g.x_axis > .text")
+    .attr("transform", `translate(${setting.dimension.width*(setting.distribution.plotRatio/100)}, ${setting.padding.top + setting.xTicks.row1Margin + setting.xTicks.fontHeight + yAxisHeight})`)
 
     let line = d3.line()
     .x(function(d) {
@@ -170,13 +165,11 @@ function line(data, metadata, colors, settings, language, chartContainer) {
     chart.select("g.grid")
     .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width + setting.yTicks.rowMargin}, ${setting.padding.top + yAxisHeight})`);
 
-
-
     // drawing lines
     chart.selectAll("g.bar_groups")
     .each(function(d, i) {
             d3.select(this)
-            .datum(data_[i].filter(g => !g[attrList[i]].toString().includes("-")))
+            .datum(data_[i])//.filter(g => !g[referenceNames[i]].toString().includes("-")))
             .attr("class", "")
             .attr("class", "line")
             .append("path")
@@ -186,13 +179,18 @@ function line(data, metadata, colors, settings, language, chartContainer) {
             .attr("transform", `translate(${setting.padding.left + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yAxis.lineWidth + setting.yTicks.rowMargin}, ${setting.padding.top})`);
     });
 
+    // Adding div for tooltip
+    var div = d3.select(chartContainer).append("div")
+     .attr("class", "tooltip")
+     .style("opacity", 0);
 
     // drawing dots
     chart.selectAll("g.line")
     .each(function(d, i) {
+            console.log(d)
             d3.select(this)
             .selectAll("rect")
-            .data(data_[i].filter(g => !g[attrList[i]].toString().includes("-")))
+            .data(data_[i])//.filter(g => !g[attrList[i]].toString().includes("-")))
             .enter()
             .append("circle")
             .attr("r", 4)
@@ -200,8 +198,26 @@ function line(data, metadata, colors, settings, language, chartContainer) {
             // .attr("height", 8)
             .attr("cx", d => scaleX(d[metadata.chart.level_1]))
             .attr("cy", d => scaleY(d[Object.keys(d)[0]]))
-            .attr("fill", d => scaleColor(Object.keys(d)))
-            .attr("transform", `translate(${setting.padding.left + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yAxis.lineWidth + setting.yTicks.rowMargin}, ${setting.padding.top})`);
+            .attr("fill", d => scaleColor(referenceNames[i]))
+            .attr("transform", `translate(${setting.padding.left + setting.yAxis.width + setting.yAxis.labelMargin + setting.yAxis.labelHeight + setting.yAxis.lineWidth + setting.yTicks.rowMargin}, ${setting.padding.top})`)
+            .on('mouseover', function (d, i) {
+                d3.select(this).transition()
+                    .duration('50')
+                    .attr('opacity', '.85');
+                div.transition()
+                    .duration(50)
+                    .style("opacity", 1);
+                div.html(scaleLabel(d) + " : (" + Math.round(d[Object.keys(d)[1]]) + " " + Object.keys(d)[1] + "; " + Math.round(d[Object.keys(d)[0]]) + metadata.chart.yLabel + ")")
+                    .style("left", (d3.event.pageX + 10) + "px")
+                    .style("top", (d3.event.pageY - 15) + "px");
+        })     .on('mouseout', function (d, i) {
+                d3.select(this).transition()
+                    .duration('50')
+                    .attr('opacity', '1');
+                div.transition()
+                    .duration('50')
+                    .style("opacity", 0);
+        });
     });
 }
 

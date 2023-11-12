@@ -28,8 +28,6 @@ function bar_grouped_stacked(data, metadata, colors, settings, language, chartCo
     dataCoversion(data, attrList);
     /* **************************************************** */
 
-
-
     // data re arrange by aggregation level 2
     let data_ = [];
     level_2.forEach(e => {
@@ -161,7 +159,10 @@ function bar_grouped_stacked(data, metadata, colors, settings, language, chartCo
     chart.select("g.grid")
     .attr("transform", `translate(${setting.padding.left + setting.yAxis.labelHeight + setting.yAxis.labelMargin + setting.yAxis.width + setting.yTicks.rowMargin}, ${setting.padding.top})`);
 
-
+    // Adding div for tooltip
+    var div = d3.select(chartContainer).append("div")
+     .attr("class", "tooltip")
+     .style("opacity", 0);
 
     //drawing bars
     chart.selectAll("g.bar_groups")
@@ -172,6 +173,7 @@ function bar_grouped_stacked(data, metadata, colors, settings, language, chartCo
         .enter()
         .append("g")
         .each(function(d, j) {
+            var data = d;
             let y = 0;
             let yPositive = 0;
             let yNegative = 0;
@@ -209,6 +211,24 @@ function bar_grouped_stacked(data, metadata, colors, settings, language, chartCo
                         return 2*scaleY(0) - y - scaleY(d[attrList[k]]) + setting.padding.top;
                     }
                 });
+            })
+                .on('mouseover', function (d, i) {
+                    d3.select(this).transition()
+                        .duration('50')
+                        .attr('opacity', '.85');
+                    div.transition()
+                        .duration(50)
+                        .style("opacity", 1);
+                    div.html(scaleLabel(d) + ": " + Math.round(data[d]))
+                        .style("left", (d3.event.pageX + 10) + "px")
+                        .style("top", (d3.event.pageY - 15) + "px");
+            })     .on('mouseout', function (d, i) {
+                    d3.select(this).transition()
+                        .duration('50')
+                        .attr('opacity', '1');
+                    div.transition()
+                        .duration('50')
+                        .style("opacity", 0);
             });
         });  
     });

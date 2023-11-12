@@ -203,7 +203,7 @@ function bar_stacked(data, metadata, colors, settings, language, chartContainer)
             div.transition()
                  .duration(50)
                  .style("opacity", 1);
-            div.html(scaleLabel(d) + ": " + data[d])
+            div.html(scaleLabel(d) + ": " + Math.round(data[d]))
                  .style("left", (d3.event.pageX + 10) + "px")
                  .style("top", (d3.event.pageY - 15) + "px");
        })     .on('mouseout', function (d, i) {
