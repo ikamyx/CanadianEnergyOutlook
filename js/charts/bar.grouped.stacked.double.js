@@ -1,6 +1,6 @@
 "use strict";
 
-function bar_grouped_stacked_double(data, metadata, colors, settings, language, index) {
+function bar_grouped_stacked_double(data, metadata, colors, settings, language, index, chartContainer) {
 
     // setting
     let setting = settings[metadata.chart.type];
@@ -74,7 +74,7 @@ function bar_grouped_stacked_double(data, metadata, colors, settings, language, 
 
     // initialize
     /* **************************************************** */
-    let chart = initChart_double(data_, setting, level_2, level_3, index);
+    let chart = initChart_double(data_, setting, level_2, level_3, index, chartContainer);
     /* **************************************************** */
 
 

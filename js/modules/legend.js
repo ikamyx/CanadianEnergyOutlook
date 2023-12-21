@@ -38,7 +38,6 @@ function legend(chart, maxLegend, data, setting, scaleColor, scaleLabel) {
         .attr("height", setting.legend.colorBoxWidth)
         .attr("x", 0)
         .attr("y", 0);
-        
         let lineWidth = d3.select(this).select("text").node().getBBox().width;
         if (lineWidth > maxLegend) {
         let words = scaleLabel(d).split(" ");

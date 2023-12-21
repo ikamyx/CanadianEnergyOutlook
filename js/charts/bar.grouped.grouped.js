@@ -1,6 +1,6 @@
 "use strict";
 
-function bar_grouped_grouped(data, metadata, colors, settings, language) {
+function bar_grouped_grouped(data, metadata, colors, settings, language, chartContainer) {
 
     // setting
     let setting = settings[metadata.chart.type];
@@ -76,7 +76,7 @@ function bar_grouped_grouped(data, metadata, colors, settings, language) {
 
     // initialize
     /* **************************************************** */
-    let chart = initChart(data_, setting, level_3);
+    let chart = initChart(data_, setting, level_3, chartContainer);
     /* **************************************************** */
 
 

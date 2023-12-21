@@ -1,7 +1,7 @@
 "use strict";
 
-function initChart(data, setting, level_2) {
-    let chart = d3.select("body svg");
+function initChart(data, setting, level_2, chartContainer) {
+    let chart = d3.select(chartContainer).select("svg");
     chart.attr("width", setting.dimension.width)
     .attr("viewBox", `0 0 ${setting.dimension.width} ${setting.dimension.height}`)
     .style("max-width", "100%")
