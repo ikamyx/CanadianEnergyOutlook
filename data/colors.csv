@@ -27,7 +27,6 @@ Appliances,Électroménagers,Appliances,#f6b4a4
 Australia,Australie,Australia,#5487a4
 Austria,Autriche,Austria,#5487a4
 Autobus,Autobus,Buses,#718ab3
-Autres appareils,Autres appareils,Other applicances,#f39200
 Autres renouvelables,Autres renouvelables,Other renewables,#a17591
 Aviation Gasoline,Kérosène,Aviation Gasoline,#314deb
 Aviation Gasoline,Kérosène,Aviation Gasoline,#314deb
@@ -40,7 +39,8 @@ Bioénergie,Bioénergie,Bioenergy,#88b04b
 Biogaz de site d'enfouissement,Biogaz de site d'enfouissement,Landfill biogas,#88b04b
 Biomasse,Biomasse,Biomass,#b04c4c
 Boue d'épuration,Boue d'épuration,Sludge,#7b3a38
-Buildings,Bâtiments,Buildings,#f7d255
+Buildings,Bâtiments,Commercial and Institutional Buildings,#f7d255
+Commercial and Institutional Buildings,Bâtiments comm. et inst.,Commercial and Institutional Buildings,#f7d255
 CA,CA,CA,#000000
 Camions légers,Camions légers,Light trucks,#d3ed40
 CAN,CAN,CAN,#000000
@@ -52,14 +52,13 @@ Carton - Standard,Carton – standard,Cardboard – Standard,#aa6647
 Caténaire diesel,Caténaire diesel,Diesel catenary,#e08787
 Caténaire électrique,Caténaire électrique,Electric catenary,#e8d4b7
 Caténaire gaz naturel,Caténaire gaz naturel,Natural gas catenary,#e85810
-CEO2018,PEC2018,CEO2018,#000000
-CEO2021,PEC2021,CEO2021,#f00070
+CEO2018,PEC2018,CEO2018,
+CEO2021,PEC2021,CEO2021,
 Chaleur,Chaleur,Heat,#d20a11
 Changement de carburant,Changement de carburant,Fuel change,#415243
 Charbon,Charbon,Coal,#ea5530
 Charbon et matière résiduelle,Charbon et matière résiduelle,Coal and residual material,#ea5530
 "Charbon, coke et matière résiduelle","Charbon, coke et matière résiduelle","Coal, coke and residual material",#ea5530
-Chauffage de l'eau,Chauffage de l'eau,Water heating,#77dba4
 Chauffage de l'espace,Chauffage des bâtiments,Space heating,#d20a11
 Chauffage urbain,Chauffage urbain,Urban heating,#820344
 "Chaulage, application d'urée et autres engrais carbonés","Chaulage, application d'urée et autres engrais carbonés","Liming, application of urea and other carbon fertilizers",#5487a4
@@ -68,18 +67,15 @@ Ciment - Autre,Ciment – Autre,Cement – Other,#aaa89b
 Ciment - Portland,Ciment – Portland,Cement – Portland,#63625a
 Ciment - Portland - Changement carburant,Ciment – Portland – Changement carburant,Cement – Portland – Fuel change,#325a11
 Ciment - Variation de la production,Ciment – Variation de la production,Cement – Production change,#84a569
-Climatisation,Climatisation des bâtiments,Space Cooling,#3d6107
 Coal,Charbon,Coal,#ea5530
 Commercial,Commercial,Commercial,#367047
 Commercial and Institutional,Commercial et institutionnel,Commercial and institutional,#f7d255
 "Commercial, inst. and publ. admin.",Commercial et institutionnel (inc. adm. pub.),Commercial and institutional (inc. Pub. Adm.),#f7d255
-Congélateur,Congélateur,Freezer,#5487a4
 Conservation d'énergie,Réaménagement énergétique,Energy retrofit,#5ef0c2
 Conventionnel - Diesel,Conventionnel - diesel,Conventional - Diesel,#878787
 Conventionnel - Gaz Naturel,Conventionnel - gaz naturel,Conventional - Natural gas,#b1900a
 CP30,TC30,CP30,#7fbd78
 Crude oil,Pétrole brut,Crude oil,#7d4e24
-Cuisson,Cuisson,Cooking,#b1900a
 Culture dédiée,Culture dédiée,Dedicated culture,#f39200
 Czech Republic,République Tchèque,Czech Republic,#5487a4
 DAC,EDA,DAC,#8451bd
@@ -88,7 +84,6 @@ Déchets,Déchets,Waste,#7b3a38
 Denmark,Danemark,Denmark,#5487a4
 Diesel,Diesel,Diesel,#878787
 Diesel Fuel Oil,Diesel,Diesel Fuel Oil,#878787
-Éclairage,Éclairage,Lighting,#ffe36d
 Electricité,Électricité,Electricity,#9bd4dc
 Électricité,Électricité,Electricity,#9bd4dc
 Électricité - Biomasse + CCS,Électricité - Biomasse + CSC,Hydrogen – Biomass + CCS,#e8d4b7
@@ -102,7 +97,6 @@ Electricity,Électricité,Electricity,#9bd4dc
 Engrais - CCS,Engrais – CSC,Fertilizer – CCS,#067906
 Engrais - Standard,Engrais – Standard,Fertilizer – Standard,#08c408
 Éolien,Éolien,Wind,#bcdbf4
-Équipement auxiliaire,Équipement auxiliaire,Auxiliary equipment,#c75833
 Essence,Essence,Gasoline,#b8b7b7
 Estonia,Estonie,Estonia,#5487a4
 Évacuation,Évacuation,Venting,#8d0bd9
@@ -114,10 +108,6 @@ Flex (éthanol 85%),Flex (éthanol 85%),Flex (ethanol 85%),#f19100
 France,France,France,#5487a4
 Freight,Marchandises,Freight,#ffffff
 Freight transport,Transport de marchandises,Freight transport,#f39200
-From CCS in electricity production,De la CSC dans la production d'électricité,From CCS in electricity production,#9bd4dc
-From CCS in energy production,De la CSC dans la production d'énergie,From CCS in energy production,#a0bb50
-From CCS in industry,De la CSC en industrie,From CCS in industry,#13b157
-From DAC,De l'EDA,From DAC,#8451bd
 Fumier,Fumier,Manure,#b6807d
 Gas plant natural gas liquids (NGL's),Liquides de gaz naturel des usines de gaz,Gas plant natural gas liquids (NGL's),#d29d31
 Gaz naturel,Gaz naturel,Natural gas,#b1900a
@@ -165,8 +155,6 @@ Japan,Japon,Japan,#5487a4
 Journaux - CCS,Journaux – CSC,Newspaper – CCS,#c5d9a7
 Journaux - Standard,Journaux – standard,Newspaper – Standard,#486682
 "Korea, Rep.",Corée du Sud,"Korea, Rep.",#5487a4
-Laveuse à linge,Laveuse à linge,Clothes washer,#9bd4dc
-Lave-Vaiselle,Lave-Vaiselle,Dishwasher,#e08787
 Lighting,Éclairage,Lighting,#ffe36d
 Liqueur noire,Liqueur noire,Black liquor,#1e211e
 Luxembourg,Luxembourg,Luxembourg,#5487a4
@@ -178,7 +166,6 @@ MB,MB,MB,#e7dad8
 Métros & Trains,Métros & trains,Subways & Trains,#f6d254
 Mexico,Mexique,Mexico,#5487a4
 Mines de charbon,Mines de charbon,Coal mines,#ea5530
-Moteur auxiliaire,Moteur auxiliaire,Auxiliary motor,#bff5c3
 Motocyclettes,Motocyclettes,Motorcycles,#378c50
 Motor Gasoline,Essence automobile,Motor Gasoline,#804f4f
 Natural gas,Gaz naturel,Natural gas,#b1900a
@@ -251,8 +238,8 @@ QC,QC,QC,#2f6cb0
 Réduction de la production,Réduction de la production,Reduction in production,#faedbe
 REF,REF,REF,#e0e169
 Refined petroleum products,Produits pétroliers raffinés,Refined petroleum products,#5d675f
-Réfrigérateur,Réfrigérateur,Refrigirator,#9bdb9a
 Renouvelable,Renouvelables,Renewables,#6ec083
+Residential Buildings,Bâtiments résidentiels,Residential Buildings,#a4aba6
 Residential,Résidentiel,Residential,#a4aba6
 Résidentiel,Résidentiel,Residential,#a4aba6
 Résidu de culture,Résidu de culture,Crop residue,#bdd030
@@ -261,7 +248,6 @@ Résidu industriel,Résidu industriel,Industrial waste,#e8d4b7
 Résine et caoutchouc synthétique - CCS,Résine et caoutchouc synthétique – CSC,Resin and synthetic rubber – CCS,#2c3376
 Résine et caoutchouc synthétique - Standard,Résine et caoutchouc synthétique – Standard,Resin and synthetic rubber – Standard,#4d5efc
 Routier,Routier,Road,#bff5c3
-Sécheuse à linge,Sécheuse à linge,Clothes dryer,#ea5530
 SK,SK,SK,#7b3a38
 Slovak Republic,République slovaque,Slovak Republic,#5487a4
 Slovenia,Slovénie,Slovenia,#5487a4
@@ -304,8 +290,24 @@ Usine avec CCS,Usines avec CSC,Plants with CCS,#5487a4
 Voitures,Voitures,Cars,#60613b
 Waste,Déchets,Waste,#7b3a38
 Water Heating,Production d'eau chaude,Water heating,#77dba4
-Western Canadian Select (WCS),Western Canadian Select (WCS),Western Canadian Select (WCS),#4d5efc
-Western Texas Intermediary (WTI),Western Texas Intermediary (WTI),Western Texas Intermediary (WTI),#ea5530
 Wind,Éolien,Wind,#bcdbf4
 Wood,Bois,Wood,#ca9e67
 Wood and spent pulping liquor,Bois et liqueur résiduaire,Wood and spent pulping liquor,#7b3a38
+From CCS in industry,De la CSC en industrie,From CCS in industry,#13b157
+From CCS in energy production,De la CSC dans la production d'énergie,From CCS in energy production,#a0bb50
+From CCS in electricity production,De la CSC dans la production d'électricité,From CCS in electricity production,#9bd4dc
+From DAC,De l'EDA,From DAC,#8451bd
+Chauffage de l'eau,Chauffage de l'eau,Water heating,#77dba4
+Climatisation,Climatisation des bâtiments,Space Cooling,#3d6107
+Éclairage,Éclairage,Lighting,#ffe36d
+Sécheuse à linge,Sécheuse à linge,Clothes dryer,#ea5530
+Cuisson,Cuisson,Cooking,#b1900a
+Laveuse à linge,Laveuse à linge,Clothes washer,#9bd4dc
+Lave-Vaiselle,Lave-Vaiselle,Dishwasher,#e08787
+Congélateur,Congélateur,Freezer,#5487a4
+Réfrigérateur,Réfrigérateur,Refrigirator,#9bdb9a
+Autres appareils,Autres appareils,Other applicances,#f39200
+Équipement auxiliaire,Équipement auxiliaire,Auxiliary equipment,#c75833
+Moteur auxiliaire,Moteur auxiliaire,Auxiliary motor,#bff5c3
+Western Canadian Select (WCS),Western Canadian Select (WCS),Western Canadian Select (WCS),#4d5efc
+Western Texas Intermediary (WTI),Western Texas Intermediary (WTI),Western Texas Intermediary (WTI),#ea5530
