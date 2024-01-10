@@ -23,6 +23,7 @@ Agriculture,Agriculture,Agriculture,#88b04b
 Agriculture (non-energy),Agriculture (hors énergie),Agriculture (outside of energy use),#88b04b
 Agriculture and forestry (including non-energy),Agriculture et foresterie (incluant usages non énergétiques),Agriculture and forestry (including non-energy),#bdd030
 Agriculture and Forestry energy use,Utilisation d'énergie en agriculture et foresterie,Agriculture and forestry energy use,#bdd030
+"Agriculture, fishing, hunting and trapping","Agriculture, pêche, chasse et trappe","Agriculture, fishing, hunting and trapping",
 Appliances,Électroménagers,Appliances,#f6b4a4
 Australia,Australie,Australia,#5487a4
 Austria,Autriche,Austria,#5487a4
@@ -281,6 +282,7 @@ Thermopompe électrique,Thermopompe électrique,Electric heat pump,#02a199
 Torchage,Torchage,Flaring,#325a8a
 Tout électrique,Tout électrique,All-electric,#9bd4dc
 Transport,Transport,Transport,#c75833
+Transportation,Transport,Transport,#c75833
 Turkey,Turquie,Turkey,#5487a4
 United Kingdom,Royaume-Uni,United Kingdom,#5487a4
 United States,États-Unis,United States,#5487a4
