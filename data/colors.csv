@@ -23,7 +23,7 @@ Agriculture,Agriculture,Agriculture,#88b04b
 Agriculture (non-energy),Agriculture (hors énergie),Agriculture (outside of energy use),#88b04b
 Agriculture and forestry (including non-energy),Agriculture et foresterie (incluant usages non énergétiques),Agriculture and forestry (including non-energy),#bdd030
 Agriculture and Forestry energy use,Utilisation d'énergie en agriculture et foresterie,Agriculture and forestry energy use,#bdd030
-"Agriculture, fishing, hunting and trapping","Agriculture, pêche, chasse et trappe","Agriculture, fishing, hunting and trapping",
+"Agriculture, fishing, hunting and trapping","Agriculture, pêche, chasse et trappe","Agriculture, fishing, hunting and trapping",#bdd030
 Appliances,Électroménagers,Appliances,#f6b4a4
 Australia,Australie,Australia,#5487a4
 Austria,Autriche,Austria,#5487a4
@@ -141,7 +141,7 @@ Incinération des résidus agricoles dans les champs,Incinération des résidus 
 Industrial,Industries,Industrial,#5487a4
 Industrial processes,Procédés industriels,Industrial processes,#5487a4
 Industrie,Industrie,Industry,#5d675f
-Industry,Industrie,Industry,
+Industry,Industrie,Industry,#5d675f
 Industrie - Combustion,Industrie - combustion,Industry – Combustion,#d20a11
 Industrie - Process,Procédés industriels,Industrial processes,#ccc321
 Industrie Combustion - CCS - réutilisées,Combustion en industrie + CUC,Industry combustion + CCU,#d29d31
